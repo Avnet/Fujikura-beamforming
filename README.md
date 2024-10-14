@@ -1,23 +1,22 @@
 <table class="sphinxhide" width="100%">
  <tr width="100%">
-    <td align="center"><img src="./media/Avnet_logo_rev_rgb-fix.png" width="40%"/><h1><img src="./media/Fujikura_logo.png" width="30%"/><h1>
-	5G mmWave PAAM Development Platform User Guide
+    <td align="center"><img src="./media/TRIA-Color-CMYK.png" width="40%"/><h1><img src="./media/Fujikura_logo.png" width="30%"/><h1>
+	5G mmWave <span style="color:red;">Type-C</span> PAAM Development Platform User Guide
     </td>
  </tr>
 </table>
 
 # Document Control
 
-**Document Version:** 2.0
+**Document Version:** 3.0
 
-**Document Date:** 6/12/2024
+**Document Date:** 10/3/2024
 
 # Version History
 
 | Version |     | Date         |     | Comment                                               |     |
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
-| 1.1     |     | Jun 12, 2024 |     | Public release with RFSoC Explorer 3.1                |     |
-| 1.0     |     | Dec 5, 2023  |     | Initial public release with RFSoC Explorer 3.0        |     |
+| 3.0     |     | Oct 3, 2024  |     | Initial public release with RFSoC Explorer 3.1        |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -35,7 +34,7 @@
 
     4.3. [Setting a Static IP Address](#43-setting-a-static-ip-address)
 
-5. [Connecting the Fujikura PAAM Daughtercard](#connecting-the-fujikura-paam-carrier)
+5. [Connecting the Fujikura Type-C PAAM](#connecting-the-fujikura-paam)
 
     5.1. [Connecting Power and the Digital Interface](#connecting-power-and-the-digital-interface)
 
@@ -87,7 +86,7 @@ Figure 7 – [Renesas 8V97003 RF Synthesizer in Integer Mode
 
 # 1) Overview <a name="1-overview"></a>
 
-Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/) combines the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) with the Fujikura PAAM Daughtercard.
+Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/) combines the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) with the Fujikura Type-C PAAM.
 
 AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html):
 
@@ -99,19 +98,40 @@ AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](
 
 - and eight 14-bit 10GSPS\* DACs.
 
-The Fujikura PAAM Daughtercard is an assembly that features
+The image below shows the ZCU208 with
+- A [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that breaks out the ADC and DAC signals to multiple SMA connectors
+- A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.
+<a name="figure-1–ZCU208-with-XM655"></a>
+<img src="./media/ZCU208withXM655.jpg" style="width:6.5in;height:auto;" />
+Figure 1 – ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards
 
-- the Fujikura PAAM as well as a number of peripherals, such as
+The [Fujikura Type-C PAAM Evaluation board (EVB)](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0046(8)_Type-C-Evb_Product%20Brief.pdf) houses the PAAM itself.
 
-- a programmable Renesas RF synthesizer
+<a name="figure-2–Type-C-PAAM-EVB"></a>
+<img src="./media/PAAM_EVB.png" style="width:6.5in;height:auto;" />
+Figure 2 – Fujikura Type-C PAAM Evaluation board (EVB)
 
-- an EEPROM,
 
-- ADCs,
+The [Fujikura Type-C PAAM](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0008(12)_Type-C_Brochure.pdf) features:
+- A 64-element 8x8 phased array antenna
+- Scalable configuration with 8x8 element PAAM as a unit
+- Operates at 28 GHz (24.25-27.50 GHz or 26.50-29.50 GHz) 
+- Can transmit and receive dual polarizations (both Horizontal and Vertical)
+- It integrates Beamformer ICs (BFIC), Frequency conversion IC (FCIC) and Band pass filters
+- Calibration free; precise beam control without gain/phase calibration
+- Fast beam switching of < 220 ns
+- Supports > 20,000 beams
+- EIRP 48 dBm at EVM 3%
+- Fast parallel interface for digital control
+<a name="figure-3–Type-C-PAAM"></a>
+<img src="./media/Type_C_PAAM.png" style="width:6.5in;height:auto;" />
+Figure 3 – Fujikura Type-C PAAM
 
-- a DAC.
+<a name="figure-1–5g-mmwave-paam-development-platform"></a>
+<img src="./media/image2.png"
+style="width:6.49236in;height:3.63403in" />
 
-- digital step attenuators for IF
+Figure 1 – 5G mmWave PAAM Development Platform
 
 <a name="figure-1–5g-mmwave-paam-development-platform"></a>
 <img src="./media/image2.png"
@@ -121,15 +141,11 @@ Figure 1 – 5G mmWave PAAM Development Platform
 
 # 2) AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
 
-For instructions on setting up the ZCU208, please refer to the [ZCU208
-User Guide](https://docs.xilinx.com/v/u/en-US/ug1410-zcu208-eval-bd) and
-the guide for [ZCU208 Software Install and Board
-Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
-Some relevant components for the instructions below are marked in this
-diagram.
-
-<a name="figure-2-amd-zcu208-development-board"></a>
-<img src="./media/image3.png" style="width:6.26757in;height:5.6589in" />
+For instructions on setting up the ZCU208, please refer to the [ZCU208 User Guide](https://docs.xilinx.com/v/u/en-US/ug1410-zcu208-eval-bd) and
+the guide for [ZCU208 Software Install and Board Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
+Some relevant components for the instructions below are marked in this diagram.
+<a name="figure-4-amd-zcu208-development-board"></a>
+<img src="./media/zcu208-development-board.png" style="width:6.5in;height:auto;" />
 
 Figure 2 – AMD ZCU208 Evaluation Board
 
@@ -144,9 +160,6 @@ connector J24 that goes to the PC
 <span class="mark">(4)</span> Marks the power connector J50 and
 <span class="mark">(5)</span> marks the power ON/OFF switch SW15
 
-<span class="mark">(6)</span> Marks the FMC+ connector J28 for the
-adapter card for cabling to the Fujikura card
-
 # 3) uSD Card Preparation <a name="usd-card-preparation"></a>
 
 A Micro SD (uSD) card ships with the ZCU208. A different uSD card can be
@@ -160,12 +173,10 @@ allowing it to control the Fujikura PAAM Daughtercard via RFSoC
 Explorer.
 
 1.  Remove the SD card from slot J23 on the ZCU208 and insert into your
-    PC. Then format it as FAT using a tool like [SD Memory Card
-    Formatter](https://www.sdcard.org/downloads/formatter_4/).
+    PC. Then format it as FAT using a tool like [SD Memory Card Formatter](https://www.sdcard.org/downloads/formatter_4/).
 
 2.  Download the boot image archive zip file from the public repository
-    at [ZCU208 uSD
-    Card](https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.0.0).
+    at [ZCU208 uSD Card](https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.0.0).
 
 3.  Unzip the archive to the root level of the SD card.  
     <img src="./media/image4.png" style="width:1.1875in;height:1.67708in" />
@@ -282,10 +293,11 @@ sequence
 <img src="./media/image15.jpeg"
 style="width:4.16389in;height:4.73889in" />
 
-#  5 Connecting the Fujikura PAAM Daughtercard <a name="connecting-the-fujikura-paam-carrier"></a>
+#  5 Connecting the Fujikura Type-C PAAM <a name="connecting-the-fujikura-paam"></a>
 
 ## 5.1 Connecting Power and the Digital Interface <a name="connecting-power-and-the-digital-interface"></a>
 
+The instructions for connecting the Type-C PAAM to the 
 Some relevant components for the instructions below are marked in this
 diagram.
 
