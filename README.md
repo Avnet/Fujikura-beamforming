@@ -128,7 +128,7 @@ The [Fujikura Type-C PAAM](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0008
 - EIRP 48 dBm at EVM 3%
 - Fast parallel interface for digital control
 <a name="figure-4–Type-C-PAAM"></a>
-<img src="./media/Type_C_PAAM.png" style="width:6.5in;height:auto;" />
+<img src="./media/Type_C_PAAM.png" style="width:6.5in;height:auto;" /><br>
 __Figure 4 – Fujikura Type-C PAAM__
 
 
@@ -138,8 +138,7 @@ For instructions on setting up the ZCU208, please refer to the [ZCU208 User Guid
 the guide for [ZCU208 Software Install and Board Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
 Some relevant components for the instructions below are marked in this diagram.
 <a name="figure-5-amd-zcu208-development-board"></a>
-<img src="./media/zcu208-development-board.png" style="width:6.5in;height:auto;" />
-
+<img src="./media/zcu208-development-board.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5 – AMD ZCU208 Evaluation Board__
 
 <span class="mark">  
@@ -289,7 +288,7 @@ The [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM65
 It also allows for 20 DACIO and 20 ADCIO digital I/O pins on a header strip.  Note that __for the ZCU208 only 16 DACIO and 16 ADCIO signals__ are connected to the Zynq device.
 See Appendix C of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd) for details.
 <a name="figure-7–xm655"></a>
-<img src="./media/XM655.jpg" style="width:6.5in;height:auto;" />
+<img src="./media/XM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 7 – AMD's XM655 plug-in card__
 
 The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connectors, J87 and J82, and then securing it with 4 through-hole screws.
@@ -307,7 +306,7 @@ The XM655 standalone baluns (that connect to teh SMA connectors) and different b
 
 Each of these balun types is associated with specific group of compression mount SMAs on the board, as indicated by the silkscreen boxes.  The diagram below also illustrates the groupings of the SMA connectors (red dots).
 <a name="figure-9–zcu208-with-xm655"></a>
-<img src="./media/XM655-diagram.png" style="width:6.5in;height:auto;" />
+<img src="./media/XM655-diagram.png" style="width:6.5in;height:auto;" /><br>
 __Figure 9 – XM655 frequency groupings of compression-mount SMA's__
 
 As the Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz), the XM655 standard baluns will only allow for the use of the 2 Mid-High connectors and possibly the 2 High connectors.
@@ -319,17 +318,17 @@ It is possible to re-work the XM655 at your own risk by replacing the default ba
 This approach will bypass the baluns on the XM655 board by bringing out the RF signals via the Carlisle CoreHC2 breakout assembly to external baluns. Two sets of these cable assemblies ship with each ZCU208 kit.  See Page 80 of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd)
 If you need more break-outs than what the two included sets provide, the __Carlisle Core HC2 8 Channel – Male, 3.5 mm TM40-0157-00__ can be ordered from: https://www.digikey.com/en/products/detail/carlisleit/TM40-0157-00/11502992
 <a name="figure-10–Carlisle"></a>
-<img src="./media/Carlisle-Core-cable.png" style="width:6.5in;height:auto;" />
+<img src="./media/Carlisle-Core-cable.png" style="width:6.5in;height:auto;" /><br>
 __Figure 10 – Carlisle CoreHC2 8-Channel Male Cable__
 
 The image below shows how two Carlisle assemblies can be plugged into the XM655.
 <a name="figure-11–Carlisle-breakouts"></a>
-<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" />
+<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
 __Figure 11 – Carlisle break-outs__
 
 ## 5.2 Setting up the Fujikura Type-C PAAM EVB <a name="setting-up-evb"></a>
 <a name="figure-12–Type-C-PAAM-EVB-and-diagram"></a>
-<img src="./media/PAAM_EVB_antenna_side.png" style="width:6.5in;height:auto;" />
+<img src="./media/PAAM_EVB_antenna_side.png" style="width:6.5in;height:auto;" /><br>
 __Figure 12 – Fujikura Type-C PAAM Evaluation board (EVB) with antenna side up__
 
 If you have signed the required Non-disclorure Agreement (NDA), Fujikura will provide you with access to a download location for the documentation, datasheets and user guide for the Fujikura Type C PAAM Evaluation board (EVB).  
@@ -349,7 +348,7 @@ Once you are familiar with setting up and using the Type-C PAAM EVB, you should 
 
 The image below outlines the setup that we want to achieve.
 <a name="figure-13–setup-overview"></a>
-<img src="./media/setup-overview.png" style="width:6.5in;height:auto;" />
+<img src="./media/setup-overview.png" style="width:6.5in;height:auto;" /><br>
 __Figure 13 – Test setup overview__
 
 ### 5.3.1 Ethernet Connections<a name="ethernet-connections"></a>
@@ -364,7 +363,7 @@ The images two below show teh compression-mount SMA connectors on the under-side
 <a name="figure-14–EVB-SMAs"></a>
 <img src="./media/EVB_CN1_2_5_8_9.jpg" style="width:6.5in;height:auto;" />
 
-<img src="./media/EVB_CN3_4.jpg" style="width:6.5in;height:auto;" />
+<img src="./media/EVB_CN3_4.jpg" style="width:6.5in;height:auto;" /><br>
 
 __Figure 14 – Fujikura Type-C PAAM EVB SMA connectors__
 
