@@ -293,6 +293,7 @@ See Appendix C of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/
 __Figure 7 – AMD's XM655 plug-in card__
 
 The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connectors, J87 and J82, and then securing it with 4 through-hole screws.
+
 <a name="figure-8–zcu208-with-xm655"></a>
 <img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" />
 __Figure 8 – XM655 attached to the ZCU208__
@@ -352,8 +353,8 @@ The image below outlines the setup that we want to achieve.
 __Figure 13 – Test setup overview__
 
 ### 5.3.1 Ethernet Connections<a name="ethernet-connections"></a>
-From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.
-As per the [diagram above](#figure-11–setup-overview), connect the following to an Ethernet Switch:
+From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.  An Ethernet switch is required so that the connected devices will be on the same sub-net.
+As per the [diagram above](#figure-11–setup-overview), connect the following to an Ethernet switch:
 - your PC
 - the ZCU208 - see connector (3) in [Figure 5](#figure-5-amd-zcu208-development-board)
 - the Fujikura Type-C PAAM EVB, using J1 on the MicroZed SOM
