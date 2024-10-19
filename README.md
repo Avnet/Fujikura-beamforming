@@ -295,7 +295,7 @@ __Figure 7 – AMD's XM655 plug-in card__
 The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connectors, J87 and J82, and then securing it with 4 through-hole screws.
 
 <a name="figure-8–zcu208-with-xm655"></a>
-<img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" />
+<img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" /><br>
 __Figure 8 – XM655 attached to the ZCU208__
 
 ### 5.1.1 Breaking out the ZCU208 RF signals using the AMD XM655<a name="xm655-balun-replacement"></a>
