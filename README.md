@@ -105,7 +105,7 @@ Figure 17 – []()
 Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/) combines the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) with the Fujikura Type-C PAAM.
 
 <a name="figure-1–ZCU208-with-XM655-and-generic-PAAM"></a>
-<img src="./media/ZCU208_and_PAAM.png" style="width:6.5in;height:auto;" />
+<img src="./media/ZCU208_and_PAAM.png" style="width:6.5in;height:auto;" /><br>
 __Figure 1 – ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM__
 
 AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html):
@@ -122,13 +122,13 @@ The image below shows the ZCU208 with
 - A [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that breaks out the ADC and DAC signals to multiple SMA connectors
 - A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.
 <a name="figure-2–ZCU208-with-XM655"></a>
-<img src="./media/ZCU208withXM655.jpg" style="width:6.5in;height:auto;" />
+<img src="./media/ZCU208withXM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 2 – ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards__
 
 The [Fujikura Type-C PAAM Evaluation board (EVB)](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0046(8)_Type-C-Evb_Product%20Brief.pdf) houses the PAAM itself.
 
 <a name="figure-3–Type-C-PAAM-EVB-and-diagram"></a>
-<img src="./media/PAAM_EVBandDiagram.png" style="width:6.5in;height:auto;" />
+<img src="./media/PAAM_EVBandDiagram.png" style="width:6.5in;height:auto;" /><br>
 __Figure 3 – Fujikura Type-C PAAM Evaluation board (EVB) with block diagram__
 
 
