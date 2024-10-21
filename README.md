@@ -65,21 +65,21 @@
 
 # Figures
 
-Figure 1 – [ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM](#"figure-1–ZCU208-with-XM655-and-generic-PAAM")
+Figure 1 – [ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM](#figure-1–ZCU208-with-XM655-and-generic-PAAM)
 
 Figure 2 – [ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards](#figure-2–ZCU208-with-XM655)
 
-Figure 3 – [Fujikura Type-C PAAM Evaluation board (EVB) with block diagram](#"figure-3–Type-C-PAAM-EVB-and-diagram")
+Figure 3 – [Fujikura Type-C PAAM Evaluation board (EVB) with block diagram](#figure-3–Type-C-PAAM-EVB-and-diagram)
 
-Figure 4 – [Fujikura Type-C PAAM](#"figure-4–Type-C-PAAM")
+Figure 4 – [Fujikura Type-C PAAM](#figure-4–Type-C-PAAM)
 
-Figure 5 – [AMD ZCU208 Evaluation Board](#"figure-5-amd-zcu208-development-board")
+Figure 5 – [AMD ZCU208 Evaluation Board](#figure-5-amd-zcu208-development-board)
 
-Figure 6 – [Completed boot sequence](#"figure-6–ZCU208-booted")
+Figure 6 – [Completed boot sequence](#figure-6–ZCU208-booted)
 
-Figure 7 – [AMD's XM655 plug-in card](#figure-7–xm655")
+Figure 7 – [AMD's XM655 plug-in card](#figure-7–xm655)
 
-Figure 8 – [Figure 8 – XM655 attached to the ZCU208](#"figure-8–zcu208-with-xm655")
+Figure 8 – [Figure 8 – XM655 attached to the ZCU208](#figure-8–zcu208-with-xm655)
 
 Figure 9 – []()
 
