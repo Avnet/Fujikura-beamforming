@@ -65,24 +65,40 @@
 
 # Figures
 
-Figure 1 – [5G mmWave PAAM Development Platform](#figure-1–5g-mmwave-paam-development-platform)
+Figure 1 – [ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM](#"figure-1–ZCU208-with-XM655-and-generic-PAAM")
 
-Figure 2 – [AMD ZCU208 Evaluation Board](#figure-2-amd-zcu208-development-board)
+Figure 2 – [ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards](#figure-2–ZCU208-with-XM655)
 
-Figure 3 – [Completed boot sequence
-[10](#_Ref141963341)](#_Ref141963341)
+Figure 3 – [Fujikura Type-C PAAM Evaluation board (EVB) with block diagram](#"figure-3–Type-C-PAAM-EVB-and-diagram")
 
-Figure 4 – [Ribbon cables between the ZCU208 and the PAAM Daughtercard
-[14](#_Toc146045116)](#_Toc146045116)
+Figure 4 – [Fujikura Type-C PAAM](#"figure-4–Type-C-PAAM")
 
-Figure 5 – [Board User Interface to the CLK-104 Module
-[20](#_Toc146045117)](#_Toc146045117)
+Figure 5 – [AMD ZCU208 Evaluation Board](#"figure-5-amd-zcu208-development-board")
 
-Figure 6 – [Renesas 8V97003 RF Synthesizer in Fractional Mode
-[25](#_Toc146045118)](#_Toc146045118)
+Figure 6 – [Completed boot sequence](#"figure-6–ZCU208-booted")
 
-Figure 7 – [Renesas 8V97003 RF Synthesizer in Integer Mode
-[26](#_Toc146045119)](#_Toc146045119)
+Figure 7 – [AMD's XM655 plug-in card](#figure-7–xm655")
+
+Figure 8 – [Figure 8 – XM655 attached to the ZCU208](#"figure-8–zcu208-with-xm655")
+
+Figure 9 – []()
+
+Figure 10 – []()
+
+Figure 11 – []()
+
+Figure 12 – []()
+
+Figure 13 – []()
+
+Figure 14 – []()
+
+Figure 15 – []()
+
+Figure 16 – []()
+
+Figure 17 – []()
+
 
 # 1) Overview <a name="1-overview"></a>
 
@@ -224,6 +240,7 @@ In summary:
     that the displayed IP address will not necessarily be one that can
     be used. **We will discuss setting the IP address in the next section**.  
       
+    <a name="figure-6–ZCU208-booted"></a>
     <img src="./media/image9.png" style="width:6.5in;height:4.79375in" />
 
 <span id="_Ref141963341" class="anchor"></span>__Figure 6 – Completed boot sequence__
@@ -233,7 +250,7 @@ In summary:
 1.  Connect an Ethernet cable from P1 on the ZCU208 to the local network
     that your PC is on.
 
-2.  On the serial port terminal that is shown in Figure 6, hit Enter so that a login prompt will be shown. Enter **root** for the login name
+2.  On the serial port terminal that is shown in [Figure 6](#"figure-6–ZCU208-booted"), hit Enter so that a login prompt will be shown. Enter **root** for the login name
     and then again **root** for the password.
 
 3.  Enter **ifconfig** . Note the IP address, since you will use this address to connect to the board from your PC.  
@@ -327,9 +344,15 @@ The image below shows how two Carlisle assemblies can be plugged into the XM655.
 __Figure 11 – Carlisle break-outs__
 
 ## 5.2 Setting up the Fujikura Type-C PAAM EVB <a name="setting-up-evb"></a>
-<a name="figure-12–Type-C-PAAM-EVB-and-diagram"></a>
-<img src="./media/PAAM_EVB_antenna_side.png" style="width:6.5in;height:auto;" /><br>
-__Figure 12 – Fujikura Type-C PAAM Evaluation board (EVB) with antenna side up__
+<a name="figure-12–Type-C-PAAM-EVB-3d"></a>
+<img src="./media/PAAM_EVB_antenna_side_3D.png" style="width:6.5in;height:auto;" /><br>
+__Figure 12 – Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side__
+<a name="figure-13–Type-C-PAAM-EVB-and-antenna-side"></a>
+<img src="./media/Type-C-PAAM-EVB-antenna-side.jpg" style="width:6.5in;height:auto;" /><br>
+__Figure 13 – Fujikura Type-C PAAM Evaluation board (EVB) antenna side__
+<a name="figure-14–Type-C-PAAM-EVB-component-side"></a>
+<img src="./media/Type-C-PAAM-EVB-component-side.jpg" style="width:6.5in;height:auto;" /><br>
+__Figure 14 – Fujikura Type-C PAAM Evaluation board (EVB) component side__
 
 If you have signed the required Non-disclorure Agreement (NDA), Fujikura will provide you with access to a download location for the documentation, datasheets and user guide for the Fujikura Type C PAAM Evaluation board (EVB).  
 If you are have not signed the NDA yet but are interested in more detail on Fujikura PAAMs, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
@@ -347,25 +370,25 @@ This document will guide you through the steps for:
 Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and Matlab functions.
 
 The image below outlines the setup that we want to achieve.
-<a name="figure-13–setup-overview"></a>
+<a name="figure-15–setup-overview"></a>
 <img src="./media/setup-overview.png" style="width:6.5in;height:auto;" /><br>
-__Figure 13 – Test setup overview__
+__Figure 15 – Test setup overview__
 
 ### 5.3.1 Ethernet Connections<a name="ethernet-connections"></a>
 From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.  An Ethernet switch is required so that the connected devices will be on the same sub-net.
-As per the [diagram above](#figure-11–setup-overview), connect the following to an Ethernet switch:
+As per the [diagram above](#figure-15–setup-overview), connect the following to an Ethernet switch:
 - your PC
 - the ZCU208 - see connector (3) in [Figure 5](#figure-5-amd-zcu208-development-board)
 - the Fujikura Type-C PAAM EVB, using J1 on the MicroZed SOM
 
 ### 5.3.2 Analog Connections<a name="analog-connections"></a>
 The images two below show teh compression-mount SMA connectors on the under-side (fan side) of the Type-C PAAM EVB.
-<a name="figure-14–EVB-SMAs"></a>
+<a name="figure-16–EVB-SMAs"></a>
 <img src="./media/EVB_CN1_2_5_8_9.jpg" style="width:6.5in;height:auto;" />
 
 <img src="./media/EVB_CN3_4.jpg" style="width:6.5in;height:auto;" /><br>
 
-__Figure 14 – Fujikura Type-C PAAM EVB SMA connectors__
+__Figure 16 – Fujikura Type-C PAAM EVB SMA connectors__
 
 Use SMA cables and follow the instructions below:
 
@@ -433,7 +456,7 @@ The utility can be run by double-clicking **Fujikura TCP Host.exe**.
 When the program closes, a **Fujikura TCP Host.ini** file that stores
 some of the user’s selections is saved in the same directory.
 
-Make sure that the ZCU208 is booted, as shown in Figure 3.
+Make sure that the ZCU208 is booted, as shown in [Figure 6](#"figure-6–ZCU208-booted").
 
 The first time you run the C# GUI, you will have to enter the ZCU208 IP
 address, before clicking **Open TCP Port**.
@@ -512,7 +535,7 @@ Place this file in the folder
 
 <img src="./media/image24.png" style="width:6.5in;height:5.10625in" />
 
-<span id="_Toc146045117" class="anchor"></span>Figure 5 – Board User
+<span id="_Toc146045117" class="anchor"></span>__Figure 17 – Board User__
 Interface to the CLK-104 Module
 
 #  7 Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
@@ -744,7 +767,7 @@ following equations:
 <img src="./media/image27.png"
 style="width:7.13829in;height:3.81548in" />
 
-<span id="_Toc146045118" class="anchor"></span>Figure 6: Renesas 8V97003
+<span id="_Toc146045118" class="anchor"></span>__Figure 18: Renesas 8V97003__
 RF Synthesizer in Fractional Mode
 
 Example RF synthesizer settings in fractional mode for desired RF frequency
@@ -761,7 +784,7 @@ Example RF synthesizer settings in fractional mode for desired RF frequency
 <img src="./media/image28.png"
 style="width:6.91587in;height:3.72024in" />
 
-<span id="_Toc146045119" class="anchor"></span>Figure 7: Renesas 8V97003
+<span id="_Toc146045119" class="anchor"></span>Figure 19: Renesas 8V97003
 RF Synthesizer in Integer Mode
 
 Example RF synthesizer settings in integer mode for desired RF frequency
