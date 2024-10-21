@@ -81,23 +81,25 @@ Figure 7 – [AMD's XM655 plug-in card](#figure-7–xm655)
 
 Figure 8 – [Figure 8 – XM655 attached to the ZCU208](#figure-8–zcu208-with-xm655)
 
-Figure 9 – []()
+Figure 9 – [XM655 frequency groupings of compression-mount SMA's](#figure-9–zcu208-with-xm655)
 
-Figure 10 – []()
+Figure 10 – [Carlisle CoreHC2 8-Channel Male Cable](#figure-10–Carlisle)
 
-Figure 11 – []()
+Figure 11 – [Carlisle break-outs](#figure-11–Carlisle-breakouts)
 
-Figure 12 – []()
+Figure 12 – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-12–Type-C-PAAM-EVB-3d)
 
-Figure 13 – []()
+Figure 13 – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figure-13–Type-C-PAAM-EVB-and-antenna-side)
 
-Figure 14 – []()
+Figure 14 – [Fujikura Type-C PAAM Evaluation board (EVB) component side](#figure-14–Type-C-PAAM-EVB-component-side)
 
-Figure 15 – []()
+Figure 15 – [Test setup overview](#figure-15–setup-overview)
 
-Figure 16 – []()
+Figure 16 – [Figure 16 – Fujikura Type-C PAAM EVB SMA connectors](#figure-16–EVB-SMAs)
 
-Figure 17 – []()
+Figure 17 – [Board User Interface to the CLK-104 Module](#figure-17–Board-UI-clk-104)
+
+Figure 18 – [TBD](#)
 
 
 # 1) Overview <a name="1-overview"></a>
@@ -533,10 +535,10 @@ Place this file in the folder
   being programmed, the D10 LED on the CLK-104 card will go off, briefly
   flash a few times and then stay on.
 
-<img src="./media/image24.png" style="width:6.5in;height:5.10625in" />
+<a name="figure-17–Board-UI-clk-104"></a>
+<img src="./media/image24.png" style="width:6.5in;height:5.10625in" /><br>
 
-<span id="_Toc146045117" class="anchor"></span>__Figure 17 – Board User__
-Interface to the CLK-104 Module
+<span id="_Toc146045117" class="anchor"></span>__Figure 17 – Board User Interface to the CLK-104 Module__
 
 #  7 Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
 
