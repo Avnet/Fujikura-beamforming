@@ -16,7 +16,7 @@
 
 | Version |     | Date         |     | Comment                                               |     |
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
-| 3.0     |     | Oct 3, 2024  |     | Initial public release with RFSoC Explorer 3.1        |     |
+| 3.0     |     | Oct 3, 2024  |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -34,13 +34,18 @@
 
     4.3. [Setting a Static IP Address](#43-setting-a-static-ip-address)
 
-5. [Connecting the Fujikura Type-C PAAM](#connecting-the-fujikura-paam)
+5. [Connecting to the Fujikura Type-C PAAM](#connecting-the-fujikura-paam)
 
-    5.1. [Connecting Power and the Digital Interface](#connecting-power-and-the-digital-interface)
-
-    5.2. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
-
-    5.3. [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
+    5.1. [Breaking out the ZCU208 RF signals using the AMD XM655](#breaking-out-xm655)
+        5.1.1 [XM655 balun replacement](#xm655-balun-replacement)
+        5.1.2 [Using a Carlisle CoreHC2 breakout assembly](#carlisle-core)
+    5.2 [Setting up the Fujikura Type-C PAAM EVB](#setting-up-evb")
+    5.3 [Connecting the Type-C PAAM EVB to the ZCU208](#connecting-paam-evb-and-zcu208)
+        5.3.1 [Ethernet Connections](#ethernet-connections)
+        5.3.2 [Analog Connections](#analog-connections)
+        5.3.3 [Sync Trigger Connections](#sync-trigger-connections)
+    5.4. [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
+    5.5. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
 
 6. [Using the CLK-104 Module](#using-the-clk-104-module)
 
@@ -247,7 +252,7 @@ In summary:
 
 <span id="_Ref141963341" class="anchor"></span>__Figure 6 – Completed boot sequence__
 
-##  4.2 Getting the IP Address <a name="42-getting-the-ip-address"></a>
+## 4.2 Getting the IP Address <a name="42-getting-the-ip-address"></a>
 
 1.  Connect an Ethernet cable from P1 on the ZCU208 to the local network
     that your PC is on.
@@ -316,7 +321,7 @@ The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connect
 <img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" /><br>
 __Figure 8 – XM655 attached to the ZCU208__
 
-### 5.1.1 Breaking out the ZCU208 RF signals using the AMD XM655<a name="xm655-balun-replacement"></a>
+### 5.1.1 XM655 balun replacement<a name="xm655-balun-replacement"></a>
 The XM655 standalone baluns (that connect to teh SMA connectors) and different band pass filters allow for [2 channel connections in each of these 4 bands](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/769228974/XM650+XM655+and+CLK104+Add-On+Cards+Hardware+Description#:~:text=Guide%20(UG1410).-,XM655%20Breakout%20Add%2DOn%20Card,-The%20XM655%20add):
 - Low:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10MHz - 1GHz uses Minicircuits TCM2-33WX+ balun
 - Mid-Low:&nbsp;&nbsp;1GHz - 4GHz uses Anaren BD1631J50100AHF balun
@@ -384,7 +389,7 @@ As per the [diagram above](#figure-15–setup-overview), connect the following t
 - the Fujikura Type-C PAAM EVB, using J1 on the MicroZed SOM
 
 ### 5.3.2 Analog Connections<a name="analog-connections"></a>
-The images two below show teh compression-mount SMA connectors on the under-side (fan side) of the Type-C PAAM EVB.
+The two images below show the compression-mount SMA connectors on the under-side (fan side) of the Type-C PAAM EVB.
 <a name="figure-16–EVB-SMAs"></a>
 <img src="./media/EVB_CN1_2_5_8_9.jpg" style="width:6.5in;height:auto;" />
 
@@ -418,10 +423,11 @@ the heat dissipation performance cannot be guaranteed.
 ### 5.3.3 Sync Trigger Connections<a name="sync-trigger-connections"></a>
 ?????
 
+##  5.4 Connecting the Analog Path and Instruments <a name="connecting-the-analog-path-and-instruments"></a>
 
+TBD
 
-
-##  5.2 Using the C# Test GUI (optional) <a name="using-the-c-test-gui-optional"></a>
+##  5.5 Using the C# Test GUI (optional) <a name="using-the-c-test-gui-optional"></a>
 
 Avnet created a custom test utility that can be used to verify that the
 peripherals on the Fujikura PAAM Daughtercard work correctly. These
@@ -482,10 +488,6 @@ Un-checked boxes mean that the status is unknown. If you close the GUI
 and re-start it, you can request the ZCU208 status by clicking the
 **Read Status** button. If a value was previously set, it should show in
 the GUI.
-
-##  5.3 Connecting the Analog Path and Instruments <a name="connecting-the-analog-path-and-instruments"></a>
-
-TBD
 
 #  6 Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
 
