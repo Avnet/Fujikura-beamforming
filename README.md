@@ -35,16 +35,25 @@
     4.3. [Setting a Static IP Address](#43-setting-a-static-ip-address)
 
 5. [Connecting to the Fujikura Type-C PAAM](#connecting-the-fujikura-paam)
-
+    
     5.1. [Breaking out the ZCU208 RF signals using the AMD XM655](#breaking-out-xm655)
-        5.1.1 [XM655 balun replacement](#xm655-balun-replacement)
-        5.1.2 [Using a Carlisle CoreHC2 breakout assembly](#carlisle-core)
+
+    5.1.1 [XM655 balun replacement](#xm655-balun-replacement)
+
+    5.1.2 [Using a Carlisle CoreHC2 breakout assembly](#carlisle-core)
+
     5.2 [Setting up the Fujikura Type-C PAAM EVB](#setting-up-evb")
+
     5.3 [Connecting the Type-C PAAM EVB to the ZCU208](#connecting-paam-evb-and-zcu208)
-        5.3.1 [Ethernet Connections](#ethernet-connections)
-        5.3.2 [Analog Connections](#analog-connections)
-        5.3.3 [Sync Trigger Connections](#sync-trigger-connections)
+
+    5.3.1 [Ethernet Connections](#ethernet-connections)
+
+    5.3.2 [Analog Connections](#analog-connections)
+
+    5.3.3 [Sync Trigger Connections](#sync-trigger-connections)
+
     5.4. [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
+    
     5.5. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
 
 6. [Using the CLK-104 Module](#using-the-clk-104-module)
