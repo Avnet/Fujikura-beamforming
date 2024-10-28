@@ -53,27 +53,28 @@
     5.3.3 [Sync Trigger Connections](#sync-trigger-connections)
 
     5.4. [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
-    
+
     5.5. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
 
-6. [Using the CLK-104 Module](#using-the-clk-104-module)
+6. [Installing MATLAB and Avnet RFSoC Explorer®](#installing-matlab-and-avnet-rfsoc-explorer)
 
-7. [Installing MATLAB and Avnet RFSoC Explorer®](#installing-matlab-and-avnet-rfsoc-explorer)
-
-    7.1. [Setting up Python Support in Matlab](#setting-up-python-support-in-matlab)
+    6.1. [Setting up Python Support in Matlab](#setting-up-python-support-in-matlab)
    
-    7.1.1 [Setting the Python version in MATLAB](#setting-the-python-version-in-matlab)
+    6.1.1 [Setting the Python version in MATLAB](#setting-the-python-version-in-matlab)
 
-8. [Testing the RFSoC Explorer Digital Interface](#testing-the-rfsoc-explorer-digital-interface)
+7. [Testing the RFSoC Explorer Digital Interface](#testing-the-rfsoc-explorer-digital-interface)
 
-    8.1 [ADC and DAC Control Tab ](#adc-and-dac-control-tab)
-9. [Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer)
+    7.1 [ADC and DAC Control Tab ](#adc-and-dac-control-tab)
 
-10. [Fixture for the Daughtercard](#fixture-for-the-daughtercard)
+8. [Fixture for the Daughtercard](#fixture-for-the-daughtercard)
 
-    10.1 [Daughtercard installation on the fixing stand](#daughtercard-installation-on-the-fixing-stand)
+    8.1 [Daughtercard installation on the fixing stand](#daughtercard-installation-on-the-fixing-stand)
 
-11. [Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range](#over-the-air-testing)
+9. [Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range](#over-the-air-testing)
+
+10. [Appendix 1 - Not Used: Using the CLK-104 Module](#using-the-clk-104-module)
+
+11. [Appendix 1 - Not Used: Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer)
 
 12. [Terminology](#terminology)
 
@@ -498,60 +499,7 @@ and re-start it, you can request the ZCU208 status by clicking the
 **Read Status** button. If a value was previously set, it should show in
 the GUI.
 
-#  6 Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
-
-The ZCU208 kit includes a CLK-104 module that plugs into J101. There are
-a few clock sources on this module and the LMK04828 output is available
-as OUTPUT_REF on the J10 SMA connector. This can be connected to the PLL
-input REF_EXT, which is CN12 on the Fujikura Daughtercard.
-
-The LMK04828 is managed by a TI MPS430 System Controller. The user
-interface to the System Controller is via one of the USB serial ports
-(one of those ports is used for the Linux terminal).
-
-The software used for this interface is the **ZCU208 Board User
-Interface**. The installer  
-**rdf0562-zcu208-bit-c-2020-1.zip** can be downloaded from  
-<https://www.xilinx.com/products/boards-and-kits/zcu208.html#documentation>
-.
-
-<img src="./media/image22.png"
-style="width:3.8125in;height:1.97917in" />
-
-After unzipping the file, run .\zcu208_bit\\ BoardUI\\**BoardUI.exe**.
-
-Under File/Select the system controller port, select a port. Typically,
-this enumerates as the highest number of the 3 ZCU208 USB COM ports.
-
-The way to make sure that communications with the CLK-104 module works
-is to click **Check-CLK-104**.
-
-<img src="./media/image23.png" style="width:6.5in;height:0.27014in" />
-
-We want to program the LMK04828 to output 122.88MHz. This is done as
-follows:
-
-- In the release directory there is a file  
-  ZCU208 CLK-104
-  Card\\**245M76_PL_122M88_SYSREF_7M68_OUTREFCLK_122M88_TCS.txt**
-
-Place this file in the folder  
-.\zcu208_bit\BoardUI\tests\ZCU208\\**clockFiles\lmk04828**\\
-
-- As in the diagram below, select the LMK04828 file to program.
-
-- The clock can be reset (turned off) by clicking **Reset LMK04828**.
-
-- The clock can be programmed by clicking **Set LMK04828 Params**. While
-  being programmed, the D10 LED on the CLK-104 card will go off, briefly
-  flash a few times and then stay on.
-
-<a name="figure-17–Board-UI-clk-104"></a>
-<img src="./media/image24.png" style="width:6.5in;height:5.10625in" /><br>
-
-<span id="_Toc146045117" class="anchor"></span>__Figure 17 – Board User Interface to the CLK-104 Module__
-
-#  7 Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
+#  6 Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
 
 Avnet RFSoC Explorer provides native connection to MATLAB ® and Simulink
 ®, featuring graphical control of the platform and intuitive APIs for
@@ -605,7 +553,7 @@ RFSoC Explorer installs easily using the MATLAB Add-Ons store.
 
 <img src="./media/image26.png" style="width:6.5in;height:2.07569in" />
 
-## 7.1 Setting up Python Support in Matlab <a name="setting-up-python-support-in-matlab"></a>
+## 6.1 Setting up Python Support in Matlab <a name="setting-up-python-support-in-matlab"></a>
 
 RFSoC Explorer has been tested with [Python
 3.9.13](https://www.python.org/downloads/release/python-3913/), but
@@ -628,7 +576,7 @@ the support libraries that are being used:
 >
 > py -m pip install pyvisa
 
-###  7.1.1 Setting the Python version in MATLAB <a name="setting-the-python-version-in-matlab"></a>
+###  6.1.1 Setting the Python version in MATLAB <a name="setting-the-python-version-in-matlab"></a>
 
 1.  First, check whether the correct Python version is supported in your
     MATLAB installation by entering:
@@ -672,7 +620,7 @@ ans =
  ExecutionMode: InProcess
 ```
 
-# 8) Testing the RFSoC Explorer Digital Interface <a name="testing-the-rfsoc-explorer-digital-interface"></a>
+# 7) Testing the RFSoC Explorer Digital Interface <a name="testing-the-rfsoc-explorer-digital-interface"></a>
 
 In MATLAB, enter:
 ```
@@ -742,7 +690,7 @@ style="width:6.01538in;height:3.25833in" />
 
 <img src="./media/image35a.png" style="width:6.5in;height:3.52083in" />
 
-## 8.1 ADC and DAC Control Tab <a name="adc-and-dac-control-tab"></a>
+## 7.1 ADC and DAC Control Tab <a name="adc-and-dac-control-tab"></a>
     
 The Fujikura PAAM Daughtercard includes the ability to measure and adjust all system voltage rails by way of onboard ADCs and DACs. The ADC/DAC tab allows for reading ADC values and writing DAC values. As part of a successful initialization of the PAAM by Avnet RFSoC Explorer, default values will be written to enable the DAC channels.
 
@@ -754,7 +702,125 @@ Each of the rails has a text field in which to enter the desired output voltage,
 
 <img src="./media/fjk-adc-dac-control.PNG" style="width:6.5in;height:3.52083in" />
 
-# 9) Renesas 8V97003 18 GHz RF Synthesizer <a name="renesas-8v97003-18-ghz-rf-synthesizer"></a>
+# 8) Fixture for the Daughtercard <a name="fixture-for-the-daughtercard"></a>
+
+## 8.1 Daughtercard installation on the fixing stand <a name="daughtercard-installation-on-the-fixing-stand"></a>
+
+The Fujikura PAAM Daughtercard can be used with the fixing stand to
+measure RF characteristics if necessary. **Securely fix the fixing stand
+to your measurement system before connecting some coaxial cables and
+power cable. If the installation work is carried out while the fixing
+stand is not sufficiently fixed, the evaluation board may tip over and
+damage the operator or your property.**
+
+<img src="./media/image29.png"
+style="width:2.24606in;height:2.77087in" />
+
+1.  Attach the 4 hexagonal posts to the fixing base using screws with a
+    tightening torque of **0.315 N·m** (red circle).\*
+
+2.  Attach the Daughtercard to the hexagonal post attached to the fixing
+    stand using screws with cap.
+
+<img src="./media/image30.png"
+style="width:2.15394in;height:1.7874in" />
+<img src="./media/image31.png"
+style="width:1.29252in;height:1.79213in" />
+<img src="./media/image32.png"
+style="width:1.2622in;height:1.76654in" />
+
+NOTE
+
+\*If the fixing stand screws shown in picture are loose (blue circle,
+yellow circle), retighten them with a tightening torque of **0.315 N·m
+for blue circle or 0.75 N·m for yellow circle**.
+
+CAUTION
+
+The radio waves emitted from the PAAM may have a negative effect on the human body, so do not stand within a 1 m radius in front of the PAAM while radio waves are being emitted.
+
+# 9) Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range (CATR) <a name="over-the-air-testing"></a>
+
+Over-the-air testing was conducted with [Rohde & Schwarz ATS800B compact antenna test range (CATR)](https://www.rohde-schwarz.com/ca/products/test-and-measurement/antenna-test-systems-and-ota-chambers/rs-ats800b-catr-benchtop-antenna-test-system_63493-642314.html)
+
+# TX EVM Measurement
+<img src="./media/OTA_R_S_CATR.png"
+style="width:7.13829in;height:3.81548in" />
+
+# Opposite EVM Measurement(2 kits)
+<img src="./media/OTA_R_S_CATR_opposite_EVM_measurement_2_kits.png"
+style="width:7.13829in;height:3.81548in" />
+
+Measurements in the lab can be automated through MATLAB scripts for control of:
+- parameters of AMD Zynq™RFSoC direct-RF data converters including sampling rate, complex mixer, decimation/interpolation filters, on-chip PLL for each tile (ref: [RFSoC RF Data Converter Product Guide](https://docs.xilinx.com/r/en-US/pg269-rf-data-converter))
+- digital waveform streaming through direct-RF DACs, with seamless waveform generation through from [5G ToolBox from MathWorks](https://nl.mathworks.com/products/5g.html)
+- Fujikura PAAM Daughtercard parameters including DSA, BFIC phase & gain control / beam weights and [Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer) for LO
+- automated measurements such as frequency, power sweeps with Rohde & Schwarz instruments [FSW43 Signal and spectrum analyzer](https://www.rohde-schwarz.com/us/products/test-and-measurement/benchtop-analyzers/rs-fsw-signal-and-spectrum-analyzer_63493-11793.html), [SMW200A vector signal generator](https://www.rohde-schwarz.com/uk/products/test-and-measurement/vector-signal-generators/rs-smw200a-vector-signal-generator_63493-38656.html) and [ZNA vector network analyzer](https://www.rohde-schwarz.com/ca/products/test-and-measurement/network-analyzers/rs-zna-vector-network-analyzers_63493-551810.html)
+
+<img src="./media/OTA_measurement_MATLAB_APIs.png"
+style="width:7.13829in;height:3.81548in" />
+
+<img src="./media/FR2_400MHz_EVM_FSW.png"
+style="width:7.13829in;height:3.81548in" />
+
+Learn more:
+- [Optimizing EVM Measurements in 5G FR2 Phased Array Antenna Modules](https://event.on24.com/eventRegistration/EventLobbyServlet?target=reg20.jsp&eventid=4081674&sessionid=1&key=8F7DD91FEDF473E6FFEBE19EAF860D84&groupId=4455870&sourcepage=register)
+- [IMS2023 San Diego with Fabrício Dourado, application engineer at Rohde & Schwarz](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/)
+- [Prototype 5G FR2 with the AMD Zynq™ RFSoC DFE and mmWave Phased Array](https://www.microwavejournal.com/events/2250-prototype-5g-fr2-with-the-amd-zynq-rfsoc-dfe-and-mmwave-phased-array)
+
+# 10) Appendix 1 - Not Used: Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
+The ZCU208 kit includes a CLK-104 module that plugs into J101. There are
+a few clock sources on this module and the LMK04828 output is available
+as OUTPUT_REF on the J10 SMA connector. This can be connected to the PLL
+input REF_EXT, which is CN12 on the Fujikura Daughtercard.
+
+The LMK04828 is managed by a TI MPS430 System Controller. The user
+interface to the System Controller is via one of the USB serial ports
+(one of those ports is used for the Linux terminal).
+
+The software used for this interface is the **ZCU208 Board User
+Interface**. The installer  
+**rdf0562-zcu208-bit-c-2020-1.zip** can be downloaded from  
+<https://www.xilinx.com/products/boards-and-kits/zcu208.html#documentation>
+.
+
+<img src="./media/image22.png"
+style="width:3.8125in;height:1.97917in" />
+
+After unzipping the file, run .\zcu208_bit\\ BoardUI\\**BoardUI.exe**.
+
+Under File/Select the system controller port, select a port. Typically,
+this enumerates as the highest number of the 3 ZCU208 USB COM ports.
+
+The way to make sure that communications with the CLK-104 module works
+is to click **Check-CLK-104**.
+
+<img src="./media/image23.png" style="width:6.5in;height:0.27014in" />
+
+We want to program the LMK04828 to output 122.88MHz. This is done as
+follows:
+
+- In the release directory there is a file  
+  ZCU208 CLK-104
+  Card\\**245M76_PL_122M88_SYSREF_7M68_OUTREFCLK_122M88_TCS.txt**
+
+Place this file in the folder  
+.\zcu208_bit\BoardUI\tests\ZCU208\\**clockFiles\lmk04828**\\
+
+- As in the diagram below, select the LMK04828 file to program.
+
+- The clock can be reset (turned off) by clicking **Reset LMK04828**.
+
+- The clock can be programmed by clicking **Set LMK04828 Params**. While
+  being programmed, the D10 LED on the CLK-104 card will go off, briefly
+  flash a few times and then stay on.
+
+<a name="figure-17–Board-UI-clk-104"></a>
+<img src="./media/image24.png" style="width:6.5in;height:5.10625in" /><br>
+
+<span id="_Toc146045117" class="anchor"></span>__Figure 17 – Board User Interface to the CLK-104 Module__
+
+# 11) Appendix 2 - Not Used: Renesas 8V97003 18 GHz RF Synthesizer <a name="renesas-8v97003-18-ghz-rf-synthesizer"></a>
 
 The Fujikura PAAM Daughtercard can connect an external signal through
 SMA connector (<span class="mark">CN7</span>) to provide the local
@@ -810,72 +876,6 @@ Example RF synthesizer settings in integer mode for desired RF frequency
 | *PLL input divider(R)* = 1 | 1           | Set by user                                           |
 | *IF Frequency*             | 3.42400 GHz | Adjusted by RFSoC Explorer for desired RF frequency   |
 | *VCO Frequency*            | 6.14400 GHz | Calculated by RFSoC Explorer for desired RF frequency |
-
-# 10) Fixture for the Daughtercard <a name="fixture-for-the-daughtercard"></a>
-
-## 10.1 Daughtercard installation on the fixing stand <a name="daughtercard-installation-on-the-fixing-stand"></a>
-
-The Fujikura PAAM Daughtercard can be used with the fixing stand to
-measure RF characteristics if necessary. **Securely fix the fixing stand
-to your measurement system before connecting some coaxial cables and
-power cable. If the installation work is carried out while the fixing
-stand is not sufficiently fixed, the evaluation board may tip over and
-damage the operator or your property.**
-
-<img src="./media/image29.png"
-style="width:2.24606in;height:2.77087in" />
-
-1.  Attach the 4 hexagonal posts to the fixing base using screws with a
-    tightening torque of **0.315 N·m** (red circle).\*
-
-2.  Attach the Daughtercard to the hexagonal post attached to the fixing
-    stand using screws with cap.
-
-<img src="./media/image30.png"
-style="width:2.15394in;height:1.7874in" />
-<img src="./media/image31.png"
-style="width:1.29252in;height:1.79213in" />
-<img src="./media/image32.png"
-style="width:1.2622in;height:1.76654in" />
-
-NOTE
-
-\*If the fixing stand screws shown in picture are loose (blue circle,
-yellow circle), retighten them with a tightening torque of **0.315 N·m
-for blue circle or 0.75 N·m for yellow circle**.
-
-CAUTION
-
-The radio waves emitted from the PAAM may have a negative effect on the human body, so do not stand within a 1 m radius in front of the PAAM while radio waves are being emitted.
-
-# 11) Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range (CATR) <a name="over-the-air-testing"></a>
-
-Over-the-air testing was conducted with [Rohde & Schwarz ATS800B compact antenna test range (CATR)](https://www.rohde-schwarz.com/ca/products/test-and-measurement/antenna-test-systems-and-ota-chambers/rs-ats800b-catr-benchtop-antenna-test-system_63493-642314.html)
-
-# TX EVM Measurement
-<img src="./media/OTA_R_S_CATR.png"
-style="width:7.13829in;height:3.81548in" />
-
-# Opposite EVM Measurement(2 kits)
-<img src="./media/OTA_R_S_CATR_opposite_EVM_measurement_2_kits.png"
-style="width:7.13829in;height:3.81548in" />
-
-Measurements in the lab can be automated through MATLAB scripts for control of:
-- parameters of AMD Zynq™RFSoC direct-RF data converters including sampling rate, complex mixer, decimation/interpolation filters, on-chip PLL for each tile (ref: [RFSoC RF Data Converter Product Guide](https://docs.xilinx.com/r/en-US/pg269-rf-data-converter))
-- digital waveform streaming through direct-RF DACs, with seamless waveform generation through from [5G ToolBox from MathWorks](https://nl.mathworks.com/products/5g.html)
-- Fujikura PAAM Daughtercard parameters including DSA, BFIC phase & gain control / beam weights and [Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer) for LO
-- automated measurements such as frequency, power sweeps with Rohde & Schwarz instruments [FSW43 Signal and spectrum analyzer](https://www.rohde-schwarz.com/us/products/test-and-measurement/benchtop-analyzers/rs-fsw-signal-and-spectrum-analyzer_63493-11793.html), [SMW200A vector signal generator](https://www.rohde-schwarz.com/uk/products/test-and-measurement/vector-signal-generators/rs-smw200a-vector-signal-generator_63493-38656.html) and [ZNA vector network analyzer](https://www.rohde-schwarz.com/ca/products/test-and-measurement/network-analyzers/rs-zna-vector-network-analyzers_63493-551810.html)
-
-<img src="./media/OTA_measurement_MATLAB_APIs.png"
-style="width:7.13829in;height:3.81548in" />
-
-<img src="./media/FR2_400MHz_EVM_FSW.png"
-style="width:7.13829in;height:3.81548in" />
-
-Learn more:
-- [Optimizing EVM Measurements in 5G FR2 Phased Array Antenna Modules](https://event.on24.com/eventRegistration/EventLobbyServlet?target=reg20.jsp&eventid=4081674&sessionid=1&key=8F7DD91FEDF473E6FFEBE19EAF860D84&groupId=4455870&sourcepage=register)
-- [IMS2023 San Diego with Fabrício Dourado, application engineer at Rohde & Schwarz](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/)
-- [Prototype 5G FR2 with the AMD Zynq™ RFSoC DFE and mmWave Phased Array](https://www.microwavejournal.com/events/2250-prototype-5g-fr2-with-the-amd-zynq-rfsoc-dfe-and-mmwave-phased-array)
 
 # 12) Terminology <a name="terminology"></a>
 
