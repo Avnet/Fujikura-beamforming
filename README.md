@@ -74,7 +74,7 @@
 
 10. [Appendix 1 - Not Used: Using the CLK-104 Module](#using-the-clk-104-module)
 
-11. [Appendix 1 - Not Used: Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer)
+11. [Appendix 2 - Not Used: Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer)
 
 12. [Terminology](#terminology)
 
@@ -409,29 +409,41 @@ __Figure 16 – Fujikura Type-C PAAM EVB SMA connectors__
 
 Use SMA cables and follow the instructions below:
 
-1.  Make sure to power off the ZCU208 first, using the ON/OFF switch
-    SW15.
+1.  Make sure to power off the ZCU208 first, using the ON/OFF switch, SW15.
 
 2.  Make sure that the PAAM power is turned off at the 12V and 5V power supply/supplies.
 
-3.  Connect the SMA cables as follows:  TBD
+3.  Connect the SMA cables as follows:  
 
-8.  First turn on the ZCU208 power supply. Then turn on the Daughtercard
-    power supply with its ON/OFF switch SW1. The fan should make a loud
-    noise, indicating that it works.
+__Tx_IF_H - CN1 on the PAAM EVB__ to __J9 on the XM655__
+__Tx_IF_V - CN3 on the PAAM EVB__ to __J27 on the XM655__
 
-NOTE
+__Rx_IF_H - CN2 on the PAAM EVB__ to __J4 on the XM655__
+__Rx_IF_V - CN4 on the PAAM EVB__ to __J34 on the XM655__
 
-\* Do not touch the PAAM surface. If the antenna is scratched, the
-expected performance may not be achieved.
+The reasoning for the connections above is as follows:
+The Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz).  So one could use the [Carlisle CoreHC2 breakout assembly](#carlisle-core) with external baluns, or one could [pick some baluns on the XM655 board itself](#xm655-balun-replacement).  Since the range for this PAAM is 4.3 to 5.5GHz, we could pick baluns in the 4-5 GHz range or in the 5-6 GHz range, depending on the application's exact frequency.
 
-\*\* Do not remove the heatsink. If the heatsink is removed even once,
-the heat dissipation performance cannot be guaranteed.
+DAC Tile 229 Chan 0 p/n wired to XM655 balun 4-5 GHz (J10, J12), which has an output on J9.
+<a name="figure-19–XM655_DAC_balun_example"></a>
+<img src="./media/XM655_DAC_balun_example.png" style="width:6.5in;height:auto;" /><br>
+ADC Tile 224 Chan 0 p/n wired to XM655 balun 4-5 GHz (J2, J6), which has an input on J4.
+
+See the image below for the typical tile assignments in RFSoC Explorer.
+<a name="figure-18–Tiles-for-4p9Ghz"></a>
+<img src="./media/Tiles-for-4p9Ghz-IF.png" style="width:6.5in;height:auto;" /><br>
+
+8.  First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
+
+__NOTE__
+\* Do not touch the PAAM surface. If the antenna is scratched, the expected performance may not be achieved.
+
+\*\* Do not remove the heatsink. If the heatsink is removed even once, the heat dissipation performance cannot be guaranteed.
 
 \*\*\*Incorrect connection will short the power supply.
 
 ### 5.3.3 Sync Trigger Connections<a name="sync-trigger-connections"></a>
-?????
+TBD
 
 ##  5.4 Connecting the Analog Path and Instruments <a name="connecting-the-analog-path-and-instruments"></a>
 
