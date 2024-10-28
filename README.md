@@ -415,11 +415,10 @@ Use SMA cables and follow the instructions below:
 
 3.  Connect the SMA cables as follows:  
 
-__Tx_IF_H - CN1 on the PAAM EVB__ to __J9 on the XM655__
-__Tx_IF_V - CN3 on the PAAM EVB__ to __J27 on the XM655__
-
-__Rx_IF_H - CN2 on the PAAM EVB__ to __J4 on the XM655__
-__Rx_IF_V - CN4 on the PAAM EVB__ to __J34 on the XM655__
+- __Tx_IF_H - CN1 on the PAAM EVB__ to __J9 on the XM655__<br>
+- __Tx_IF_V - CN3 on the PAAM EVB__ to __J27 on the XM655__<br>
+- __Rx_IF_H - CN2 on the PAAM EVB__ to __J4 on the XM655__<br>
+- __Rx_IF_V - CN4 on the PAAM EVB__ to __J34 on the XM655__<br>
 
 The reasoning for the connections above is as follows:
 The Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz).  So one could use the [Carlisle CoreHC2 breakout assembly](#carlisle-core) with external baluns, or one could [pick some baluns on the XM655 board itself](#xm655-balun-replacement).  Since the range for this PAAM is 4.3 to 5.5GHz, we could pick baluns in the 4-5 GHz range or in the 5-6 GHz range, depending on the application's exact frequency.
