@@ -6,6 +6,10 @@
  </tr>
 </table>
 
+<br>
+<span style="color:red; font-size:25px;">Note!!   This document is for the Fujikura Type-C PAAM, not for the now-superseded Task-A/B PAAM.</span><br>
+If you are interested in the Fujikura Task-A/B PAAM documentation, please see the <a href="https://github.com/Avnet/Fujikura-beamforming" style="font-size:25px;">5G mmWave Task-A/B PAAM Development Platform User Guide</a>.<br>
+
 # Document Control
 
 **Document Version:** 3.0
