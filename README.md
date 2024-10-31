@@ -20,11 +20,17 @@ If you are interested in the Fujikura Task-A/B PAAM documentation, please see th
 
 | Version |     | Date         |     | Comment                                               |     |
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
-| 3.0     |     | Oct 3, 2024  |     | Initial public release with RFSoC Explorer 3.1.1      |     |
+| 3.0     |     | Oct 30, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
 1. [Overview](#1-overview)
+
+    1.1. [The AMD ZCU208 RFSoC evaluation kit](#overview-zcu208-kit)
+
+    1.2. [The Fujikura Type-C PAAM Evaluation board (EVB)](#overview-paam-evb)
+
+    1.3. [Beam Switching using the Fujikura Type-C PAAM](#overview-beam-switching)
 
 2. [AMD ZCU208 Evaluation Board](#zcu208-board)
 
@@ -92,33 +98,37 @@ Figure 3 – [Fujikura Type-C PAAM Evaluation board (EVB) with block diagram](#f
 
 Figure 4 – [Fujikura Type-C PAAM](#figure-4–Type-C-PAAM)
 
-Figure 5 – [AMD ZCU208 Evaluation Board](#figure-5-amd-zcu208-development-board)
+Figure 5 – [Avnet MicroZed on the Fujikura Type-C PAAM EVB](#figure-5–type-c-paam-only-diagram)
 
-Figure 6 – [Completed boot sequence](#figure-6–ZCU208-booted)
+Figure 6 – [Fast beam switching using the Fujikura Type-C PAAM](#figure-6–type-c-beam-switching-no-NDA)
 
-Figure 7 – [AMD's XM655 plug-in card](#figure-7–xm655)
+Figure 7 – [AMD ZCU208 Evaluation Board](#figure-7-amd-zcu208-development-board)
 
-Figure 8 – [Figure 8 – XM655 attached to the ZCU208](#figure-8–zcu208-with-xm655)
+Figure 8 – [Completed boot sequence](#figure-8–ZCU208-booted)
 
-Figure 9 – [XM655 frequency groupings of compression-mount SMA's](#figure-9–zcu208-with-xm655)
+Figure 9 – [AMD's XM655 plug-in card](#figure-9–xm655)
 
-Figure 10 – [Carlisle CoreHC2 8-Channel Male Cable](#figure-10–Carlisle)
+Figure 10 – [Figure 8 – XM655 attached to the ZCU208](#figure-10–zcu208-with-xm655)
 
-Figure 11 – [Carlisle break-outs](#figure-11–Carlisle-breakouts)
+Figure 11 – [XM655 frequency groupings of compression-mount SMA's](#figure-11–zcu208-with-xm655)
 
-Figure 12 – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-12–Type-C-PAAM-EVB-3d)
+Figure 12 – [Carlisle CoreHC2 8-Channel Male Cable](#figure-12–Carlisle)
 
-Figure 13 – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figure-13–Type-C-PAAM-EVB-and-antenna-side)
+Figure 13 – [Carlisle break-outs](#figure-13–Carlisle-breakouts)
 
-Figure 14 – [Fujikura Type-C PAAM Evaluation board (EVB) component side](#figure-14–Type-C-PAAM-EVB-component-side)
+Figure 14 – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-14–Type-C-PAAM-EVB-3d)
 
-Figure 15 – [Test setup overview](#figure-15–setup-overview)
+Figure 15 – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figure-15–Type-C-PAAM-EVB-and-antenna-side)
 
-Figure 16 – [Figure 16 – Fujikura Type-C PAAM EVB SMA connectors](#figure-16–EVB-SMAs)
+Figure 16 – [Fujikura Type-C PAAM Evaluation board (EVB) component side](#figure-16–Type-C-PAAM-EVB-component-side)
 
-Figure 17 – [Board User Interface to the CLK-104 Module](#figure-17–Board-UI-clk-104)
+Figure 17 – [Test setup overview](#figure-17–setup-overview)
 
-Figure 18 – [TBD](#)
+Figure 18 – [Figure 16 – Fujikura Type-C PAAM EVB SMA connectors](#figure-18–EVB-SMAs)
+
+Figure 19 – [Board User Interface to the CLK-104 Module](#figure-19–Board-UI-clk-104)
+
+Figure 20 – [TBD](#)
 
 
 # 1) Overview <a name="1-overview"></a>
@@ -129,6 +139,7 @@ Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/u
 <img src="./media/ZCU208_and_PAAM.png" style="width:6.5in;height:auto;" /><br>
 __Figure 1 – ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM__
 
+## 1.1 The [AMD ZCU208 RFSoC evaluation kit <a name="overview-zcu208-kit"></a>
 AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html):
 
 - **Cortex®-A53** core,
@@ -141,12 +152,13 @@ AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](
 
 The image below shows the ZCU208 with
 - A [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that breaks out the ADC and DAC signals to multiple SMA connectors
-- A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.
+- A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.<br>
 <a name="figure-2–ZCU208-with-XM655"></a>
 <img src="./media/ZCU208withXM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 2 – ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards__
 
-The [Fujikura Type-C PAAM Evaluation board (EVB)](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0046(8)_Type-C-Evb_Product%20Brief.pdf) houses the PAAM itself.
+## 1.2 The Fujikura Type-C PAAM Evaluation board (EVB) <a name="overview-paam-evb"></a>
+The [Fujikura Type-C PAAM Evaluation Board (EVB)](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0046(8)_Type-C-Evb_Product%20Brief.pdf) houses the PAAM itself.
 
 <a name="figure-3–Type-C-PAAM-EVB-and-diagram"></a>
 <img src="./media/PAAM_EVBandDiagram.png" style="width:6.5in;height:auto;" /><br>
@@ -163,20 +175,40 @@ The [Fujikura Type-C PAAM](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0008
 - Fast beam switching of < 220 ns
 - Supports > 20,000 beams
 - EIRP 48 dBm at EVM 3%
-- Fast parallel interface for digital control
+- Fast parallel interface for digital control<br>
+
 <a name="figure-4–Type-C-PAAM"></a>
 <img src="./media/Type_C_PAAM.png" style="width:6.5in;height:auto;" /><br>
-__Figure 4 – Fujikura Type-C PAAM__
+__Figure 4 – Fujikura Type-C PAAM__<br>
 
+## 1.3 Beam Switching using the Fujikura Type-C PAAM <a name="overview-beam-switching"></a>
+
+On the Type-C PAAM, there is an [Avnet MicroZed 7020 SOM](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/microzed).  This module is used for fast digital control of the PAAM, as well as for diagnostics, over Ethernet.<br>
+<a name="figure-5–type-c-paam-only-diagram"></a><br>
+<img src="./media/type-c-paam-only-diagram.png" style="width:6.5in;height:auto;" /><br>
+__Figure 5 – Avnet MicroZed on the Fujikura Type-C PAAM EVB__
+
+Using the MicroZed, the PAAM can be used for fast switching between beams.  Each time the beam position has to switch, the MicroZed has to transfer a command with data to the PAAM.
+The beam switching can be done in a number of ways, with or without an external trigger signal.  Note that it is also possible to select an internally-generated trigger with a programmable period instead of an external trigger.<br>
+As is shown in the diagram below, three beam-switching modes are currently supported:
+ - Free-running beam switching: In this mode a beam position is selected, followed by a specified delay.  This is repeated as necessary and each command is porformed after the other, sequentially.
+ - Triggered beam switching: Here a delay period is not specified, but instead the command to change position is only sent once a trigger (internally or externally generated) occurs.  It typically takes only 130ns from the trigger occurrence until the new setting takes effect in the field.
+ - Beam switching synchronized to an external sync trigger: In this mode a sequence of delay periods and beam settings is also sent, but the whole sequence will only kick off when a trigger (internally or externally generated) occurs.  This allows for a pattern/burst to be repeated but for the start of that sequence to be tied to a specific triggering event.
+ 
+<a name="figure-6–type-c-beam-switching-no-NDA"></a><br>
+<img src="./media/type-c-beam-switching-no-NDA.png" style="width:6.5in;height:auto;" /><br>
+__Figure 6 – Fast beam switching using the Fujikura Type-C PAAM__<br>
+
+Note: For detail on this mechanism outlined above, as well as for PAAM datasheets and characterization information, an NDA is required.  To request such an NDA, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
 
 # 2) AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
 
 For instructions on setting up the ZCU208, please refer to the [ZCU208 User Guide](https://docs.xilinx.com/v/u/en-US/ug1410-zcu208-eval-bd) and
 the guide for [ZCU208 Software Install and Board Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
 Some relevant components for the instructions below are marked in this diagram.
-<a name="figure-5-amd-zcu208-development-board"></a>
+<a name="figure-7-amd-zcu208-development-board"></a>
 <img src="./media/zcu208-development-board.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5 – AMD ZCU208 Evaluation Board__
+__Figure 7 – AMD ZCU208 Evaluation Board__
 
 <span class="mark">  
 (1)</span> Marks the uSD card slot J23
@@ -261,17 +293,17 @@ In summary:
     that the displayed IP address will not necessarily be one that can
     be used. **We will discuss setting the IP address in the next section**.  
       
-    <a name="figure-6–ZCU208-booted"></a>
+    <a name="figure-8–ZCU208-booted"></a>
     <img src="./media/image9.png" style="width:6.5in;height:4.79375in" />
 
-<span id="_Ref141963341" class="anchor"></span>__Figure 6 – Completed boot sequence__
+<span id="_Ref141963341" class="anchor"></span>__Figure 8 – Completed boot sequence__
 
 ## 4.2 Getting the IP Address <a name="42-getting-the-ip-address"></a>
 
 1.  Connect an Ethernet cable from P1 on the ZCU208 to the local network
     that your PC is on.
 
-2.  On the serial port terminal that is shown in [Figure 6](#"figure-6–ZCU208-booted"), hit Enter so that a login prompt will be shown. Enter **root** for the login name
+2.  On the serial port terminal that is shown in [Figure 8](#"figure-8–ZCU208-booted"), hit Enter so that a login prompt will be shown. Enter **root** for the login name
     and then again **root** for the password.
 
 3.  Enter **ifconfig** . Note the IP address, since you will use this address to connect to the board from your PC.  
@@ -325,15 +357,15 @@ style="width:4.16389in;height:4.73889in" />
 The [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) allows access to the ZCU208 RFSoC's ADC and DAC signals.
 It also allows for 20 DACIO and 20 ADCIO digital I/O pins on a header strip.  Note that __for the ZCU208 only 16 DACIO and 16 ADCIO signals__ are connected to the Zynq device.
 See Appendix C of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd) for details.
-<a name="figure-7–xm655"></a>
+<a name="figure-9–xm655"></a>
 <img src="./media/XM655.jpg" style="width:6.5in;height:auto;" /><br>
-__Figure 7 – AMD's XM655 plug-in card__
+__Figure 9 – AMD's XM655 plug-in card__
 
 The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connectors, J87 and J82, and then securing it with 4 through-hole screws.
 
-<a name="figure-8–zcu208-with-xm655"></a>
+<a name="figure-10–zcu208-with-xm655"></a>
 <img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" /><br>
-__Figure 8 – XM655 attached to the ZCU208__
+__Figure 10 – XM655 attached to the ZCU208__
 
 ### 5.1.1 XM655 balun replacement<a name="xm655-balun-replacement"></a>
 The XM655 standalone baluns (that connect to teh SMA connectors) and different band pass filters allow for [2 channel connections in each of these 4 bands](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/769228974/XM650+XM655+and+CLK104+Add-On+Cards+Hardware+Description#:~:text=Guide%20(UG1410).-,XM655%20Breakout%20Add%2DOn%20Card,-The%20XM655%20add):
@@ -343,9 +375,9 @@ The XM655 standalone baluns (that connect to teh SMA connectors) and different b
 - High:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__5GHz - 6GHz__ uses Anaren BD4859N50100AHF balun
 
 Each of these balun types is associated with specific group of compression mount SMAs on the board, as indicated by the silkscreen boxes.  The diagram below also illustrates the groupings of the SMA connectors (red dots).
-<a name="figure-9–zcu208-with-xm655"></a>
+<a name="figure-11–zcu208-with-xm655"></a>
 <img src="./media/XM655-diagram.png" style="width:6.5in;height:auto;" /><br>
-__Figure 9 – XM655 frequency groupings of compression-mount SMA's__
+__Figure 11 – XM655 frequency groupings of compression-mount SMA's__
 
 As the Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz), the XM655 standard baluns will only allow for the use of the 2 Mid-High connectors and possibly the 2 High connectors.
 
@@ -355,25 +387,25 @@ It is possible to re-work the XM655 at your own risk by replacing the default ba
 
 This approach will bypass the baluns on the XM655 board by bringing out the RF signals via the Carlisle CoreHC2 breakout assembly to external baluns. Two sets of these cable assemblies ship with each ZCU208 kit.  See Page 80 of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd)
 If you need more break-outs than what the two included sets provide, the __Carlisle Core HC2 8 Channel – Male, 3.5 mm TM40-0157-00__ can be ordered from: https://www.digikey.com/en/products/detail/carlisleit/TM40-0157-00/11502992
-<a name="figure-10–Carlisle"></a>
+<a name="figure-12–Carlisle"></a>
 <img src="./media/Carlisle-Core-cable.png" style="width:6.5in;height:auto;" /><br>
-__Figure 10 – Carlisle CoreHC2 8-Channel Male Cable__
+__Figure 12 – Carlisle CoreHC2 8-Channel Male Cable__
 
 The image below shows how two Carlisle assemblies can be plugged into the XM655.
-<a name="figure-11–Carlisle-breakouts"></a>
+<a name="figure-13–Carlisle-breakouts"></a>
 <img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
-__Figure 11 – Carlisle break-outs__
+__Figure 13 – Carlisle break-outs__
 
 ## 5.2 Setting up the Fujikura Type-C PAAM EVB <a name="setting-up-evb"></a>
-<a name="figure-12–Type-C-PAAM-EVB-3d"></a>
+<a name="figure-14–Type-C-PAAM-EVB-3d"></a>
 <img src="./media/PAAM_EVB_antenna_side_3D.png" style="width:6.5in;height:auto;" /><br>
-__Figure 12 – Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side__
-<a name="figure-13–Type-C-PAAM-EVB-and-antenna-side"></a>
+__Figure 14 – Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side__
+<a name="figure-15–Type-C-PAAM-EVB-and-antenna-side"></a>
 <img src="./media/Type-C-PAAM-EVB-antenna-side.jpg" style="width:6.5in;height:auto;" /><br>
-__Figure 13 – Fujikura Type-C PAAM Evaluation board (EVB) antenna side__
-<a name="figure-14–Type-C-PAAM-EVB-component-side"></a>
+__Figure 15 – Fujikura Type-C PAAM Evaluation board (EVB) antenna side__
+<a name="figure-16–Type-C-PAAM-EVB-component-side"></a>
 <img src="./media/Type-C-PAAM-EVB-component-side.jpg" style="width:6.5in;height:auto;" /><br>
-__Figure 14 – Fujikura Type-C PAAM Evaluation board (EVB) component side__
+__Figure 16 – Fujikura Type-C PAAM Evaluation board (EVB) component side__
 
 If you have signed the required Non-disclorure Agreement (NDA), Fujikura will provide you with access to a download location for the documentation, datasheets and user guide for the Fujikura Type C PAAM Evaluation board (EVB).  
 If you are have not signed the NDA yet but are interested in more detail on Fujikura PAAMs, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
@@ -388,28 +420,27 @@ This document will guide you through the steps for:
 
 ## 5.3 Connecting the Type-C PAAM EVB to the ZCU208 <a name="connecting-paam-evb-and-zcu208"></a>
 
-Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and Matlab functions.
-
-The image below outlines the setup that we want to achieve.
-<a name="figure-15–setup-overview"></a>
+Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and Matlab functions.<br>
+The image below outlines the setup that we want to achieve.<br>
+<a name="figure-17–setup-overview"></a>
 <img src="./media/setup-overview.png" style="width:6.5in;height:auto;" /><br>
-__Figure 15 – Test setup overview__
+__Figure 17 – Test setup overview__
 
 ### 5.3.1 Ethernet Connections<a name="ethernet-connections"></a>
 From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.  An Ethernet switch is required so that the connected devices will be on the same sub-net.
-As per the [diagram above](#figure-15–setup-overview), connect the following to an Ethernet switch:
+As per the [diagram above](#figure-17–setup-overview), connect the following to an Ethernet switch:
 - your PC
-- the ZCU208 - see connector (3) in [Figure 5](#figure-5-amd-zcu208-development-board)
+- the ZCU208 - see connector (3) in [Figure 7](#figure-7-amd-zcu208-development-board)
 - the Fujikura Type-C PAAM EVB, using J1 on the MicroZed SOM
 
 ### 5.3.2 Analog Connections<a name="analog-connections"></a>
-The two images below show the compression-mount SMA connectors on the under-side (fan side) of the Type-C PAAM EVB.
-<a name="figure-16–EVB-SMAs"></a>
+The two images below show the compression-mount SMA connectors on the under-side (fan side) of the Type-C PAAM EVB.<br>
+<a name="figure-18–EVB-SMAs"></a>
 <img src="./media/EVB_CN1_2_5_8_9.jpg" style="width:6.5in;height:auto;" />
 
 <img src="./media/EVB_CN3_4.jpg" style="width:6.5in;height:auto;" /><br>
 
-__Figure 16 – Fujikura Type-C PAAM EVB SMA connectors__
+__Figure 18 – Fujikura Type-C PAAM EVB SMA connectors__
 
 Use SMA cables and follow the instructions below:
 
@@ -425,16 +456,17 @@ Use SMA cables and follow the instructions below:
 - __Rx_IF_V - CN4 on the PAAM EVB__ to __J34 on the XM655__<br>
 
 The reasoning for the connections above is as follows:
-The Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz).  So one could use the [Carlisle CoreHC2 breakout assembly](#carlisle-core) with external baluns, or one could [pick some baluns on the XM655 board itself](#xm655-balun-replacement).  Since the range for this PAAM is 4.3 to 5.5GHz, we could pick baluns in the 4-5 GHz range or in the 5-6 GHz range, depending on the application's exact frequency.
+The Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz).  So one could use the [Carlisle CoreHC2 breakout assembly](#carlisle-core) with external baluns, or one could [pick some baluns on the XM655 board itself](#xm655-balun-replacement).  Since the range for this PAAM is 4.3 to 5.5GHz, we could pick baluns in the 4-5 GHz range or in the 5-6 GHz range, depending on the application's exact frequency.<br>
 
-DAC Tile 229 Chan 0 p/n wired to XM655 balun 4-5 GHz (J10, J12), which has an output on J9.
-<a name="figure-19–XM655_DAC_balun_example"></a>
+DAC Tile 229 Chan 0 p/n wired to XM655 balun 4-5 GHz (J10, J12), which has an output on J9.<br>
+<a name="XM655_DAC_balun_example"></a>
 <img src="./media/XM655_DAC_balun_example.png" style="width:6.5in;height:auto;" /><br>
-ADC Tile 224 Chan 0 p/n wired to XM655 balun 4-5 GHz (J2, J6), which has an input on J4.
+ADC Tile 224 Chan 0 p/n wired to XM655 balun 4-5 GHz (J2, J6), which has an input on J4.<br>
 
-See the image below for the typical tile assignments in RFSoC Explorer.
-<a name="figure-18–Tiles-for-4p9Ghz"></a>
+See the image below for the typical tile assignments in RFSoC Explorer.<br>
+<a name="figure-19–Tiles-for-4p9Ghz"></a>
 <img src="./media/Tiles-for-4p9Ghz-IF.png" style="width:6.5in;height:auto;" /><br>
+__Figure 19 – Typical tile assignments in RFSoC Explorer__
 
 8.  First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
 
@@ -489,7 +521,7 @@ The utility can be run by double-clicking **Fujikura TCP Host.exe**.
 When the program closes, a **Fujikura TCP Host.ini** file that stores
 some of the user’s selections is saved in the same directory.
 
-Make sure that the ZCU208 is booted, as shown in [Figure 6](#"figure-6–ZCU208-booted").
+Make sure that the ZCU208 is booted, as shown in [Figure 8](#"figure-8–ZCU208-booted").
 
 The first time you run the C# GUI, you will have to enter the ZCU208 IP
 address, before clicking **Open TCP Port**.
@@ -830,7 +862,7 @@ Place this file in the folder
   being programmed, the D10 LED on the CLK-104 card will go off, briefly
   flash a few times and then stay on.
 
-<a name="figure-17–Board-UI-clk-104"></a>
+<a name="Board-UI-clk-104"></a>
 <img src="./media/image24.png" style="width:6.5in;height:5.10625in" /><br>
 
 <span id="_Toc146045117" class="anchor"></span>__Figure 17 – Board User Interface to the CLK-104 Module__
