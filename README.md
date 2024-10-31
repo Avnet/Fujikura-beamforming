@@ -28,7 +28,7 @@ If you are interested in the Fujikura Task-A/B PAAM documentation, please see th
 
     1.1. [The AMD ZCU208 RFSoC evaluation kit](#overview-zcu208-kit)
 
-    1.2. [The Fujikura Type-C PAAM Evaluation board (EVB)](#overview-paam-evb)
+    1.2. [The Fujikura Type-C PAAM Evaluation Board (EVB)](#overview-paam-evb)
 
     1.3. [Beam Switching using the Fujikura Type-C PAAM](#overview-beam-switching)
 
@@ -157,7 +157,7 @@ The image below shows the ZCU208 with
 <img src="./media/ZCU208withXM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 2 – ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards__
 
-## 1.2 The Fujikura Type-C PAAM Evaluation board (EVB) <a name="overview-paam-evb"></a>
+## 1.2 The Fujikura Type-C PAAM Evaluation Board (EVB) <a name="overview-paam-evb"></a>
 The [Fujikura Type-C PAAM Evaluation Board (EVB)](https://mmwavetech.fujikura.jp/img/5g/MW96-11-22-0046(8)_Type-C-Evb_Product%20Brief.pdf) houses the PAAM itself.
 
 <a name="figure-3–Type-C-PAAM-EVB-and-diagram"></a>
