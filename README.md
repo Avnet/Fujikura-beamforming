@@ -139,7 +139,7 @@ Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/u
 <img src="./media/ZCU208_and_PAAM.png" style="width:6.5in;height:auto;" /><br>
 __Figure 1 – ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM__
 
-## 1.1 The [AMD ZCU208 RFSoC evaluation kit <a name="overview-zcu208-kit"></a>
+## 1.1 The AMD ZCU208 RFSoC evaluation kit <a name="overview-zcu208-kit"></a>
 AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html):
 
 - **Cortex®-A53** core,
@@ -188,18 +188,17 @@ On the Type-C PAAM, there is an [Avnet MicroZed 7020 SOM](https://www.avnet.com/
 <img src="./media/type-c-paam-only-diagram.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5 – Avnet MicroZed on the Fujikura Type-C PAAM EVB__
 
-Using the MicroZed, the PAAM can be used for fast switching between beams.  Each time the beam position has to switch, the MicroZed has to transfer a command with data to the PAAM.
+Via the MicroZed, the PAAM can be used for fast switching between beams.  Each time the beam position has to switch, the MicroZed has to transfer a command with data to the PAAM.
 The beam switching can be done in a number of ways, with or without an external trigger signal.  Note that it is also possible to select an internally-generated trigger with a programmable period instead of an external trigger.<br>
 As is shown in the diagram below, three beam-switching modes are currently supported:
- - Free-running beam switching: In this mode a beam position is selected, followed by a specified delay.  This is repeated as necessary and each command is porformed after the other, sequentially.
- - Triggered beam switching: Here a delay period is not specified, but instead the command to change position is only sent once a trigger (internally or externally generated) occurs.  It typically takes only 130ns from the trigger occurrence until the new setting takes effect in the field.
- - Beam switching synchronized to an external sync trigger: In this mode a sequence of delay periods and beam settings is also sent, but the whole sequence will only kick off when a trigger (internally or externally generated) occurs.  This allows for a pattern/burst to be repeated but for the start of that sequence to be tied to a specific triggering event.
- 
-<a name="figure-6–type-c-beam-switching-no-NDA"></a><br>
+ - __Free-running beam switching__ : In this mode a new beam position is selected, followed by a specified delay.  This is repeated as necessary and each command is porformed after the other, sequentially.
+ - __Triggered beam switching__ : Here a delay period is not specified, but instead the command to change position is only sent to the PAAM once a trigger (internally or externally generated) occurs.  It typically takes only 130ns from the trigger occurrence until the new setting takes effect in the field.
+ - __Beam switching synchronized to an external sync trigger__ : In this mode a sequence of delay periods and beam settings is also sent, but the whole sequence will only kick off when a trigger (internally or externally generated) occurs.  This allows for a pattern/burst to be repeated but for the start of that sequence to be tied to a specific triggering event.<br>
+ <a name="figure-6–type-c-beam-switching-no-NDA"></a><br>
 <img src="./media/type-c-beam-switching-no-NDA.png" style="width:6.5in;height:auto;" /><br>
 __Figure 6 – Fast beam switching using the Fujikura Type-C PAAM__<br>
 
-Note: For detail on this mechanism outlined above, as well as for PAAM datasheets and characterization information, an NDA is required.  To request such an NDA, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
+Note: For detail on the mechanism outlined above, as well as for PAAM datasheets and characterization information, an NDA is required.  To request such an NDA, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
 
 # 2) AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
 
