@@ -183,7 +183,7 @@ __Figure 4 – Fujikura Type-C PAAM__<br>
 
 ## 1.3 Beam Switching using the Fujikura Type-C PAAM <a name="overview-beam-switching"></a>
 
-On the Type-C PAAM, there is an [Avnet MicroZed 7020 SOM](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/microzed).  This module is used for fast digital control of the PAAM, as well as for diagnostics, over Ethernet.<br>
+On the Type-C PAAM EVB, there is an [Avnet MicroZed 7020 SOM](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/microzed).  This module is used for fast digital control of the PAAM, as well as for diagnostics, over Ethernet.<br>
 <a name="figure-5–type-c-paam-only-diagram"></a><br>
 <img src="./media/type-c-paam-only-diagram.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5 – Avnet MicroZed on the Fujikura Type-C PAAM EVB__
