@@ -94,7 +94,7 @@ If you are interested in the Fujikura Task-A/B PAAM documentation, please see th
 
 Figure 1.a – [ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM](#figure-ZCU208-with-XM655-and-generic-PAAM)
 
-Figure 1.1.a – [ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards](#ZCU208-with-XM655-clk104)
+Figure 1.1.a – [ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards](#figure-ZCU208-with-XM655-clk104)
 
 Figure 1.2.a – [Fujikura Type-C PAAM Evaluation board (EVB) with block diagram](#figure-Type-C-PAAM-EVB-and-diagram)
 
@@ -110,25 +110,25 @@ Figure 2.a – [AMD ZCU208 Evaluation Board](#figure-amd-zcu208-development-boar
 
 Figure 4.1.a – [Completed boot sequence](#figure-ZCU208-booted)
 
-Figure 5.1.a – [AMD's XM655 plug-in card](#figure-9–xm655)
+Figure 5.1.a – [AMD's XM655 plug-in card](#figure-xm655)
 
-Figure 5.1.b – [XM655 attached to the ZCU208](#figure-10–zcu208-with-xm655)
+Figure 5.1.b – [XM655 attached to the ZCU208](#figure-zcu208-with-xm655)
 
-Figure 5.1.1.a – [XM655 frequency groupings of compression-mount SMA's](#figure-11–zcu208-with-xm655)
+Figure 5.1.1.a – [XM655 frequency groupings of compression-mount SMA's](#figure-zcu208-with-xm655)
 
-Figure 5.1.2.a – [Carlisle CoreHC2 8-Channel Male Cable](#figure-12–Carlisle)
+Figure 5.1.2.a – [Carlisle CoreHC2 8-Channel Male Cable](#figure-Carlisle)
 
-Figure 5.1.2.b – [Carlisle break-outs](#figure-13–Carlisle-breakouts)
+Figure 5.1.2.b – [Carlisle break-outs](#figure-Carlisle-breakouts)
 
-Figure 5.2.a – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-14–Type-C-PAAM-EVB-3d)
+Figure 5.2.a – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-Type-C-PAAM-EVB-3d)
 
-Figure 5.2.b – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figure-15–Type-C-PAAM-EVB-and-antenna-side)
+Figure 5.2.b – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figure-Type-C-PAAM-EVB-and-antenna-side)
 
-Figure 5.2.c – [Fujikura Type-C PAAM Evaluation board (EVB) component side](#figure-16–Type-C-PAAM-EVB-component-side)
+Figure 5.2.c – [Fujikura Type-C PAAM Evaluation board (EVB) component side](#figure–Type-C-PAAM-EVB-component-side)
 
-Figure 5.3.a – [Test setup overview](#figure-17–setup-overview)
+Figure 5.3.a – [Test setup overview](#figure–setup-overview)
 
-Figure 5.3.2.a – [Fujikura Type-C PAAM EVB SMA connectors](#figure-18–EVB-SMAs)
+Figure 5.3.2.a – [Fujikura Type-C PAAM EVB SMA connectors](#figure–EVB-SMAs)
 
 Figure 5.3.2.b – [Typical tile assignments in RFSoC Explorer](#figure-Tiles-for-4p9Ghz)
 
@@ -375,13 +375,13 @@ style="width:4.16389in;height:4.73889in" />
 The [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) allows access to the ZCU208 RFSoC's ADC and DAC signals.
 It also allows for 20 DACIO and 20 ADCIO digital I/O pins on a header strip.  Note that __for the ZCU208 only 16 DACIO and 16 ADCIO signals__ are connected to the Zynq device.
 See Appendix C of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd) for details.
-<a name="figure-9–xm655"></a>
+<a name="figure-xm655"></a>
 <img src="./media/XM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.a – AMD's XM655 plug-in card__
 
 The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connectors, J87 and J82, and then securing it with 4 through-hole screws.
 
-<a name="figure-10–zcu208-with-xm655"></a>
+<a name="figure-zcu208-with-xm655"></a>
 <img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.b – XM655 attached to the ZCU208__
 
@@ -393,7 +393,7 @@ The XM655 standalone baluns (that connect to teh SMA connectors) and different b
 - High:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__5GHz - 6GHz__ uses Anaren BD4859N50100AHF balun
 
 Each of these balun types is associated with specific group of compression mount SMAs on the board, as indicated by the silkscreen boxes.  The diagram below also illustrates the groupings of the SMA connectors (red dots).
-<a name="figure-11–zcu208-with-xm655"></a>
+<a name="figure-zcu208-with-xm655"></a>
 <img src="./media/XM655-diagram.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.1.a – XM655 frequency groupings of compression-mount SMA's__
 
@@ -405,23 +405,23 @@ It is possible to re-work the XM655 at your own risk by replacing the default ba
 
 This approach will bypass the baluns on the XM655 board by bringing out the RF signals via the Carlisle CoreHC2 breakout assembly to external baluns. Two sets of these cable assemblies ship with each ZCU208 kit.  See Page 80 of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd)
 If you need more break-outs than what the two included sets provide, the __Carlisle Core HC2 8 Channel – Male, 3.5 mm TM40-0157-00__ can be ordered from: https://www.digikey.com/en/products/detail/carlisleit/TM40-0157-00/11502992
-<a name="figure-12–Carlisle"></a>
+<a name="figure-Carlisle"></a>
 <img src="./media/Carlisle-Core-cable.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.2.a – Carlisle CoreHC2 8-Channel Male Cable__
 
 The image below shows how two Carlisle assemblies can be plugged into the XM655.
-<a name="figure-13–Carlisle-breakouts"></a>
+<a name="figure-Carlisle-breakouts"></a>
 <img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.2.b – Carlisle break-outs__
 
 ## 5.2 Setting up the Fujikura Type-C PAAM EVB <a name="setting-up-evb"></a>
-<a name="figure-14–Type-C-PAAM-EVB-3d"></a>
+<a name="figure-Type-C-PAAM-EVB-3d"></a>
 <img src="./media/PAAM_EVB_antenna_side_3D.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.2.a – Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side__
-<a name="figure-15–Type-C-PAAM-EVB-and-antenna-side"></a>
+<a name="figure-Type-C-PAAM-EVB-and-antenna-side"></a>
 <img src="./media/Type-C-PAAM-EVB-antenna-side.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 5.2.b – Fujikura Type-C PAAM Evaluation board (EVB) antenna side__
-<a name="figure-16–Type-C-PAAM-EVB-component-side"></a>
+<a name="figure–Type-C-PAAM-EVB-component-side"></a>
 <img src="./media/Type-C-PAAM-EVB-component-side.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 5.2.c – Fujikura Type-C PAAM Evaluation board (EVB) component side__
 
@@ -440,20 +440,20 @@ This document will guide you through the steps for:
 
 Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and Matlab functions.<br>
 The image below outlines the setup that we want to achieve.<br>
-<a name="figure-17–setup-overview"></a>
+<a name="figure-setup-overview"></a>
 <img src="./media/setup-overview.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.3.a – Test setup overview__
 
 ### 5.3.1 Ethernet Connections<a name="ethernet-connections"></a>
 From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.  An Ethernet switch is required so that the connected devices will be on the same sub-net.
-As per the [diagram above](#figure-17–setup-overview), connect the following to an Ethernet switch:
+As per the [diagram above](#figure–setup-overview), connect the following to an Ethernet switch:
 - your PC
 - the ZCU208 - see connector (3) in [Figure 7](#figure-7-amd-zcu208-development-board)
 - the Fujikura Type-C PAAM EVB, using J1 on the MicroZed SOM
 
 ### 5.3.2 Analog Connections<a name="analog-connections"></a>
 The two images below show the compression-mount SMA connectors on the under-side (fan side) of the Type-C PAAM EVB.<br>
-<a name="figure-18–EVB-SMAs"></a>
+<a name="figure-EVB-SMAs"></a>
 <img src="./media/EVB_CN1_2_5_8_9.jpg" style="width:6.5in;height:auto;" />
 
 <img src="./media/EVB_CN3_4.jpg" style="width:6.5in;height:auto;" /><br>
@@ -916,7 +916,7 @@ Example RF synthesizer settings in fractional mode for desired RF frequency
 <img src="./media/image28.png"
 style="width:6.91587in;height:3.72024in" />
 
-<span id="_Toc146045119" class="anchor"></span><a name="figure-renesas-8v97003-int-mode"></a>__Figure A2.b: Renesas 8V97003 RF Synthesizer in Integer Mode
+<span id="_Toc146045119" class="anchor"></span><a name="figure-renesas-8v97003-int-mode"></a>__Figure A2.b: Renesas 8V97003 RF Synthesizer in Integer Mode__
 
 Example RF synthesizer settings in integer mode for desired RF frequency
 = 28 GHz:
