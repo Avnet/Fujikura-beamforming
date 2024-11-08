@@ -8,7 +8,7 @@
 
 <br>
 <span style="color:red; font-size:25px;">Note!!   This document is for the Fujikura Type-C PAAM, not for the now-superseded Task-A/B PAAM.</span><br>
-If you are interested in the Fujikura Task-A/B PAAM documentation, please see the <a href="https://github.com/Avnet/Fujikura-beamforming" style="font-size:25px;">5G mmWave Task-A/B PAAM Development Platform User Guide</a>.<br>
+If you are interested in the Fujikura Task-A/B PAAM documentation, please see the <a href="https://github.com/Avnet/Fujikura-beamforming-TaskAB" style="font-size:25px;">5G mmWave Task-A/B PAAM Development Platform User Guide</a>.<br>
 
 # Document Control
 
@@ -20,7 +20,7 @@ If you are interested in the Fujikura Task-A/B PAAM documentation, please see th
 
 | Version |     | Date         |     | Comment                                               |     |
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
-| 3.0     |     | Nov 05, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
+| 3.0     |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -257,7 +257,7 @@ Explorer.
     PC. Then format it as FAT using a tool like [SD Memory Card Formatter](https://www.sdcard.org/downloads/formatter_4/).
 
 2.  Download the boot image archive zip file from the public repository
-    at [ZCU208 uSD Card](https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.0.0).
+    at [ZCU208 uSD Card](https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.1.1).
 
 3.  Unzip the archive to the root level of the SD card.  
     <img src="./media/image4.png" style="width:1.1875in;height:1.67708in" />
