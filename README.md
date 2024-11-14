@@ -12,15 +12,16 @@ If you are interested in the Fujikura Task-A/B PAAM documentation, please see th
 
 # Document Control
 
-**Document Version:** 3.0
+**Document Version:** 3.0.1
 
-**Document Date:** 10/3/2024
+**Document Date:** 11/14/2024
 
 # Version History
 
 | Version |     | Date         |     | Comment                                               |     |
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
-| 3.0     |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
+| 3.0.0   |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
+| 3.0.1   |     | Nov 14, 2024 |     | Updated screenshots for Type-C PAAM                   |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -720,8 +721,9 @@ Once connected:
 
 2.  Click **<span class="mark">Init</span>** .
 
-3.  RFSoC Explorer should now start using Python scripts and JSON messages to initialize the PAAM. If it cannot communicate with the PAAM, you will get a dialog to apply PAAM EVB power. Make sure that, in addition to the MicroZed's 5V power, the 12V power supply to the PAAM EVB and its fan is also ON so that you can hear the fan and that the row of green LEDs on the antenna-side of the EVB are also on.<BR>
-    Then click **OK** to continue.
+3.  RFSoC Explorer should now start using Python scripts to initialize the PAAM. If it cannot communicate with the PAAM, you will get a dialog to apply PAAM EVB power. Make sure that, in addition to the MicroZed's 5V power, the 12V power supply to the PAAM EVB and its fan is also ON so that you can hear the fan and that the row of green LEDs on the antenna-side of the EVB are also on.<BR>
+    Then click **OK** to continue.<BR>
+    __Note__ that if the MicroZed's USB serial port is connected to a PC, it can be powered and therefore responding.  But if the PAAM's 12V is not also powered, you will get a __Python Error: timeout: timed out__ message in the text box.
 
 <img src="./media/paam-init-power-warning.png" style="width:6.5in;height:auto;" /><br>
 
