@@ -76,8 +76,10 @@ If you are interested in the Fujikura Task-A/B PAAM documentation, please see th
 
 7. [Testing the RFSoC Explorer Digital Interface](#testing-the-rfsoc-explorer-digital-interface)
 
+<!-- This is a comment in Markdown and won't appear in the rendered document. -->
+<!--
     7.1 [ADC and DAC Control Tab ](#adc-and-dac-control-tab)
-
+-->
 8. [Fixture for the Daughtercard](#fixture-for-the-daughtercard)
 
     8.1 [Daughtercard installation on the fixing stand](#daughtercard-installation-on-the-fixing-stand)
@@ -692,21 +694,25 @@ In MATLAB, enter:
 >> Avnet_RFSoC_Explorer('startup', 'board_id', 9)
 ```
 
-This should bring up the RFSoC Explorer GUI. If you have not connected
-to a ZCU208 before, the IP address should be red and “DISCONNECTED", as
-below.
+This should bring up the RFSoC Explorer GUI, starting with the Main Tab. There are two IP addresses that have to be entered, one for the ZCU208 and the other for the MicroZed.  
+- The ZCU208's IP address should be displayed as in the [Completed boot sequence](#figure-ZCU208-booted) figure.<br>
+- The MicroZed's IP address is specified in the "uz_network_settings.txt" file on its Micro SD card.<br>
 
-<img src="./media/image27a.png" style="width:6.5in;height:3.52083in" />
+It may be necessary to modify your default IP address if you need a different network sub-net, for instance.  If, for example, your ZCU208 is on an IP address 192.168.__0__.102, you could use a text editor to modify the MicroZed IP address from the default of 192.168.__1__.10 to 192.168.__0__.10.<br>
+<img src="./media/uz-network-settings.png" style="width:6.5in;height:auto;" /><br>
 
-If you have entered an IP address before, the utility will try to
-connect automatically. If connection was successful, the IP address will
+If you have not connected to a ZCU208 or PAAM EVB before, the IP addresses should be red and “DISCONNECTED", as below.
+
+<img src="./media/ips-all-disconnected.png" style="width:6.5in;height:auto;" /><br>
+
+
+If you have entered an IP address before, the utility will try to connect automatically. If connection was successful, the IP address will
 be black,  
-<img src="./media/image28a.png"
-style="width:3.89142in;height:1.25019in" />  
+<img src="./media/board-ips-both-ok.png" style="width:3.5in;height:auto;" /><br>
+
 and it will be available in the drop-down for future sessions.
 
-<img src="./media/image29a.png"
-style="width:3.84328in;height:1.59395in" />
+<img src="./media/ip-address-drop-down.png" style="width:3.5in;height:auto;" /><br>
 
 Once connected:
 
@@ -728,15 +734,14 @@ Once connected:
 
 <img src="./media/paam-init-success.png" style="width:6.5in;height:auto;" /><br>
 
-6.  You can now make changes to some PAAM controls. In the image below Tx Vertical Polarization is turned on and the DSA value is changed to 5. Note that the **<span class="mark">Send to
+6.  You can now make changes to some PAAM controls. In the image below __Tx Vertical Polarization__ is turned __On__ and the __FCIC IF Attenuator Value__ is changed to 5. Note that the **<span class="mark">Send to
     PAAM</span>** button has turned green. These changes on the GUI will only take effect on the hardware once **Send to PAAM** is clicked.
 
 <img src="./media/send-to-paam1.png" style="width:6.5in;height:auto;" /><br>
 
-7.  Send to PAAM will turn grey again and updated PAAM settings will be
-    displayed in the dialog box, and the image of the PAAM will be updated to show the active elements on the array.
+7.  Send to PAAM will turn grey again and updated PAAM settings will be displayed in the dialog box.  The image of the PAAM will also be updated to show the active elements on the array.
 
-<img src="./media/image34a.png" style="width:6.5in;height:3.52083in" />
+<img src="./media/send-to-paam2.png" style="width:6.5in;height:auto;" /><br>
 
 8. If you wish to see the 2D elevation and azimuth plots or a 3D plot which approximate the beampattern of an array of 5G antenna elements, check the boxes next to the 2D/3D Beam Angle Plot text before sending the settings to the PAAM. 
    
@@ -744,6 +749,8 @@ Once connected:
 
 <img src="./media/image35a.png" style="width:6.5in;height:3.52083in" />
 
+<!-- This is a comment in Markdown and won't appear in the rendered document. -->
+<!--
 ## 7.1 ADC and DAC Control Tab <a name="adc-and-dac-control-tab"></a>
     
 The Fujikura PAAM Daughtercard includes the ability to measure and adjust all system voltage rails by way of onboard ADCs and DACs. The ADC/DAC tab allows for reading ADC values and writing DAC values. As part of a successful initialization of the PAAM by Avnet RFSoC Explorer, default values will be written to enable the DAC channels.
@@ -755,7 +762,7 @@ Each of the rails has a text field in which to enter the desired output voltage,
 > NOTE: Most users will not need to adjust the DAC values.
 
 <img src="./media/fjk-adc-dac-control.PNG" style="width:6.5in;height:3.52083in" />
-
+-->
 # 8) Fixture for the Daughtercard <a name="fixture-for-the-daughtercard"></a>
 
 ## 8.1 Daughtercard installation on the fixing stand <a name="daughtercard-installation-on-the-fixing-stand"></a>
