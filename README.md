@@ -749,7 +749,7 @@ Once connected:
    
     > NOTE: Both the [Phased Array System Toolbox](https://www.mathworks.com/products/phased-array.html) and the [Antenna Toolbox](https://www.mathworks.com/products/antenna.html?s_tid=srchtitle_site_search_2_antenna%2520toolbox) must be installed to create plots.
 
-<img src="./media/image35a.png" style="width:6.5in;height:3.52083in" />
+<img src="./media/beam-angle-plots1.png" style="width:6.5in;height:auto;" /><br>
 
 <!-- This is a comment in Markdown and won't appear in the rendered document. -->
 <!--
