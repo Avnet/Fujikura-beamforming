@@ -40,6 +40,8 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
     1.5 [Suggested Setup Sequence](#suggested-setup-sequence)
 
+2. [Setting up the Fujikura Type-C PAAM EVB](#setting-up-evb")
+
 3. [AMD ZCU208 Evaluation Board](#zcu208-board)
 
     3.1 [uSD Card Preparation](#usd-card-preparation)
@@ -59,8 +61,6 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
     5.1.1 [XM655 balun replacement](#xm655-balun-replacement)
 
     5.1.2 [Using a Carlisle CoreHC2 breakout assembly](#carlisle-core)
-
-    5.2 [Setting up the Fujikura Type-C PAAM EVB](#setting-up-evb")
 
     5.3 [Connecting the Type-C PAAM EVB to the ZCU208](#connecting-paam-evb-and-zcu208)
 
