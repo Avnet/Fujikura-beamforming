@@ -14,9 +14,9 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 # Document Control
 
-**Document Version:** 3.0.1
+**Document Version:** 3.0.2
 
-**Document Date:** 11/14/2024
+**Document Date:** 11/08/2025
 
 # Version History
 
@@ -24,34 +24,37 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
 | 3.0.0   |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 | 3.0.1   |     | Nov 14, 2024 |     | Updated screenshots for Type-C PAAM                   |     |
+| 3.0.2   |     | Dec 05, 2024 |     | Added new setup sequence with PAAM first              |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
 1. [Overview](#1-overview)
 
-    1.1. [The AMD ZCU208 RFSoC evaluation kit](#overview-zcu208-kit)
+    1.1 [The AMD ZCU208 RFSoC evaluation kit](#overview-zcu208-kit)
 
-    1.2. [The Fujikura Type-C PAAM Evaluation Board (EVB)](#overview-paam-evb)
+    1.2 [The Fujikura Type-C PAAM Evaluation Board (EVB)](#overview-paam-evb)
 
-    1.3. [Beam Switching using the Fujikura Type-C PAAM](#overview-beam-switching)
+    1.3 [Beam Switching using the Fujikura Type-C PAAM](#overview-beam-switching)
 
-    1.4. [Multiple PAAM control](#multiple-paam-control)
+    1.4 [Multiple PAAM control](#multiple-paam-control)
 
-2. [AMD ZCU208 Evaluation Board](#zcu208-board)
+    1.5 [Suggested Setup Sequence](#suggested-setup-sequence)
 
-3. [uSD Card Preparation](#usd-card-preparation)
+3. [AMD ZCU208 Evaluation Board](#zcu208-board)
+
+    3.1 [uSD Card Preparation](#usd-card-preparation)
 
 4. [Connecting the ZCU208 to your PC](#connecting-the-zcu208-to-your-pc)
 
-    4.1. [Serial Port Connection](#41-serial-port-connection)
+    4.1 [Serial Port Connection](#41-serial-port-connection)
 
-    4.2. [Getting the IP Address](#42-getting-the-ip-address)
+    4.2 [Getting the IP Address](#42-getting-the-ip-address)
 
-    4.3. [Setting a Static IP Address](#43-setting-a-static-ip-address)
+    4.3 [Setting a Static IP Address](#43-setting-a-static-ip-address)
 
-5. [Connecting to the Fujikura Type-C PAAM](#connecting-the-fujikura-paam)
+5. [Connecting the ZCU208 to the Fujikura Type-C PAAM](#connecting-the-fujikura-paam)
     
-    5.1. [Breaking out the ZCU208 RF signals using the AMD XM655](#breaking-out-xm655)
+    5.1 [Breaking out the ZCU208 RF signals using the AMD XM655](#breaking-out-xm655)
 
     5.1.1 [XM655 balun replacement](#xm655-balun-replacement)
 
@@ -67,13 +70,14 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
     5.3.3 [Sync Trigger Connections](#sync-trigger-connections)
 
-    5.4. [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
+    5.4 [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
 
+<!-- This is a comment in Markdown and won't appear in the rendered document.
     5.5. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
-
+-->
 6. [Installing MATLAB and Avnet RFSoC Explorer®](#installing-matlab-and-avnet-rfsoc-explorer)
 
-    6.1. [Setting up Python Support in Matlab](#setting-up-python-support-in-matlab)
+    6.1 [Setting up Python Support in Matlab](#setting-up-python-support-in-matlab)
    
     6.1.1 [Setting the Python version in MATLAB](#setting-the-python-version-in-matlab)
 
@@ -83,17 +87,21 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 <!--
     7.1 [ADC and DAC Control Tab ](#adc-and-dac-control-tab)
 -->
+<!-- This is a comment in Markdown and won't appear in the rendered document.
 8. [Fixture for the Daughtercard](#fixture-for-the-daughtercard)
 
     8.1 [Daughtercard installation on the fixing stand](#daughtercard-installation-on-the-fixing-stand)
 
-9. [Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range](#over-the-air-testing)
+-->
+8. [Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range](#over-the-air-testing)
 
-10. [Appendix 1 - Not Used: Using the CLK-104 Module](#using-the-clk-104-module)
+9. [Appendix 1 - Not Used: Using the CLK-104 Module](#using-the-clk-104-module)
 
+<!-- This is a comment in Markdown and won't appear in the rendered document.
 11. [Appendix 2 - Not Used: Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer)
 
-12. [Terminology](#terminology)
+-->
+10. [Terminology](#terminology)
 
 # Figures
 
@@ -111,7 +119,19 @@ Figure 1.3.b – [Fast beam switching using the Fujikura Type-C PAAM](#figure-ty
 
 Figure 1.4.a – [Using 4 Fujikura Type-C PAAMs with one ZCU208](#figure-type-c-multiple-paams)
 
-Figure 2.a – [AMD ZCU208 Evaluation Board](#figure-amd-zcu208-development-board)
+Figure 1.5.a – [Two separate development kits](#figure-setup-stages)
+
+Figure 1.5.a – [Combined setup](#figure-setup-combined)
+
+Figure 2.a – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-Type-C-PAAM-EVB-3d)
+
+Figure 2.b – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figure-Type-C-PAAM-EVB-and-antenna-side)
+
+Figure 2.c – [Fujikura Type-C PAAM Evaluation board (EVB) component side (no MicroZed)](#figure–Type-C-PAAM-EVB-component-side)
+
+Figure 2.d – [Fujikura Type-C PAAM Evaluation board (EVB) component side (with MicroZed SOM mounted)](#figure–Type-C-PAAM-EVB-component-side-with-microzed)
+
+Figure 3.a – [AMD ZCU208 Evaluation Board](#figure-amd-zcu208-development-board)
 
 Figure 4.1.a – [Completed boot sequence](#figure-ZCU208-booted)
 
@@ -121,15 +141,9 @@ Figure 5.1.b – [XM655 attached to the ZCU208](#figure-zcu208-with-xm655)
 
 Figure 5.1.1.a – [XM655 frequency groupings of compression-mount SMA's](#figure-zcu208-with-xm655)
 
+Figure 5.1.1.b – [Carlisle break-outs](#figure-Carlisle-breakouts)
+
 Figure 5.1.2.a – [Carlisle CoreHC2 8-Channel Male Cable](#figure-Carlisle)
-
-Figure 5.1.2.b – [Carlisle break-outs](#figure-Carlisle-breakouts)
-
-Figure 5.2.a – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-Type-C-PAAM-EVB-3d)
-
-Figure 5.2.b – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figure-Type-C-PAAM-EVB-and-antenna-side)
-
-Figure 5.2.c – [Fujikura Type-C PAAM Evaluation board (EVB) component side](#figure–Type-C-PAAM-EVB-component-side)
 
 Figure 5.3.a – [Test setup overview](#figure–setup-overview)
 
@@ -227,27 +241,97 @@ The ZCU208 and each MicroZed will be assigned a separate IP address.  The diagra
 <img src="./media/type-c-multiple-paams.png" style="width:6.5in;height:auto;" /><br>
 __Figure 1.4.a – Using 4 Fujikura Type-C PAAMs with one ZCU208__
 
-# 2) AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
+## 1.5 Suggested Setup Sequence <a name="suggested-setup-sequence"></a>
+
+In this user guide the user is guided through the steps of hardware and software setup so that he/she can start using the Fujikura Type-C PAAM with TRIA's __RFSoC Explorer__ tool.
+
+The image below shows two separate development kits.
+
+(1) is the Fujikura Type-C EVB (Evaluation Board).  Detailed instructions for setting it up can be obtained from Fujikura after signing an NDA.  They also provide a set of Python scripts that demonstrate the various PAAM capabilities.  In this setup, the IF signals will be provided via a signal generator and received signals will be displayed on test equipment.<br>
+
+(2) is an RFSoC development setup that consists of the the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) combined with TRIA's [__RFSoC Explorer__](https://www.mathworks.com/rfsoc) tool wherein MATLAB ® functions can be used to generate waveforms and to display the received signals.<br>
+
+(3) is a set of cabled interconnections so that connects 
+- the ZCU208's RFSoC DAC outputs to the IF inputs of the Type-C PAAM EVB 
+- the IF outputs of the Type-C PAAM EVB to the ZCU208's RFSoC ADC inputs
+
+__Note__ that using the Fujikura Python scripts for PAAM evaluation as in (1) above could be useful for experimentation, but that it is not necessary in order to complete the instructions in this guide.  __RFSoC Explorer__ leverages those Python functions directly.
+
+<a name="figure-setup-stages"></a><br>
+<img src="./media/setup-stages.png" style="width:6.5in;height:auto;" /><br>
+__Figure 1.5.a – Two separate development kits__
+
+Once combined, the setup is as below.  
+
+<a name="figure-setup-combined"></a><br>
+<img src="./media/setup-overview-no-photos.png" style="width:6.5in;height:auto;" /><br>
+__Figure 1.5.b – Combined setup__
+
+# 2) Setting up the Fujikura Type-C PAAM EVB <a name="setting-up-evb"></a>
+
+If you have signed the required Non-disclorure Agreement (NDA), Fujikura will provide you with access to a download location for the documentation, datasheets and user guide for the Fujikura Type C PAAM Evaluation board (EVB).  
+If you have not signed the NDA yet but are interested in more detail on Fujikura PAAMs, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
+
+Once you have access to the Fujikura documentation, please follow the steps outlined in their user manual, __"User manual of the evaluation board: 28 GHz Phased Array Antenna Module"__.
+This document will guide you through the steps for:
+- Providing the EVB with power
+- Connecting digital control to a host computer
+- Connecting a Local Oscillator (LO)
+- Connecting Signal Generator and Signal Analyzer to operate in either transmit or receive mode
+- Running various Python scrips on the host to exercise these modes and to demonstrate the various PAAM features
+
+__Note__ that using the Fujikura Python scripts for PAAM evaluation could be useful for experimentation, but that it is not necessary in order to complete the instructions in this guide.<br>
+__RFSoC Explorer__ will be used to control the PAAM
+
+The images below show various views of the Fujikura Type-C PAAM EVB.
+
+<a name="figure-Type-C-PAAM-EVB-3d"></a>
+<img src="./media/PAAM_EVB_antenna_side_3D.png" style="width:6.5in;height:auto;" /><br>
+__Figure 2.a – Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side__<br>
+
+<a name="figure-Type-C-PAAM-EVB-and-antenna-side"></a>
+<img src="./media/Type-C-PAAM-EVB-antenna-side.jpg" style="width:6.5in;height:auto;" /><br>
+__Figure 2.b – Fujikura Type-C PAAM Evaluation board (EVB) antenna side__<br>
+
+<a name="figure–Type-C-PAAM-EVB-component-side"></a>
+<img src="./media/Type-C-PAAM-EVB-component-side.jpg" style="width:6.5in;height:auto;" /><br>
+__Figure 2.c – Fujikura Type-C PAAM Evaluation board (EVB) component side (no MicroZed)__<br>
+
+<a name="figure–Type-C-PAAM-EVB-component-side-with-microzed"></a>
+<img src="./media/Fujikura-TypeC-EVB-top-view-background.jpg" style="width:6.5in;height:auto;" /><br>
+__Figure 2.d – Fujikura Type-C PAAM Evaluation board (EVB) component side (with MicroZed SOM mounted)__<br>
+
+# 3) AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
 
 For instructions on setting up the ZCU208, please refer to the [ZCU208 User Guide](https://docs.xilinx.com/v/u/en-US/ug1410-zcu208-eval-bd) and
 the guide for [ZCU208 Software Install and Board Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
-Some relevant components for the instructions below are marked in this diagram.
+
+Note that for the purposes of this user guide, some sections in the documents mentioned above can be skipped:
+- Skip the installation of AMD tools such as Vitis, Vivado, SDK, HL, etc.
+- Attach the XM655 (not the XM650 as described in the guide)
+- Set S2 for booting from Micro SD card
+- If the ZCU208 is connected to a DHCP router, skip the Ethernet setup
+- Skip the Optional Hardware configuration steps
+
+Some relevant components for the instructions below are marked in this diagram.<br>
+
 <a name="figure-amd-zcu208-development-board"></a>
-<img src="./media/zcu208-development-board.png" style="width:6.5in;height:auto;" /><br>
-__Figure 2.a – AMD ZCU208 Evaluation Board__
+<img src="./media/zcu208-development-board-with-xm655-background.png" style="width:6.5in;height:auto;" /><br>
+__Figure 3.a – AMD ZCU208 Evaluation Board__
 
-<span class="mark">  
-(1)</span> Marks the uSD card slot J23
+<span class="mark">(1)</span> Marks the uSD card slot J23
 
-<span class="mark">(2)</span> Marks the micro USB Type B serial cable
-connector J24 that goes to the PC
+<span class="mark">(2)</span> Marks the micro USB Type B serial cable connector J24 that goes to the PC
 
 <span class="mark">(3)</span> Marks the Ethernet cable connector P1
 
 <span class="mark">(4)</span> Marks the power connector J50 and
+
 <span class="mark">(5)</span> marks the power ON/OFF switch SW15
 
-# 3) uSD Card Preparation <a name="usd-card-preparation"></a>
+<span class="mark">(6)</span> marks the [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that allows access to the ZCU208 RFSoC's ADC and DAC signals
+
+## 3.1 uSD Card Preparation <a name="usd-card-preparation"></a>
 
 A Micro SD (uSD) card ships with the ZCU208. A different uSD card can be
 used, but it is important to know that some uSD cards do not work well
@@ -271,7 +355,7 @@ Explorer.
 4.  Safely eject the SD card from the PC and replace it in the J23 slot
     on the ZCU208.
 
-#  4 Connecting the ZCU208 to your PC <a name="connecting-the-zcu208-to-your-pc"></a>
+# 4) Connecting the ZCU208 to your PC <a name="connecting-the-zcu208-to-your-pc"></a>
 
 ## 4.1 Serial Port Connection <a name="41-serial-port-connection"></a>
 
@@ -341,6 +425,11 @@ __Figure 4.1.a – Completed boot sequence__
 
 ## 4.3 Setting a Static IP Address <a name="43-setting-a-static-ip-address"></a>
 
+The image below outlines the setup that we want to achieve.<br>
+<a name="figure-setup-overview"></a>
+<img src="./media/setup-overview-no-photos.png" style="width:6.5in;height:auto;" /><br>
+__Test setup overview__
+
 1.  If you intend to connect the ZCU208 to an Ethernet port on your PC
     directly, you may have to edit the **autostart.sh** file on the
     ZCU208’s uSD card first.
@@ -375,7 +464,7 @@ __Figure 4.1.a – Completed boot sequence__
 <img src="./media/image15.jpeg"
 style="width:4.16389in;height:4.73889in" />
 
-#  5 Connecting to the Fujikura Type-C PAAM <a name="connecting-the-fujikura-paam"></a>
+# 5) Connecting the ZCU208 to the Fujikura Type-C PAAM <a name="connecting-the-fujikura-paam"></a>
 
 ## 5.1 Breaking out the ZCU208 RF signals using the AMD XM655<a name="breaking-out-xm655"></a>
 The [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) allows access to the ZCU208 RFSoC's ADC and DAC signals.
@@ -391,8 +480,10 @@ The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connect
 <img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.b – XM655 attached to the ZCU208__
 
-### 5.1.1 XM655 balun replacement<a name="xm655-balun-replacement"></a>
-The XM655 standalone baluns (that connect to teh SMA connectors) and different band pass filters allow for [2 channel connections in each of these 4 bands](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/769228974/XM650+XM655+and+CLK104+Add-On+Cards+Hardware+Description#:~:text=Guide%20(UG1410).-,XM655%20Breakout%20Add%2DOn%20Card,-The%20XM655%20add):
+The XM655 enables access to RF-ADC and RF-DAC signals differentially or single-ended. For convenience, this tutorial uses single-ended connections. As you will see, this limits the number of IF signals available.  An alternative methodology, using differential connection to the XM655, is also described to enable connection to all RF-ADC and RF-DAC channels, but requires additional external equipment.
+
+### 5.1.1 Single-ended IF connection to XM655 baluns<a name="xm655-balun-replacement"></a>
+The XM655 includes baluns to convert differential RF signals from the ZCU208 to single-ended by way of various SMA connections. Different baluns on the XM655 have different band pass filter responses. Only a subset of baluns have a filter response suitable to pass 4.9GHz IF signals to/from the Fujikura PAAM evaluation board. The available baluns allow for [2 channel connections in each of these 4 bands](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/769228974/XM650+XM655+and+CLK104+Add-On+Cards+Hardware+Description#:~:text=Guide%20(UG1410).-,XM655%20Breakout%20Add%2DOn%20Card,-The%20XM655%20add):
 - Low:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10MHz - 1GHz uses Minicircuits TCM2-33WX+ balun
 - Mid-Low:&nbsp;&nbsp;1GHz - 4GHz uses Anaren BD1631J50100AHF balun
 - Mid-High:&nbsp;__4GHz - 5GHz__ uses Anaren BD3150N50100AHF balun
@@ -405,9 +496,17 @@ __Figure 5.1.1.a – XM655 frequency groupings of compression-mount SMA's__
 
 As the Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz), the XM655 standard baluns will only allow for the use of the 2 Mid-High connectors and possibly the 2 High connectors.
 
-It is possible to re-work the XM655 at your own risk by replacing the default baluns and you will have to verify that there is pin-for-pin compatibility for swapping in the different replacements. This may be the cheapest option. 
+The image below shows a two RF-DAC and two RF-ADC connections to XM655 4-5MHz baluns using the Carlisle ganged cables that are included in the ZCU208 kit.
+<a name="figure-Carlisle-breakouts"></a>
+<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
+__Figure 5.1.1.b – Carlisle break-outs__
 
-### 5.1.2 Using a Carlisle CoreHC2 breakout assembly<a name="carlisle-core"></a>
+<!-- This is a comment in Markdown and won't appear in the rendered document.
+It is possible to re-work the XM655 at your own risk by replacing the default baluns and you will have to verify that there is pin-for-pin compatibility for swapping in the different replacements. This may be the cheapest option. 
+-->
+### 5.1.2 Differential IF connection with XM655 Carlisle cables<a name="carlisle-core"></a>
+
+The number of 4-5 GHz baluns on the XM655 limits single-ended connections to support only a single Fujikura PAAM (1TX h/v and 1RX h/v). However, an alternative methodology is available using differential connections to the XM655. In this configuration the RF-ADC and RF-DAC differential signals can be connected from the Carlisle ganged connector to external equipment to convert to single-ended within the IF range of the Fujikura PAAM.
 
 This approach will bypass the baluns on the XM655 board by bringing out the RF signals via the Carlisle CoreHC2 breakout assembly to external baluns. Two sets of these cable assemblies ship with each ZCU208 kit.  See Page 80 of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd)
 If you need more break-outs than what the two included sets provide, the __Carlisle Core HC2 8 Channel – Male, 3.5 mm TM40-0157-00__ can be ordered from: https://www.digikey.com/en/products/detail/carlisleit/TM40-0157-00/11502992
@@ -415,44 +514,17 @@ If you need more break-outs than what the two included sets provide, the __Carli
 <img src="./media/Carlisle-Core-cable.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.2.a – Carlisle CoreHC2 8-Channel Male Cable__
 
-The image below shows how two Carlisle assemblies can be plugged into the XM655.
-<a name="figure-Carlisle-breakouts"></a>
-<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5.1.2.b – Carlisle break-outs__
-
-## 5.2 Setting up the Fujikura Type-C PAAM EVB <a name="setting-up-evb"></a>
-<a name="figure-Type-C-PAAM-EVB-3d"></a>
-<img src="./media/PAAM_EVB_antenna_side_3D.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5.2.a – Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side__
-<a name="figure-Type-C-PAAM-EVB-and-antenna-side"></a>
-<img src="./media/Type-C-PAAM-EVB-antenna-side.jpg" style="width:6.5in;height:auto;" /><br>
-__Figure 5.2.b – Fujikura Type-C PAAM Evaluation board (EVB) antenna side__
-<a name="figure–Type-C-PAAM-EVB-component-side"></a>
-<img src="./media/Type-C-PAAM-EVB-component-side.jpg" style="width:6.5in;height:auto;" /><br>
-__Figure 5.2.c – Fujikura Type-C PAAM Evaluation board (EVB) component side__
-
-If you have signed the required Non-disclorure Agreement (NDA), Fujikura will provide you with access to a download location for the documentation, datasheets and user guide for the Fujikura Type C PAAM Evaluation board (EVB).  
-If you are have not signed the NDA yet but are interested in more detail on Fujikura PAAMs, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
-
-Once you have access to the documentation, please follow the steps outlined in the user manual, __"User manual of the evaluation board: 28 GHz Phased Array Antenna Module"__.
-This document will guide you through the steps for:
-- Providing the EVB with power
-- Connecting digital control to a host computer
-- Connecting a Local Oscillator (LO)
-- Connecting Signal Generator and Signal Analyzer to operate in either transmit or receive mode
-- Running various Python scrips on the host to exercise these modes and to demonstrate the various PAAM features
-
 ## 5.3 Connecting the Type-C PAAM EVB to the ZCU208 <a name="connecting-paam-evb-and-zcu208"></a>
 
-Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and Matlab functions.<br>
+Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and MATLAB functions.<br>
 The image below outlines the setup that we want to achieve.<br>
 <a name="figure-setup-overview"></a>
 <img src="./media/setup-overview.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.3.a – Test setup overview__
 
 ### 5.3.1 Ethernet Connections<a name="ethernet-connections"></a>
-From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.  An Ethernet switch is required so that the connected devices will be on the same sub-net.
-As per the [diagram above](#figure–setup-overview), connect the following to an Ethernet switch:
+From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.  An Ethernet router is required so that the connected devices will be on the same sub-net.
+As per the [diagram above](#figure–setup-overview), connect the following to an Ethernet router:
 - your PC
 - the ZCU208 - see connector (3) in [Figure 7](#figure-7-amd-zcu208-development-board)
 - the Fujikura Type-C PAAM EVB, using J1 on the MicroZed SOM
@@ -508,6 +580,7 @@ TBD
 
 TBD
 
+<!-- This is a comment in Markdown and won't appear in the rendered document.
 ##  5.5 Using the C# Test GUI (optional) <a name="using-the-c-test-gui-optional"></a>
 
 Avnet created a custom test utility that can be used to verify that the
@@ -569,8 +642,9 @@ Un-checked boxes mean that the status is unknown. If you close the GUI
 and re-start it, you can request the ZCU208 status by clicking the
 **Read Status** button. If a value was previously set, it should show in
 the GUI.
+-->
 
-#  6 Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
+# 6) Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
 
 Avnet RFSoC Explorer provides native connection to MATLAB ® and Simulink
 ®, featuring graphical control of the platform and intuitive APIs for
@@ -754,20 +828,7 @@ Once connected:
 
 <img src="./media/beam-angle-plots1.png" style="width:6.5in;height:auto;" /><br>
 
-<!-- This is a comment in Markdown and won't appear in the rendered document. -->
-<!--
-## 7.1 ADC and DAC Control Tab <a name="adc-and-dac-control-tab"></a>
-    
-The Fujikura PAAM Daughtercard includes the ability to measure and adjust all system voltage rails by way of onboard ADCs and DACs. The ADC/DAC tab allows for reading ADC values and writing DAC values. As part of a successful initialization of the PAAM by Avnet RFSoC Explorer, default values will be written to enable the DAC channels.
-
-After successfully initializing the Fujikura PAAM daughtercard, the "Read ADCs" button will turn red, indicating that the ADC channels are available for reading. Reading the ADC values before initialization will not guarantee correct readback.
-
-Each of the rails has a text field in which to enter the desired output voltage, which will then send a command to the app running on the AMD Zynq RFSoC Processing Subsystem (PS) to set the appropriate trim value.
-
-> NOTE: Most users will not need to adjust the DAC values.
-
-<img src="./media/fjk-adc-dac-control.PNG" style="width:6.5in;height:3.52083in" />
--->
+<!-- This is a comment in Markdown and won't appear in the rendered document.
 # 8) Fixture for the Daughtercard <a name="fixture-for-the-daughtercard"></a>
 
 ## 8.1 Daughtercard installation on the fixing stand <a name="daughtercard-installation-on-the-fixing-stand"></a>
@@ -804,8 +865,8 @@ for blue circle or 0.75 N·m for yellow circle**.
 CAUTION
 
 The radio waves emitted from the PAAM may have a negative effect on the human body, so do not stand within a 1 m radius in front of the PAAM while radio waves are being emitted.
-
-# 9) Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range (CATR) <a name="over-the-air-testing"></a>
+-->
+# 8) Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range (CATR) <a name="over-the-air-testing"></a>
 
 Over-the-air testing was conducted with [Rohde & Schwarz ATS800B compact antenna test range (CATR)](https://www.rohde-schwarz.com/ca/products/test-and-measurement/antenna-test-systems-and-ota-chambers/rs-ats800b-catr-benchtop-antenna-test-system_63493-642314.html)
 
@@ -834,7 +895,7 @@ Learn more:
 - [IMS2023 San Diego with Fabrício Dourado, application engineer at Rohde & Schwarz](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/)
 - [Prototype 5G FR2 with the AMD Zynq™ RFSoC DFE and mmWave Phased Array](https://www.microwavejournal.com/events/2250-prototype-5g-fr2-with-the-amd-zynq-rfsoc-dfe-and-mmwave-phased-array)
 
-# 10) Appendix 1 - Not Used: Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
+# 9) Appendix 1 - Not Used: Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
 The ZCU208 kit includes a CLK-104 module that plugs into J101. There are
 a few clock sources on this module and the LMK04828 output is available
 as OUTPUT_REF on the J10 SMA connector. This can be connected to the PLL
@@ -886,6 +947,7 @@ Place this file in the folder
 
 <span id="_Toc146045117" class="anchor"></span><a name="figure-board-ui-clk104"></a>__Figure A1.a – Board User Interface to the CLK-104 Module__
 
+<!-- This is a comment in Markdown and won't appear in the rendered document.
 # 11) Appendix 2 - Not Used: Renesas 8V97003 18 GHz RF Synthesizer <a name="renesas-8v97003-18-ghz-rf-synthesizer"></a>
 
 The Fujikura PAAM Daughtercard can connect an external signal through
@@ -941,7 +1003,8 @@ Example RF synthesizer settings in integer mode for desired RF frequency
 | *IF Frequency*             | 3.42400 GHz | Adjusted by RFSoC Explorer for desired RF frequency   |
 | *VCO Frequency*            | 6.14400 GHz | Calculated by RFSoC Explorer for desired RF frequency |
 
-# 12) Terminology <a name="terminology"></a>
+-->
+# 10) Terminology <a name="terminology"></a>
 
 | **Term** | **Definition**                                                                 |
 |----------|--------------------------------------------------------------------------------|
