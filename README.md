@@ -42,7 +42,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 2. [Setting up the Fujikura Type-C PAAM EVB](#setting-up-evb")
 
-3. [AMD ZCU208 Evaluation Board](#zcu208-board)
+3. [Setting up the AMD ZCU208 Evaluation Board](#zcu208-board)
 
     3.1 [uSD Card Preparation](#usd-card-preparation)
 
@@ -105,7 +105,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 # Figures
 
-Figure 1.a – [ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM](#figure-ZCU208-with-XM655-and-generic-PAAM)
+Figure 1.a – [ZCU208 5G Development Platform with XM655 and a generic Fujikura PAAM](#figure-ZCU208-with-XM655-and-generic-PAAM)
 
 Figure 1.1.a – [ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards](#figure-ZCU208-with-XM655-clk104)
 
@@ -163,7 +163,7 @@ Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/u
 
 <a name="figure-ZCU208-with-XM655-and-generic-PAAM"></a>
 <img src="./media/ZCU208_and_PAAM.png" style="width:6.5in;height:auto;" /><br>
-__Figure 1.a – ZCU208 5G Development Platform with XM655 and a generic Fijikura PAAM__
+__Figure 1.a – ZCU208 5G Development Platform with XM655 and a generic Fujikura PAAM__
 
 ## 1.1 The AMD ZCU208 RFSoC evaluation kit <a name="overview-zcu208-kit"></a>
 AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html):
@@ -178,7 +178,7 @@ AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](
 
 The image below shows the ZCU208 with
 - A [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that breaks out the ADC and DAC signals to multiple SMA connectors
-- A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.<br>
+- A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.  __Note__ that the setup described in this user guide for the Fujikura Type-C PAAM does not require that the CLK-104 card be mounted or used.<br>
 <a name="figure-ZCU208-with-XM655-clk104"></a>
 <img src="./media/ZCU208withXM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 1.1.a – ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards__
@@ -249,7 +249,7 @@ The image below shows two separate development kits.
 
 (1) is the Fujikura Type-C EVB (Evaluation Board).  Detailed instructions for setting it up can be obtained from Fujikura after signing an NDA.  They also provide a set of Python scripts that demonstrate the various PAAM capabilities.  In this setup, the IF signals will be provided via a signal generator and received signals will be displayed on test equipment.<br>
 
-(2) is an RFSoC development setup that consists of the the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) combined with TRIA's [__RFSoC Explorer__](https://www.mathworks.com/rfsoc) tool wherein MATLAB ® functions can be used to generate waveforms and to display the received signals.<br>
+(2) is an RFSoC development setup that consists of the the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) combined with TRIA's [__RFSoC Explorer__](https://www.mathworks.com/rfsoc) tool wherein MATLAB® functions can be used to generate waveforms and to display the received signals.<br>
 
 (3) is a set of cabled interconnections so that connects 
 - the ZCU208's RFSoC DAC outputs to the IF inputs of the Type-C PAAM EVB 
@@ -301,7 +301,7 @@ __Figure 2.c – Fujikura Type-C PAAM Evaluation board (EVB) component side (no 
 <img src="./media/Fujikura-TypeC-EVB-top-view-background.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 2.d – Fujikura Type-C PAAM Evaluation board (EVB) component side (with MicroZed SOM mounted)__<br>
 
-# 3) AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
+# 3) Setting up the AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
 
 For instructions on setting up the ZCU208, please refer to the [ZCU208 User Guide](https://docs.xilinx.com/v/u/en-US/ug1410-zcu208-eval-bd) and
 the guide for [ZCU208 Software Install and Board Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
@@ -496,7 +496,7 @@ __Figure 5.1.1.a – XM655 frequency groupings of compression-mount SMA's__
 
 As the Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz), the XM655 standard baluns will only allow for the use of the 2 Mid-High connectors and possibly the 2 High connectors.
 
-The image below shows a two RF-DAC and two RF-ADC connections to XM655 4-5MHz baluns using the Carlisle ganged cables that are included in the ZCU208 kit.
+The image below shows a two RF-DAC and two RF-ADC connections to XM655 4-5MHz baluns using the Carlisle ganged cables that are included in the ZCU208 kit.<br>
 <a name="figure-Carlisle-breakouts"></a>
 <img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.1.b – Carlisle break-outs__
@@ -559,12 +559,12 @@ DAC Tile 229 Chan 0 p/n wired to XM655 balun 4-5 GHz (J10, J12), which has an ou
 <img src="./media/XM655_DAC_balun_example.png" style="width:6.5in;height:auto;" /><br>
 ADC Tile 224 Chan 0 p/n wired to XM655 balun 4-5 GHz (J2, J6), which has an input on J4.<br>
 
-See the image below for the typical tile assignments in RFSoC Explorer.<br>
+See the image below for the typical tile assignments in RFSoC Explorer.  This is just for information, as the RFSoC Explorer tool, in which tile assignments are done, is only described [later](#installing-matlab-and-avnet-rfsoc-explorer).<br>
 <a name="figure-Tiles-for-4p9Ghz"></a>
 <img src="./media/Tiles-for-4p9Ghz-IF.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.3.2.b – Typical tile assignments in RFSoC Explorer__
 
-8.  First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
+4.  First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
 
 __NOTE__
 \* Do not touch the PAAM surface. If the antenna is scratched, the expected performance may not be achieved.
@@ -646,9 +646,8 @@ the GUI.
 
 # 6) Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
 
-Avnet RFSoC Explorer provides native connection to MATLAB ® and Simulink
-®, featuring graphical control of the platform and intuitive APIs for
-programmatic access.
+Avnet RFSoC Explorer provides native connection to MATLAB® and Simulink®, featuring graphical control of the platform and intuitive APIs for
+programmatic access.<br>
 
 <img src="./media/image25.jpeg" style="width:6.5in;height:3.15in" />
 
@@ -784,6 +783,8 @@ If you have not connected to a ZCU208 or PAAM EVB before, the IP addresses shoul
 <img src="./media/ips-all-disconnected.png" style="width:6.5in;height:auto;" /><br>
 
 
+__Note__ that you can connect independently to the PAAM without connection to the ZCU208 if desired.  All the functions on the "Fujikura PAAM" tab are independent of the RFSoC functions on the ZCU208.<br>
+
 If you have entered an IP address before, the utility will try to connect automatically. If connection was successful, the IP address will
 be black,  
 <img src="./media/board-ips-both-ok.png" style="width:3.5in;height:auto;" /><br>
@@ -824,7 +825,7 @@ Once connected:
 
 8. If you wish to see the 2D elevation and azimuth plots or a 3D plot which approximate the beampattern of an array of 5G antenna elements, check the boxes next to the 2D/3D Beam Angle Plot text before sending the settings to the PAAM. 
    
-    > NOTE: Both the [Phased Array System Toolbox](https://www.mathworks.com/products/phased-array.html) and the [Antenna Toolbox](https://www.mathworks.com/products/antenna.html?s_tid=srchtitle_site_search_2_antenna%2520toolbox) must be installed to create plots.
+    > NOTE: Both the [MATLAB Phased Array Toolbox](https://www.mathworks.com/products/phased-array.html) and the [MATLAB Antenna Toolbox](https://www.mathworks.com/products/antenna.html?s_tid=srchtitle_site_search_2_antenna%2520toolbox) must be installed to create plots.
 
 <img src="./media/beam-angle-plots1.png" style="width:6.5in;height:auto;" /><br>
 
