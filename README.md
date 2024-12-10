@@ -62,15 +62,15 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
     5.1.2 [Using a Carlisle CoreHC2 breakout assembly](#carlisle-core)
 
-    5.3 [Connecting the Type-C PAAM EVB to the ZCU208](#connecting-paam-evb-and-zcu208)
+    5.2 [Connecting the Type-C PAAM EVB to the ZCU208](#connecting-paam-evb-and-zcu208)
 
-    5.3.1 [Ethernet Connections](#ethernet-connections)
+    5.2.1 [Ethernet Connections](#ethernet-connections)
 
-    5.3.2 [Analog Connections](#analog-connections)
+    5.2.2 [Analog Connections](#analog-connections)
 
-    5.3.3 [Sync Trigger Connections](#sync-trigger-connections)
+    5.2.3 [Sync Trigger Connections](#sync-trigger-connections)
 
-    5.4 [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
+    5.3 [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
 
 <!-- This is a comment in Markdown and won't appear in the rendered document.
     5.5. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
@@ -141,15 +141,15 @@ Figure 5.1.b – [XM655 attached to the ZCU208](#figure-zcu208-with-xm655)
 
 Figure 5.1.1.a – [XM655 frequency groupings of compression-mount SMA's](#figure-zcu208-with-xm655)
 
-Figure 5.1.1.b – [Carlisle break-outs](#figure-Carlisle-breakouts)
+Figure 5.1.2.a – [Carlisle break-outs](#figure-Carlisle-breakouts)
 
-Figure 5.1.2.a – [Carlisle CoreHC2 8-Channel Male Cable](#figure-Carlisle)
+Figure 5.1.2.b – [Carlisle CoreHC2 8-Channel Male Cable](#figure-Carlisle)
 
-Figure 5.3.a – [Test setup overview](#figure–setup-overview)
+Figure 5.2.a – [Test setup overview](#figure–setup-overview)
 
-Figure 5.3.2.a – [Fujikura Type-C PAAM EVB SMA connectors](#figure–EVB-SMAs)
+Figure 5.2.2.a – [Fujikura Type-C PAAM EVB SMA connectors](#figure–EVB-SMAs)
 
-Figure 5.3.2.b – [Typical tile assignments in RFSoC Explorer](#figure-Tiles-for-4p9Ghz)
+Figure 5.2.2.b – [Typical tile assignments in RFSoC Explorer](#figure-Tiles-for-4p9Ghz)
 
 Figure A1.a – [Board User Interface to the CLK-104 Module](#figure-board-ui-clk104)
 
@@ -158,6 +158,8 @@ Figure A2.a – [Renesas 8V97003 RF Synthesizer in Fractional Mode](#figure-rene
 Figure A2.b – [Renesas 8V97003 RF Synthesizer in Integer Mode](#figure-renesas-8v97003-int-mode)
 
 # 1) Overview <a name="1-overview"></a>
+
+This document guides you through the steps of assembling the hardware, installing the required software, and configuring the platform for initial TX and RX over-the-air (OTA) tests. Avnet RFSoC Explorer Toolbox for MATLAB will be used as an all-in-one application for programming the platform using either the intuitive GUI for visual configuration, or the powerful API for scripting.
 
 Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/) combines the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) with the Fujikura Type-C PAAM.
 
@@ -496,11 +498,6 @@ __Figure 5.1.1.a – XM655 frequency groupings of compression-mount SMA's__
 
 As the Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz), the XM655 standard baluns will only allow for the use of the 2 Mid-High connectors and possibly the 2 High connectors.
 
-The image below shows a two RF-DAC and two RF-ADC connections to XM655 4-5MHz baluns using the Carlisle ganged cables that are included in the ZCU208 kit.<br>
-<a name="figure-Carlisle-breakouts"></a>
-<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5.1.1.b – Carlisle break-outs__
-
 <!-- This is a comment in Markdown and won't appear in the rendered document.
 It is possible to re-work the XM655 at your own risk by replacing the default baluns and you will have to verify that there is pin-for-pin compatibility for swapping in the different replacements. This may be the cheapest option. 
 -->
@@ -510,33 +507,39 @@ The number of 4-5 GHz baluns on the XM655 limits single-ended connections to sup
 
 This approach will bypass the baluns on the XM655 board by bringing out the RF signals via the Carlisle CoreHC2 breakout assembly to external baluns. Two sets of these cable assemblies ship with each ZCU208 kit.  See Page 80 of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd)
 If you need more break-outs than what the two included sets provide, the __Carlisle Core HC2 8 Channel – Male, 3.5 mm TM40-0157-00__ can be ordered from: https://www.digikey.com/en/products/detail/carlisleit/TM40-0157-00/11502992
+
+The image below shows two RF-DAC and two RF-ADC connections to XM655 4-5MHz baluns using the Carlisle ganged cables that are included in the ZCU208 kit.<br>
+<a name="figure-Carlisle-breakouts"></a>
+<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
+__Figure 5.1.2.a – Carlisle break-outs__
+
 <a name="figure-Carlisle"></a>
 <img src="./media/Carlisle-Core-cable.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5.1.2.a – Carlisle CoreHC2 8-Channel Male Cable__
+__Figure 5.1.2.b – Carlisle CoreHC2 8-Channel Male Cable__
 
-## 5.3 Connecting the Type-C PAAM EVB to the ZCU208 <a name="connecting-paam-evb-and-zcu208"></a>
+## 5.2 Connecting the Type-C PAAM EVB to the ZCU208 <a name="connecting-paam-evb-and-zcu208"></a>
 
 Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and MATLAB functions.<br>
 The image below outlines the setup that we want to achieve.<br>
 <a name="figure-setup-overview"></a>
 <img src="./media/setup-overview.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5.3.a – Test setup overview__
+__Figure 5.2.a – Test setup overview__
 
-### 5.3.1 Ethernet Connections<a name="ethernet-connections"></a>
+### 5.2.1 Ethernet Connections<a name="ethernet-connections"></a>
 From the host PC, digital control for the ZCU208 and the Fujikura PAAM is done via Ethernet.  An Ethernet router is required so that the connected devices will be on the same sub-net.
 As per the [diagram above](#figure–setup-overview), connect the following to an Ethernet router:
 - your PC
 - the ZCU208 - see connector (3) in [Figure 7](#figure-7-amd-zcu208-development-board)
 - the Fujikura Type-C PAAM EVB, using J1 on the MicroZed SOM
 
-### 5.3.2 Analog Connections<a name="analog-connections"></a>
+### 5.2.2 Analog Connections<a name="analog-connections"></a>
 The two images below show the compression-mount SMA connectors on the under-side (fan side) of the Type-C PAAM EVB.<br>
 <a name="figure-EVB-SMAs"></a>
 <img src="./media/EVB_CN1_2_5_8_9.jpg" style="width:6.5in;height:auto;" />
 
 <img src="./media/EVB_CN3_4.jpg" style="width:6.5in;height:auto;" /><br>
 
-__Figure 5.3.2.a – Fujikura Type-C PAAM EVB SMA connectors__
+__Figure 5.2.2.a – Fujikura Type-C PAAM EVB SMA connectors__
 
 Use SMA cables and follow the instructions below:
 
@@ -562,7 +565,7 @@ ADC Tile 224 Chan 0 p/n wired to XM655 balun 4-5 GHz (J2, J6), which has an inpu
 See the image below for the typical tile assignments in RFSoC Explorer.  This is just for information, as the RFSoC Explorer tool, in which tile assignments are done, is only described [later](#installing-matlab-and-avnet-rfsoc-explorer).<br>
 <a name="figure-Tiles-for-4p9Ghz"></a>
 <img src="./media/Tiles-for-4p9Ghz-IF.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5.3.2.b – Typical tile assignments in RFSoC Explorer__
+__Figure 5.2.2.b – Typical tile assignments in RFSoC Explorer__
 
 4.  First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
 
@@ -573,10 +576,10 @@ __NOTE__
 
 \*\*\*Incorrect connection will short the power supply.
 
-### 5.3.3 Sync Trigger Connections<a name="sync-trigger-connections"></a>
+### 5.2.3 Sync Trigger Connections<a name="sync-trigger-connections"></a>
 TBD
 
-##  5.4 Connecting the Analog Path and Instruments <a name="connecting-the-analog-path-and-instruments"></a>
+##  5.3 Connecting the Analog Path and Instruments <a name="connecting-the-analog-path-and-instruments"></a>
 
 TBD
 
@@ -768,9 +771,15 @@ ans =
 
 In MATLAB, enter:
 ```
+>> Avnet_RFSoC_Explorer('startup')
+```
+and select the highlighted option below.<br>
+<img src="./media/startup-popup-menu.png" style="width:6.5in;height:auto;" /><br>
+
+Or, alternatively, enter:
+```
 >> Avnet_RFSoC_Explorer('startup', 'board_id', 9)
 ```
-
 This should bring up the RFSoC Explorer GUI, starting with the Main Tab. There are two IP addresses that have to be entered, one for the ZCU208 and the other for the MicroZed.  
 - The ZCU208's IP address should be displayed as in the [Completed boot sequence](#figure-ZCU208-booted) figure.<br>
 - The MicroZed's IP address is specified in the "uz_network_settings.txt" file on its Micro SD card.<br>
