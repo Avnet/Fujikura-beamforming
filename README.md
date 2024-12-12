@@ -24,7 +24,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
 | 3.0.0   |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 | 3.0.1   |     | Nov 14, 2024 |     | Updated screenshots for Type-C PAAM                   |     |
-| 3.0.2   |     | Dec 05, 2024 |     | Added new setup sequence with PAAM first              |     |
+| 3.0.2   |     | Dec 12, 2024 |     | Added new setup sequence with PAAM first              |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -44,7 +44,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 3. [Setting up the AMD ZCU208 Evaluation Board](#zcu208-board)
 
-    3.1 [uSD Card Preparation](#usd-card-preparation)
+    3.1 [ZCU208 uSD Card Preparation](#usd-card-preparation)
 
 4. [Connecting the ZCU208 to your PC](#connecting-the-zcu208-to-your-pc)
 
@@ -52,7 +52,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
     4.2 [Getting the IP Address](#42-getting-the-ip-address)
 
-    4.3 [Setting a Static IP Address](#43-setting-a-static-ip-address)
+    4.3 [Setting a Static IP Address (optional)](#43-setting-a-static-ip-address)
 
 5. [Connecting the ZCU208 to the Fujikura Type-C PAAM](#connecting-the-fujikura-paam)
     
@@ -229,11 +229,11 @@ As is shown in the diagram below, three beam-switching modes are currently suppo
 __Figure 1.3.b – Fast beam switching using the Fujikura Type-C PAAM__
 
 
-Note: For detail on the mechanism outlined above, as well as for PAAM datasheets and characterization information, an NDA is required.  To request such an NDA, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
+ > Note: For detail on the mechanism outlined above, as well as for PAAM datasheets and characterization information, an NDA is required.  To request such an NDA, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
 
 ## 1.4 Multiple PAAM control <a name="multiple-paam-control"></a>
 
-__Note: Version 3.2. of RFSoC Explorer does not support Multiple PAAMs yet, but that functionality is under way and will be coming soon.__
+ > __Note: Version 3.2. of RFSoC Explorer does not support Multiple PAAMs yet, but that functionality is under way and will be coming soon.__
 Each Type-C PAAM allows for a Horizontal (H) and a Vertical (V) channel for both transmit (Tx) and receive (Rx).  So we have TX_H, TX_V, RX_H and RX_V.
 The ZCU208 provides 8 RFSoC DAC channels and 8 RFSoc ADC channels.
 Since each PAAM has 2 Tx and 2 Rx connections, we can connect 4 PAAM EVBs to one ZCU208 EVB.  Keep in mind that each signal is assumed to be single-ended.  So the differential signals will have to be converted to single-ended, using baluns.  This is discussed in [Breaking out the ZCU208 RF signals using the AMD XM655](#"breaking-out-xm655").
@@ -245,19 +245,19 @@ __Figure 1.4.a – Using 4 Fujikura Type-C PAAMs with one ZCU208__
 
 ## 1.5 Suggested Setup Sequence <a name="suggested-setup-sequence"></a>
 
-In this user guide the user is guided through the steps of hardware and software setup so that he/she can start using the Fujikura Type-C PAAM with TRIA's __RFSoC Explorer__ tool.
+In this user guide, the reader is guided through the steps of hardware and software setup with the goal of using the Fujikura Type-C PAAM with TRIA's __RFSoC Explorer__ tool.
 
 The image below shows two separate development kits.
 
-(1) is the Fujikura Type-C EVB (Evaluation Board).  Detailed instructions for setting it up can be obtained from Fujikura after signing an NDA.  They also provide a set of Python scripts that demonstrate the various PAAM capabilities.  In this setup, the IF signals will be provided via a signal generator and received signals will be displayed on test equipment.<br>
+(1) is the Fujikura Type-C EVB (Evaluation Board).  Detailed instructions for setting it up can be obtained from Fujikura after signing an NDA.  Contact us at rfinfo@avnet.com to learn more about the NDA process.  They also provide a set of Python scripts that demonstrate the various PAAM capabilities.  In this setup, the IF signals will be provided via a signal generator and received signals will be displayed on test equipment.<br>
 
-(2) is an RFSoC development setup that consists of the the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) combined with TRIA's [__RFSoC Explorer__](https://www.mathworks.com/rfsoc) tool wherein MATLAB® functions can be used to generate waveforms and to display the received signals.<br>
+(2) is an RFSoC development setup that consists of the the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) combined with TRIA's [__RFSoC Explorer__](www.avnet.me/rfsoc-explorer) tool wherein MATLAB® functions can be used to generate waveforms and to display the received signals.<br>
 
-(3) is a set of cabled interconnections so that connects 
+(3) is a set of cabled interconnections that connects 
 - the ZCU208's RFSoC DAC outputs to the IF inputs of the Type-C PAAM EVB 
 - the IF outputs of the Type-C PAAM EVB to the ZCU208's RFSoC ADC inputs
 
-__Note__ that using the Fujikura Python scripts for PAAM evaluation as in (1) above could be useful for experimentation, but that it is not necessary in order to complete the instructions in this guide.  __RFSoC Explorer__ leverages those Python functions directly.
+ > __Note__ that using the Fujikura Python scripts for PAAM evaluation as in (1) above could be useful for experimentation, but that it is not necessary in order to complete the instructions in this guide.  __RFSoC Explorer__ leverages those Python functions directly.
 
 <a name="figure-setup-stages"></a><br>
 <img src="./media/setup-stages.png" style="width:6.5in;height:auto;" /><br>
@@ -275,12 +275,12 @@ If you have signed the required Non-disclorure Agreement (NDA), Fujikura will pr
 If you have not signed the NDA yet but are interested in more detail on Fujikura PAAMs, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
 
 Once you have access to the Fujikura documentation, please follow the steps outlined in their user manual, __"User manual of the evaluation board: 28 GHz Phased Array Antenna Module"__.
-This document will guide you through the steps for:
+That manual provides guidance on the following steps:
 - Providing the EVB with power
 - Connecting digital control to a host computer
 - Connecting a Local Oscillator (LO)
 - Connecting Signal Generator and Signal Analyzer to operate in either transmit or receive mode
-- Running various Python scrips on the host to exercise these modes and to demonstrate the various PAAM features
+- Running various Python scrips on the host to exercise these modes and to demonstrate the various PAAM features (optional)
 
 __Note__ that using the Fujikura Python scripts for PAAM evaluation could be useful for experimentation, but that it is not necessary in order to complete the instructions in this guide.<br>
 __RFSoC Explorer__ will be used to control the PAAM
@@ -333,7 +333,7 @@ __Figure 3.a – AMD ZCU208 Evaluation Board__
 
 <span class="mark">(6)</span> marks the [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that allows access to the ZCU208 RFSoC's ADC and DAC signals
 
-## 3.1 uSD Card Preparation <a name="usd-card-preparation"></a>
+## 3.1 ZCU208 uSD Card Preparation <a name="usd-card-preparation"></a>
 
 A Micro SD (uSD) card ships with the ZCU208. A different uSD card can be
 used, but it is important to know that some uSD cards do not work well
@@ -425,39 +425,42 @@ __Figure 4.1.a – Completed boot sequence__
 4. From a Command Prompt on your PC, verify that you can connect to the ZCU208 by pinging the IP address above.<br>
    <img src="./media/image11.png" style="width:6.2958in;height:2.00645in" />
 
-## 4.3 Setting a Static IP Address <a name="43-setting-a-static-ip-address"></a>
+## 4.3 Setting a Static IP Address (optional) <a name="43-setting-a-static-ip-address"></a>
 
 The image below outlines the setup that we want to achieve.<br>
 <a name="figure-setup-overview"></a>
 <img src="./media/setup-overview-no-photos.png" style="width:6.5in;height:auto;" /><br>
 __Test setup overview__
 
-1.  If you intend to connect the ZCU208 to an Ethernet port on your PC
-    directly, you may have to edit the **autostart.sh** file on the
-    ZCU208’s uSD card first.
+In the setup above, [as is described later](#figure-uz-network-settings), the MicroZed will have an IP address that is specified in the "uz_network_settings.txt" file on its Micro SD card.
+If you would prefer to also specify the IP address of the ZCU208, or if for separate development you want to connect the ZCU208 directly to your PC to work only on it directly, you may have to edit the **autostart.sh** file on the ZCU208’s uSD card first.
 
-2.  Power the ZCU208 off using SW15 and remove the uSD card from its
+<a name="figure-zcu208-connected-directly-to-pc"></a>
+<img src="./media/zcu208-connected-directly-to-pc.png" style="width:6.5in;height:auto;" /><br>
+__ZCU208 connected directly to the PC__
+
+1.  Power the ZCU208 off using SW15 and remove the uSD card from its
     slot, J23.
 
-3.  Insert the uSD card into your PC and open **autostart.sh** in a text
+2.  Insert the uSD card into your PC and open **autostart.sh** in a text
     editor.  
-    Note: **Make sure you are using a Linux-compatible editor like
+     > Note: **Make sure you are using a Linux-compatible editor like
     Notepad++ so that lines are terminated with a LF character only**.
 
-4.  Set **USE_DHCP=false**  
+3.  Set **USE_DHCP=false**  
     <img src="./media/image12.png"
     style="width:5.16389in;height:0.54444in" />
 
-5.  Safely eject the SD card from the PC and replace it in the J23 slot
+4.  Safely eject the SD card from the PC and replace it in the J23 slot
     on the ZCU208 and turn the ZCU208 power switch SW15 ON
 
-6.  The application auto-start function creates an IP connection for the
+5.  The application auto-start function creates an IP connection for the
     board at an address like 169.254.10.2. To use a different IP
     address, simply modify the IPADDR field in the autostart.sh file.  
     <img src="./media/image13.png"
     style="width:5.94792in;height:0.39583in" />
 
-7.  Set a static IP for your host PC’s Local Ethernet adapter. Make sure
+6.  Set a static IP for your host PC’s Local Ethernet adapter. Make sure
     your PC and the board are on the same subnet and gateway. See the
     example below.
 
@@ -785,6 +788,7 @@ This should bring up the RFSoC Explorer GUI, starting with the Main Tab. There a
 - The MicroZed's IP address is specified in the "uz_network_settings.txt" file on its Micro SD card.<br>
 
 It may be necessary to modify your default IP address if you need a different network sub-net, for instance.  If, for example, your ZCU208 is on an IP address 192.168.__0__.102, you could use a text editor to modify the MicroZed IP address from the default of 192.168.__1__.10 to 192.168.__0__.10.<br>
+<a name="figure-uz-network-settings"></a>
 <img src="./media/uz-network-settings.png" style="width:6.5in;height:auto;" /><br>
 
 If you have not connected to a ZCU208 or PAAM EVB before, the IP addresses should be red and “DISCONNECTED", as below.
@@ -792,7 +796,7 @@ If you have not connected to a ZCU208 or PAAM EVB before, the IP addresses shoul
 <img src="./media/ips-all-disconnected.png" style="width:6.5in;height:auto;" /><br>
 
 
-__Note__ that you can connect independently to the PAAM without connection to the ZCU208 if desired.  All the functions on the "Fujikura PAAM" tab are independent of the RFSoC functions on the ZCU208.<br>
+__Note__ that you can connect independently to the PAAM without connection to the ZCU208 if desired.  All the functions on the __Fujikura PAAM__ tab are independent of the RFSoC functions on the ZCU208.<br>
 
 If you have entered an IP address before, the utility will try to connect automatically. If connection was successful, the IP address will
 be black,  
