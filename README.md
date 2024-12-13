@@ -535,6 +535,7 @@ The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connect
 __Figure 5.1.b – XM655 attached to the ZCU208__
 
 The CLK-104 card can be attached to the ZCU208 by plugging it into the CLK104 module connector, J101, and then securing it with 3 through-hole screws.<br>
+Please refer to the [Appendix on using the CLK-104 Module](#using-the-clk-104-module) for more information.<br>
 
 <a name="figure-zcu208-with-xm655-and-clk104"></a>
 <img src="./media/ZCU208withXM655-rotated.jpg" style="width:6.5in;height:auto;" /><br>
