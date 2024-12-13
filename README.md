@@ -523,18 +523,18 @@ style="width:4.16389in;height:4.73889in" />
 ## 5.1 Breaking out the ZCU208 RF signals using the AMD XM655<a name="breaking-out-xm655"></a>
 The [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) allows access to the ZCU208 RFSoC's ADC and DAC signals.
 It also allows for 20 DACIO and 20 ADCIO digital I/O pins on a header strip.  Note that __for the ZCU208 only 16 DACIO and 16 ADCIO signals__ are connected to the Zynq device.
-See Appendix C of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd) for details.
+See Appendix C of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd) for details.<br>
 <a name="figure-xm655"></a>
 <img src="./media/XM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.a – AMD's XM655 plug-in card__
 
-The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connectors, J87 and J82, and then securing it with 4 through-hole screws.
+The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connectors, J87 and J82, and then securing it with 4 through-hole screws.<br>
 
 <a name="figure-zcu208-with-xm655"></a>
 <img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.b – XM655 attached to the ZCU208__
 
-The CLK-104 card can be attached to the ZCU208 by plugging it into the CLK104 module connector, J101, and then securing it with 3 through-hole screws.
+The CLK-104 card can be attached to the ZCU208 by plugging it into the CLK104 module connector, J101, and then securing it with 3 through-hole screws.<br>
 
 <a name="figure-zcu208-with-xm655-and-clk104"></a>
 <img src="./media/ZCU208withXM655-rotated.jpg" style="width:6.5in;height:auto;" /><br>
