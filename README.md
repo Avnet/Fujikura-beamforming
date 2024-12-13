@@ -138,7 +138,7 @@ Figure 2.c – [Fujikura Type-C PAAM Evaluation board (EVB) component side (no M
 
 Figure 2.d – [Fujikura Type-C PAAM Evaluation board (EVB) component side (with MicroZed SOM mounted)](#figure–Type-C-PAAM-EVB-component-side-with-microzed)
 
-Figure 2.1.a – [MicroZed power-on LEDs](#figure–MicroZed-power-on LEDs)
+Figure 2.1.a – [MicroZed power-on LEDs](#figure–MicroZed-power-on-LEDs)
 
 Figure 3.a – [AMD ZCU208 Evaluation Board](#figure-amd-zcu208-development-board)
 
@@ -320,8 +320,8 @@ __Figure 2.d – Fujikura Type-C PAAM Evaluation board (EVB) component side (wit
 
 2.  Copy the __BOOT.bin__ file and the __uz_network_settings.txt__ file onto the MicroZed uSD card.
 
-3.  When you replace the MicroZed uSD card in the slot underneath the serial port connector J2 and power up the EVB, the LED's should match the image below.  Importantly, the blue __DONE__ LED will indicate that the configuration was correctly loaded from the uSD card.  If not, confirm that you boot mode jumpers matches the picture, as per the [MicroZed Getting Started Guide](https://www.avnet.com/wps/wcm/connect/onesite/0f5bc224-0117-44b3-a3f4-23bb1f7da3c0/MicroZed_GettingStarted_v1_2.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_NA5A1I41L0ICD0ABNDMDDG0000-0f5bc224-0117-44b3-a3f4-23bb1f7da3c0-nDjeywa)<br>
-<a name="figure–MicroZed-power-on LEDs"></a>
+3.  When you replace the MicroZed uSD card in the slot underneath the serial port connector J2 and power up the EVB, the LED's should match the image below.  Importantly, the blue __DONE__ LED will indicate that the configuration was correctly loaded from the uSD card.  If not, confirm that you boot mode jumpers matches the picture, as per the [MicroZed Getting Started Guide](https://www.avnet.com/wps/wcm/connect/onesite/0f5bc224-0117-44b3-a3f4-23bb1f7da3c0/MicroZed_GettingStarted_v1_2.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE).<br>
+<a name="figure–MicroZed-power-on-LEDs"></a>
 <img src="./media/microzed-powerup-leds.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 2.1.a – MicroZed power-on LEDs__<br>
 
