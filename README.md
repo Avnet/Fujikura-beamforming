@@ -19,7 +19,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 **Document Version:** 3.0.2
 
-**Document Date:** 11/08/2025
+**Document Date:** 12/13/2025
 
 # Version History
 
@@ -27,7 +27,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
 | 3.0.0   |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 | 3.0.1   |     | Nov 14, 2024 |     | Updated screenshots for Type-C PAAM                   |     |
-| 3.0.2   |     | Dec 12, 2024 |     | Added new setup sequence with PAAM first              |     |
+| 3.0.2   |     | Dec 13, 2024 |     | Added new setup sequence with PAAM first              |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -147,6 +147,8 @@ Figure 4.1.a – [Completed boot sequence](#figure-ZCU208-booted)
 Figure 5.1.a – [AMD's XM655 plug-in card](#figure-xm655)
 
 Figure 5.1.b – [XM655 attached to the ZCU208](#figure-zcu208-with-xm655)
+
+Figure 5.1.c – [Both CLK-104 card and XM655 attached to the ZCU208](#figure-zcu208-with-xm655-and-clk104)
 
 Figure 5.1.1.a – [XM655 frequency groupings of compression-mount SMA's](#figure-zcu208-with-xm655)
 
@@ -363,7 +365,7 @@ Note that for the purposes of this user guide, some sections in the documents me
 Some relevant components for the instructions below are marked in this diagram.<br>
 
 <a name="figure-amd-zcu208-development-board"></a>
-<img src="./media/zcu208-development-board-with-xm655-background.png" style="width:6.5in;height:auto;" /><br>
+<img src="./media/ZCU208withXM655andCLK104-balloons-grey.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 3.a – AMD ZCU208 Evaluation Board__
 
 <span class="mark">(1)</span> Marks the uSD card slot J23
@@ -377,6 +379,9 @@ __Figure 3.a – AMD ZCU208 Evaluation Board__
 <span class="mark">(5)</span> marks the power ON/OFF switch SW15
 
 <span class="mark">(6)</span> marks the [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that allows access to the ZCU208 RFSoC's ADC and DAC signals
+
+<span class="mark">(7)</span> marks the [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) that provides an ultra low-noise, wideband RF clock source for the RFSoC data converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices
+
 
 ## 3.1 ZCU208 uSD Card Preparation <a name="zcu208-usd-card-preparation"></a>
 
@@ -528,6 +533,12 @@ The XM655 can be attached to the ZCU208 by plugging it into the two RFMC connect
 <a name="figure-zcu208-with-xm655"></a>
 <img src="./media/ZCU208-with-XM655.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.1.b – XM655 attached to the ZCU208__
+
+The CLK-104 card can be attached to the ZCU208 by plugging it into the CLK104 module connector, J101, and then securing it with 3 through-hole screws.
+
+<a name="figure-zcu208-with-xm655-and-clk104"></a>
+<img src="./media/ZCU208withXM655-rotated.jpg" style="width:6.5in;height:auto;" /><br>
+__Figure 5.1.c – Both CLK-104 card and XM655 attached to the ZCU208__
 
 The XM655 enables access to RF-ADC and RF-DAC signals differentially or single-ended. For convenience, this tutorial uses single-ended connections. As you will see, this limits the number of IF signals available.  An alternative methodology, using differential connection to the XM655, is also described to enable connection to all RF-ADC and RF-DAC channels, but requires additional external equipment.
 
