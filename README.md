@@ -1,3 +1,6 @@
+<!-- This is the location for the latest release binaries. -->
+[fujikura-typeC-paam-release-location]: https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.1.1
+
 <table class="sphinxhide" width="100%">
  <tr width="100%">
     <td align="center"><img src="./media/TRIA-Color-CMYK.png" width="40%"/><h1><img src="./media/Fujikura_logo.png" width="30%"/><h1>
@@ -42,15 +45,19 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 2. [Setting up the Fujikura Type-C PAAM EVB](#setting-up-evb")
 
+    2.1 [MicroZed uSD Card Preparation](#microzed-usd-card-preparation)
+
+    2.2 [Setting the MicroZed IP Address](#microzed-setting-ip-address)
+
 3. [Setting up the AMD ZCU208 Evaluation Board](#zcu208-board)
 
-    3.1 [ZCU208 uSD Card Preparation](#usd-card-preparation)
+    3.1 [ZCU208 uSD Card Preparation](#zcu208-usd-card-preparation)
 
 4. [Connecting the ZCU208 to your PC](#connecting-the-zcu208-to-your-pc)
 
-    4.1 [Serial Port Connection](#41-serial-port-connection)
+    4.1 [Serial Port Connection](#serial-port-connection)
 
-    4.2 [Getting the IP Address](#42-getting-the-ip-address)
+    4.2 [Getting the IP Address](#getting-the-ip-address)
 
     4.3 [Setting a Static IP Address (optional)](#43-setting-a-static-ip-address)
 
@@ -95,7 +102,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 -->
 8. [Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range](#over-the-air-testing)
 
-9. [Appendix 1 - Not Used: Using the CLK-104 Module](#using-the-clk-104-module)
+9. [Appendix 1 - Using the CLK-104 Module](#using-the-clk-104-module)
 
 <!-- This is a comment in Markdown and won't appear in the rendered document.
 11. [Appendix 2 - Not Used: Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer)
@@ -121,7 +128,7 @@ Figure 1.4.a – [Using 4 Fujikura Type-C PAAMs with one ZCU208](#figure-type-c-
 
 Figure 1.5.a – [Two separate development kits](#figure-setup-stages)
 
-Figure 1.5.a – [Combined setup](#figure-setup-combined)
+Figure 1.5.b – [Integrated PAAM control with RFSoC Explorer](#figure-setup-combined)
 
 Figure 2.a – [Fujikura Type-C PAAM Evaluation board (EVB) with cooling fan attached to the under-side](#figure-Type-C-PAAM-EVB-3d)
 
@@ -130,6 +137,8 @@ Figure 2.b – [Fujikura Type-C PAAM Evaluation board (EVB) antenna side](#figur
 Figure 2.c – [Fujikura Type-C PAAM Evaluation board (EVB) component side (no MicroZed)](#figure–Type-C-PAAM-EVB-component-side)
 
 Figure 2.d – [Fujikura Type-C PAAM Evaluation board (EVB) component side (with MicroZed SOM mounted)](#figure–Type-C-PAAM-EVB-component-side-with-microzed)
+
+Figure 2.1.a – [MicroZed power-on LEDs](#figure–MicroZed-power-on LEDs)
 
 Figure 3.a – [AMD ZCU208 Evaluation Board](#figure-amd-zcu208-development-board)
 
@@ -141,7 +150,7 @@ Figure 5.1.b – [XM655 attached to the ZCU208](#figure-zcu208-with-xm655)
 
 Figure 5.1.1.a – [XM655 frequency groupings of compression-mount SMA's](#figure-zcu208-with-xm655)
 
-Figure 5.1.2.a – [Carlisle break-outs](#figure-Carlisle-breakouts)
+Figure 5.1.1.b – [Carlisle break-outs](#figure-Carlisle-breakouts)
 
 Figure 5.1.2.b – [Carlisle CoreHC2 8-Channel Male Cable](#figure-Carlisle)
 
@@ -180,7 +189,8 @@ AMD's ZCU208 Zynq UltraScale+ RFSoC evaluation kit features the [ZU48DR device](
 
 The image below shows the ZCU208 with
 - A [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that breaks out the ADC and DAC signals to multiple SMA connectors
-- A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.  __Note__ that the setup described in this user guide for the Fujikura Type-C PAAM does not require that the CLK-104 card be mounted or used.<br>
+- A [CLK-104 add-on card](https://docs.amd.com/r/en-US/ug1437-clk104) designed for use with Zynq® UltraScale+™ RFSoC Gen3 ZCU216 and ZCU208 evaluation boards. It provides an ultra low-noise, wideband RF clock source for the analog-to-digital and digital-to-ananlog converters (ADCs and DACs).  The clock distribution PLL provides the low frequency reference clock for the integrated PLL of RFSoC devices.<br>
+
 <a name="figure-ZCU208-with-XM655-clk104"></a>
 <img src="./media/ZCU208withXM655.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 1.1.a – ZCU208 5G Development Platform with XM655 and CLK-104 plug-in cards__
@@ -267,7 +277,7 @@ Once combined, the setup is as below.
 
 <a name="figure-setup-combined"></a><br>
 <img src="./media/setup-overview-no-photos.png" style="width:6.5in;height:auto;" /><br>
-__Figure 1.5.b – Combined setup__
+__Figure 1.5.b – Integrated PAAM control with RFSoC Explorer__
 
 # 2) Setting up the Fujikura Type-C PAAM EVB <a name="setting-up-evb"></a>
 
@@ -303,7 +313,42 @@ __Figure 2.c – Fujikura Type-C PAAM Evaluation board (EVB) component side (no 
 <img src="./media/Fujikura-TypeC-EVB-top-view-background.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 2.d – Fujikura Type-C PAAM Evaluation board (EVB) component side (with MicroZed SOM mounted)__<br>
 
-# 3) Setting up the AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
+## 2.1 MicroZed uSD Card Preparation <a name="microzed-usd-card-preparation"></a>
+
+1.  Download the __MicroZed.TypeC.uSD.Card__ zip archive from the [public uSD Card release repository](fujikura-typeC-paam-release-location).<br>
+ > Be aware that this is not necessarily the latest MicroZed firmware. It is the MicroZed firmware with which the latest realease of __RFSoC Explorer__ has been tested.  The latest firmware for the MicroZed should always be obtained from your Fujikura repository, which is provided by Fujikura after NDA.
+
+2.  Copy the __BOOT.bin__ file and the __uz_network_settings.txt__ file onto the MicroZed uSD card.
+
+3.  When you replace the MicroZed uSD card in the slot underneath the serial port connector J2 and power up the EVB, the LED's should match the image below.  Importantly, the blue __DONE__ LED will indicate that the configuration was correctly loaded from the uSD card.  If not, confirm that you boot mode jumpers matches the picture, as per the [MicroZed Getting Started Guide](https://www.avnet.com/wps/wcm/connect/onesite/0f5bc224-0117-44b3-a3f4-23bb1f7da3c0/MicroZed_GettingStarted_v1_2.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_NA5A1I41L0ICD0ABNDMDDG0000-0f5bc224-0117-44b3-a3f4-23bb1f7da3c0-nDjeywa)<br>
+<a name="figure–MicroZed-power-on LEDs"></a>
+<img src="./media/microzed-powerup-leds.jpg" style="width:6.5in;height:auto;" /><br>
+__Figure 2.1.a – MicroZed power-on LEDs__<br>
+
+4.  The firmware versions reported should match what is shown in the release notes at the [public uSD Card release repository](fujikura-typeC-paam-release-location).  So When you power up the MicroZed, on the serial port terminal you should see something like this:<br>
+```bash
+ - - - - - - - - -
+Zynq PS design 0, ver 0.3.1; ed30b045 Timestamp 2024.10.29 11:01:05
+Zynq PL design 0, ver 0.3.0; 2bb0a924 Timestamp 2024.07.05 10:36:36
+Start PHY autonegotiation
+Waiting for PHY to complete autonegotiation.
+autonegotiation complete
+link speed for phy address 0: 100
+unable to determine type of EMAC with baseaddress 0xE000B000
+Clk Wizard init: Clk_in = 100.000 MHz, Clk_out = 100.000 MHz
+Clk_out = Clk_in * m / ( d * o ) = 100.000 MHz * 10 / ( 1 * 10 );
+TCP server started, IP = 192.168.1.10, Port = 50007
+```
+
+## 2.2 Setting the MicroZed IP Address <a name="microzed-setting-ip-address"></a>
+
+The MicroZed's IP address is specified in the __uz_network_settings.txt__ file on its Micro SD card.<br>
+
+It may be necessary to modify your default IP address if you need a different network sub-net, for instance.  If, for example, your ZCU208 is on an IP address 192.168.__0__.102, you could use a text editor to modify the MicroZed IP address from the default of 192.168.__1__.10 to 192.168.__0__.10.<br>
+<a name="figure-uz-network-settings"></a>
+<img src="./media/uz-network-settings.png" style="width:6.5in;height:auto;" /><br>
+
+ # 3) Setting up the AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
 
 For instructions on setting up the ZCU208, please refer to the [ZCU208 User Guide](https://docs.xilinx.com/v/u/en-US/ug1410-zcu208-eval-bd) and
 the guide for [ZCU208 Software Install and Board Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
@@ -333,7 +378,7 @@ __Figure 3.a – AMD ZCU208 Evaluation Board__
 
 <span class="mark">(6)</span> marks the [XM655 plug-in card](https://docs.amd.com/r/en-US/ug1390-zcu216-eval-bd/XM650/XM655-Balun-Add-on-Cards-for-RFSoC-EVM) that allows access to the ZCU208 RFSoC's ADC and DAC signals
 
-## 3.1 ZCU208 uSD Card Preparation <a name="usd-card-preparation"></a>
+## 3.1 ZCU208 uSD Card Preparation <a name="zcu208-usd-card-preparation"></a>
 
 A Micro SD (uSD) card ships with the ZCU208. A different uSD card can be
 used, but it is important to know that some uSD cards do not work well
@@ -348,9 +393,8 @@ Explorer.
 1.  Remove the SD card from slot J23 on the ZCU208 and insert into your
     PC. Then format it as FAT using a tool like [SD Memory Card Formatter](https://www.sdcard.org/downloads/formatter_4/).
 
-2.  Download the boot image archive zip file from the public repository
-    at [ZCU208 uSD Card](https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.1.1).
-
+2.  Download the ZCU208 boot image archive zip file from the [public uSD Card release repository](fujikura-typeC-paam-release-location).
+    
 3.  Unzip the archive to the root level of the SD card.  
     <img src="./media/image4.png" style="width:1.1875in;height:1.67708in" />
 
@@ -359,7 +403,7 @@ Explorer.
 
 # 4) Connecting the ZCU208 to your PC <a name="connecting-the-zcu208-to-your-pc"></a>
 
-## 4.1 Serial Port Connection <a name="41-serial-port-connection"></a>
+## 4.1 Serial Port Connection <a name="serial-port-connection"></a>
 
 Connect a micro USB Type B to USB Type A serial comms cable between J24
 on the ZCU208 and a USB port on your PC.
@@ -411,7 +455,7 @@ In summary:
 <span id="_Ref141963341" class="anchor"></span>
 __Figure 4.1.a – Completed boot sequence__
 
-## 4.2 Getting the IP Address <a name="42-getting-the-ip-address"></a>
+## 4.2 Getting the IP Address <a name="getting-the-ip-address"></a>
 
 1.  Connect an Ethernet cable from P1 on the ZCU208 to the local network
     that your PC is on.
@@ -501,6 +545,12 @@ __Figure 5.1.1.a – XM655 frequency groupings of compression-mount SMA's__
 
 As the Fujikura Type C PAAM operates at 4.9GHz IF (4.3 to 5.5GHz), the XM655 standard baluns will only allow for the use of the 2 Mid-High connectors and possibly the 2 High connectors.
 
+
+The image below shows two RF-DAC and two RF-ADC connections to XM655 4-5MHz baluns using the Carlisle ganged cables that are included in the ZCU208 kit.<br>
+<a name="figure-Carlisle-breakouts"></a>
+<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
+__Figure 5.1.1.b – Carlisle break-outs__
+
 <!-- This is a comment in Markdown and won't appear in the rendered document.
 It is possible to re-work the XM655 at your own risk by replacing the default baluns and you will have to verify that there is pin-for-pin compatibility for swapping in the different replacements. This may be the cheapest option. 
 -->
@@ -510,11 +560,6 @@ The number of 4-5 GHz baluns on the XM655 limits single-ended connections to sup
 
 This approach will bypass the baluns on the XM655 board by bringing out the RF signals via the Carlisle CoreHC2 breakout assembly to external baluns. Two sets of these cable assemblies ship with each ZCU208 kit.  See Page 80 of the [ZCU208 Evaluation Board User Guide](https://docs.amd.com/v/u/en-US/ug1410-zcu208-eval-bd)
 If you need more break-outs than what the two included sets provide, the __Carlisle Core HC2 8 Channel – Male, 3.5 mm TM40-0157-00__ can be ordered from: https://www.digikey.com/en/products/detail/carlisleit/TM40-0157-00/11502992
-
-The image below shows two RF-DAC and two RF-ADC connections to XM655 4-5MHz baluns using the Carlisle ganged cables that are included in the ZCU208 kit.<br>
-<a name="figure-Carlisle-breakouts"></a>
-<img src="./media/Carlisle-breakouts.png" style="width:6.5in;height:auto;" /><br>
-__Figure 5.1.2.a – Carlisle break-outs__
 
 <a name="figure-Carlisle"></a>
 <img src="./media/Carlisle-Core-cable.png" style="width:6.5in;height:auto;" /><br>
@@ -569,15 +614,6 @@ See the image below for the typical tile assignments in RFSoC Explorer.  This is
 <a name="figure-Tiles-for-4p9Ghz"></a>
 <img src="./media/Tiles-for-4p9Ghz-IF.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.2.2.b – Typical tile assignments in RFSoC Explorer__
-
-4.  First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
-
-__NOTE__
-\* Do not touch the PAAM surface. If the antenna is scratched, the expected performance may not be achieved.
-
-\*\* Do not remove the heatsink. If the heatsink is removed even once, the heat dissipation performance cannot be guaranteed.
-
-\*\*\*Incorrect connection will short the power supply.
 
 ### 5.2.3 Sync Trigger Connections<a name="sync-trigger-connections"></a>
 TBD
@@ -772,6 +808,13 @@ ans =
 
 # 7) Testing the RFSoC Explorer Digital Interface <a name="testing-the-rfsoc-explorer-digital-interface"></a>
 
+First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
+
+ > __NOTE__<br>
+ > \* Do not touch the PAAM surface. If the antenna is scratched, the expected performance may not be achieved.<br>
+ > \*\* Do not remove the heatsink. If the heatsink is removed even once, the heat dissipation performance cannot be guaranteed.<br>
+ > \*\*\*Incorrect connection will short the power supply.<br>
+
 In MATLAB, enter:
 ```
 >> Avnet_RFSoC_Explorer('startup')
@@ -909,7 +952,7 @@ Learn more:
 - [IMS2023 San Diego with Fabrício Dourado, application engineer at Rohde & Schwarz](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/)
 - [Prototype 5G FR2 with the AMD Zynq™ RFSoC DFE and mmWave Phased Array](https://www.microwavejournal.com/events/2250-prototype-5g-fr2-with-the-amd-zynq-rfsoc-dfe-and-mmwave-phased-array)
 
-# 9) Appendix 1 - Not Used: Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
+# 9) Appendix 1 - Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
 The ZCU208 kit includes a CLK-104 module that plugs into J101. There are
 a few clock sources on this module and the LMK04828 output is available
 as OUTPUT_REF on the J10 SMA connector. This can be connected to the PLL
