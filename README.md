@@ -315,7 +315,7 @@ __Figure 2.d – Fujikura Type-C PAAM Evaluation board (EVB) component side (wit
 
 ## 2.1 MicroZed uSD Card Preparation <a name="microzed-usd-card-preparation"></a>
 
-1.  Download the __MicroZed.TypeC.uSD.Card__ zip archive from the [public uSD Card release repository](fujikura-typeC-paam-release-location).<br>
+1.  Download the __MicroZed.TypeC.uSD.Card__ zip archive from the [public uSD Card release repository](#fujikura-typeC-paam-release-location).<br>
  > Be aware that this is not necessarily the latest MicroZed firmware. It is the MicroZed firmware with which the latest realease of __RFSoC Explorer__ has been tested.  The latest firmware for the MicroZed should always be obtained from your Fujikura repository, which is provided by Fujikura after NDA.
 
 2.  Copy the __BOOT.bin__ file and the __uz_network_settings.txt__ file onto the MicroZed uSD card.
@@ -325,7 +325,7 @@ __Figure 2.d – Fujikura Type-C PAAM Evaluation board (EVB) component side (wit
 <img src="./media/microzed-powerup-leds.jpg" style="width:6.5in;height:auto;" /><br>
 __Figure 2.1.a – MicroZed power-on LEDs__<br>
 
-4.  The firmware versions reported should match what is shown in the release notes at the [public uSD Card release repository](fujikura-typeC-paam-release-location).  So When you power up the MicroZed, on the serial port terminal you should see something like this:<br>
+4.  The firmware versions reported should match what is shown in the release notes at the [public uSD Card release repository](#fujikura-typeC-paam-release-location).  So When you power up the MicroZed, on the serial port terminal you should see something like this:<br>
 ```bash
  - - - - - - - - -
 Zynq PS design 0, ver 0.3.1; ed30b045 Timestamp 2024.10.29 11:01:05
@@ -393,7 +393,7 @@ Explorer.
 1.  Remove the SD card from slot J23 on the ZCU208 and insert into your
     PC. Then format it as FAT using a tool like [SD Memory Card Formatter](https://www.sdcard.org/downloads/formatter_4/).
 
-2.  Download the ZCU208 boot image archive zip file from the [public uSD Card release repository](fujikura-typeC-paam-release-location).
+2.  Download the ZCU208 boot image archive zip file from the [public uSD Card release repository](#fujikura-typeC-paam-release-location).
     
 3.  Unzip the archive to the root level of the SD card.  
     <img src="./media/image4.png" style="width:1.1875in;height:1.67708in" />
