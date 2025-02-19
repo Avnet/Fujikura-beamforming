@@ -17,7 +17,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 # Document Control
 
-**Document Version:** 3.0.2
+**Document Version:** 3.0.3
 
 **Document Date:** 12/13/2025
 
@@ -28,6 +28,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 | 3.0.0   |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 | 3.0.1   |     | Nov 14, 2024 |     | Updated screenshots for Type-C PAAM                   |     |
 | 3.0.2   |     | Dec 13, 2024 |     | Added new setup sequence with PAAM first              |     |
+| 3.0.3   |     | Jan 07, 2025 |     | Added some Matlab commandline functions               |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -82,13 +83,22 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 <!-- This is a comment in Markdown and won't appear in the rendered document.
     5.5. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
 -->
-6. [Installing MATLAB and Avnet RFSoC Explorer®](#installing-matlab-and-avnet-rfsoc-explorer)
+6. [Installing MATLAB and RFSoC Explorer®](#installing-matlab-and-rfsoc-explorer)
 
-    6.1 [Setting up Python Support in Matlab](#setting-up-python-support-in-matlab)
+    6.1 [Setting up Python Support in MATLAB](#setting-up-python-support-in-matlab)
    
     6.1.1 [Setting the Python version in MATLAB](#setting-the-python-version-in-matlab)
 
 7. [Testing the RFSoC Explorer Digital Interface](#testing-the-rfsoc-explorer-digital-interface)
+
+    7.1 [MATLAB command-line RFSoC Explorer commands](#matlab-command-line-commands)
+
+    7.1.1 [Changing the MicroZed Port number that RFSoC Explorer uses](#changing-port-number)
+
+
+    7.1.2 [Displaying RFSoC Explorer version requirements](#displaying-version-requirements)
+
+    7.2 [MATLAB Scripting](#matlab-scripting)
 
 <!-- This is a comment in Markdown and won't appear in the rendered document. -->
 <!--
@@ -156,7 +166,7 @@ Figure 5.1.1.b – [Carlisle break-outs](#figure-Carlisle-breakouts)
 
 Figure 5.1.2.b – [Carlisle CoreHC2 8-Channel Male Cable](#figure-Carlisle)
 
-Figure 5.2.a – [Test setup overview](#figure–setup-overview)
+Figure 5.2.a – [Test setup overview](#figure-setup-overview)
 
 Figure 5.2.2.a – [Fujikura Type-C PAAM EVB SMA connectors](#figure–EVB-SMAs)
 
@@ -170,9 +180,9 @@ Figure A2.b – [Renesas 8V97003 RF Synthesizer in Integer Mode](#figure-renesas
 
 # 1) Overview <a name="1-overview"></a>
 
-This document guides you through the steps of assembling the hardware, installing the required software, and configuring the platform for initial TX and RX over-the-air (OTA) tests. Avnet RFSoC Explorer Toolbox for MATLAB will be used as an all-in-one application for programming the platform using either the intuitive GUI for visual configuration, or the powerful API for scripting.
+This document guides you through the steps of assembling the hardware, installing the required software, and configuring the platform for initial TX and RX over-the-air (OTA) tests. Tria's RFSoC Explorer Toolbox for MATLAB will be used as an all-in-one application for programming the platform using either the intuitive GUI for visual configuration, or the powerful API for scripting.
 
-Avnet's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/) combines the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) with the Fujikura Type-C PAAM.
+Tria's [5G mmWave PAAM Development Platform](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/) combines the [AMD ZCU208 evaluation kit](https://www.xilinx.com/products/boards-and-kits/zcu208.html) with the Fujikura Type-C PAAM.
 
 <a name="figure-ZCU208-with-XM655-and-generic-PAAM"></a>
 <img src="./media/ZCU208_and_PAAM.png" style="width:6.5in;height:auto;" /><br>
@@ -346,7 +356,7 @@ TCP server started, IP = 192.168.1.10, Port = 50007
 
 The MicroZed's IP address is specified in the __uz_network_settings.txt__ file on its Micro SD card.<br>
 
-It may be necessary to modify your default IP address if you need a different network sub-net, for instance.  If, for example, your ZCU208 is on an IP address 192.168.__0__.102, you could use a text editor to modify the MicroZed IP address from the default of 192.168.__1__.10 to 192.168.__0__.10.<br>
+It may be necessary to modify your default IP address if you need a different network sub-net, for instance.  If, for example, your ZCU208 is on an IP address 192.168.__0__.102, you could use a text editor to modify the MicroZed IP address from the default of 192.168.__1__.10 to 192.168.__0__.10.  The MicroZed's port number (the default is 50007) can also be changed.<br>
 <a name="figure-uz-network-settings"></a>
 <img src="./media/uz-network-settings.png" style="width:6.5in;height:auto;" /><br>
 
@@ -477,9 +487,9 @@ __Figure 4.1.a – Completed boot sequence__
 ## 4.3 Setting a Static IP Address (optional) <a name="43-setting-a-static-ip-address"></a>
 
 The image below outlines the setup that we want to achieve.<br>
-<a name="figure-setup-overview"></a>
+<!-- <a name="figure-setup-overview"></a> -->
 <img src="./media/setup-overview-no-photos.png" style="width:6.5in;height:auto;" /><br>
-__Test setup overview__
+__Test setup overview (duplicate image)__
 
 In the setup above, [as is described later](#figure-uz-network-settings), the MicroZed will have an IP address that is specified in the "uz_network_settings.txt" file on its Micro SD card.
 If you would prefer to also specify the IP address of the ZCU208, or if for separate development you want to connect the ZCU208 directly to your PC to work only on it directly, you may have to edit the **autostart.sh** file on the ZCU208’s uSD card first.
@@ -579,7 +589,7 @@ __Figure 5.1.2.b – Carlisle CoreHC2 8-Channel Male Cable__
 
 ## 5.2 Connecting the Type-C PAAM EVB to the ZCU208 <a name="connecting-paam-evb-and-zcu208"></a>
 
-Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the Avnet RFSoC Explorer tool and MATLAB functions.<br>
+Once you are familiar with setting up and using the Type-C PAAM EVB, you should be ready to continue on towards using it with the ZCU208.  This will allow you to use [AMD's RFSoC technology](https://www.amd.com/en/products/adaptive-socs-and-fpgas/soc/zynq-ultrascale-plus-rfsoc.html) to drive the PAAM inputs and to process its outputs.  This setup will also allow you to use the RFSoC Explorer tool and MATLAB functions.<br>
 The image below outlines the setup that we want to achieve.<br>
 <a name="figure-setup-overview"></a>
 <img src="./media/setup-overview.png" style="width:6.5in;height:auto;" /><br>
@@ -622,7 +632,7 @@ DAC Tile 229 Chan 0 p/n wired to XM655 balun 4-5 GHz (J10, J12), which has an ou
 <img src="./media/XM655_DAC_balun_example.png" style="width:6.5in;height:auto;" /><br>
 ADC Tile 224 Chan 0 p/n wired to XM655 balun 4-5 GHz (J2, J6), which has an input on J4.<br>
 
-See the image below for the typical tile assignments in RFSoC Explorer.  This is just for information, as the RFSoC Explorer tool, in which tile assignments are done, is only described [later](#installing-matlab-and-avnet-rfsoc-explorer).<br>
+See the image below for the typical tile assignments in RFSoC Explorer.  This is just for information, as the RFSoC Explorer tool, in which tile assignments are done, is only described [later](#installing-matlab-and-rfsoc-explorer).<br>
 <a name="figure-Tiles-for-4p9Ghz"></a>
 <img src="./media/Tiles-for-4p9Ghz-IF.png" style="width:6.5in;height:auto;" /><br>
 __Figure 5.2.2.b – Typical tile assignments in RFSoC Explorer__
@@ -698,9 +708,9 @@ and re-start it, you can request the ZCU208 status by clicking the
 the GUI.
 -->
 
-# 6) Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
+# 6) Installing MATLAB and RFSoC Explorer® <a name="installing-matlab-and-rfsoc-explorer"></a>
 
-Avnet RFSoC Explorer provides native connection to MATLAB® and Simulink®, featuring graphical control of the platform and intuitive APIs for
+RFSoC Explorer provides native connection to MATLAB® and Simulink®, featuring graphical control of the platform and intuitive APIs for
 programmatic access.<br>
 
 <img src="./media/image25.jpeg" style="width:6.5in;height:3.15in" />
@@ -708,7 +718,7 @@ programmatic access.<br>
 Your computer will need the following MathWorks software.
 
 - MATLAB ([supported
-  versions](https://www.mathworks.com/matlabcentral/fileexchange/73665-avnet-rfsoc-explorer))
+  versions](https://www.mathworks.com/matlabcentral/fileexchange/73665-rfsoc-explorer))
 
 - DSP System Toolbox
 
@@ -741,7 +751,7 @@ RFSoC](https://www.mathworks.com/rfsoc)
 
 RFSoC Explorer installs easily using the MATLAB Add-Ons store.
 
-1.  From **MATLAB \> Add-Ons**, search for **Avnet RFSoC Explorer** and
+1.  From **MATLAB \> Add-Ons**, search for **RFSoC Explorer** and
     click install
 
 2.  From **MATLAB \> Add-Ons**, search for **Communications Toolbox
@@ -829,20 +839,20 @@ First turn on the ZCU208 power supply. Then turn on the Daughtercard power suppl
 
 In MATLAB, enter:
 ```
->> Avnet_RFSoC_Explorer('startup')
+>> RFSoC_Explorer('startup')
 ```
 and select the highlighted option below.<br>
 <img src="./media/startup-popup-menu.png" style="width:6.5in;height:auto;" /><br>
 
 Or, alternatively, enter:
 ```
->> Avnet_RFSoC_Explorer('startup', 'board_id', 9)
+>> RFSoC_Explorer('startup', 'board_id', 9)
 ```
 This should bring up the RFSoC Explorer GUI, starting with the Main Tab. There are two IP addresses that have to be entered, one for the ZCU208 and the other for the MicroZed.  
 - The ZCU208's IP address should be displayed as in the [Completed boot sequence](#figure-ZCU208-booted) figure.<br>
 - The MicroZed's IP address is specified in the "uz_network_settings.txt" file on its Micro SD card.<br>
 
-It may be necessary to modify your default IP address if you need a different network sub-net, for instance.  If, for example, your ZCU208 is on an IP address 192.168.__0__.102, you could use a text editor to modify the MicroZed IP address from the default of 192.168.__1__.10 to 192.168.__0__.10.<br>
+It may be necessary to modify your default IP address if you need a different network sub-net, for instance.  If, for example, your ZCU208 is on an IP address 192.168.__0__.102, you could use a text editor to modify the MicroZed IP address from the default of 192.168.__1__.10 to 192.168.__0__.10.  The MicroZed's port number (the default is 50007) can also be changed.<br>
 <a name="figure-uz-network-settings"></a>
 <img src="./media/uz-network-settings.png" style="width:6.5in;height:auto;" /><br>
 
@@ -896,6 +906,87 @@ Once connected:
     > NOTE: Both the [MATLAB Phased Array Toolbox](https://www.mathworks.com/products/phased-array.html) and the [MATLAB Antenna Toolbox](https://www.mathworks.com/products/antenna.html?s_tid=srchtitle_site_search_2_antenna%2520toolbox) must be installed to create plots.
 
 <img src="./media/beam-angle-plots1.png" style="width:6.5in;height:auto;" /><br>
+
+## 7.1 MATLAB command-line RFSoC Explorer commands <a name="matlab-command-line-commands"></a>
+
+Apart from using the RFSoC Explorer GUI, the user can also issue commands from the MATLAB command line.  To see a list of commands, at the MATLAB command prompt enter:
+```
+>> help
+```
+To get help for the Fujikura PAAM(s) specifically, enter:
+```
+>> RFSoC_Explorer('help', 'FJK_PAAM')
+```
+Here are some example commands.
+To read back the content of all the available PAAM registers and store them in a text file:
+```
+>> RFSoC_Explorer('FJK_PAAM','PAAM_dump_register', 'PAAM_register_dump.csv');
+```
+
+## 7.1.1 Changing the MicroZed Port number that RFSoC Explorer uses <a name="changing-port-number"></a>
+
+The default IP address and port number that the MicroZed uses Is defined in a text file on the uSD card, as is described [here](#microzed-setting-ip-address).  The default port number is 50007.  In the GUI on the Main Tab, the IP address can be entered, but not the port number.  When first connecting to a PAAM with a port number different from 50007, the configuration must be sent from the command line:
+```
+[error data msg] = RFSoC_Explorer('FJK_PAAM', 'PAAM_ipconfig', '192.168.1.30', 'PAAM_port', 50028);
+```
+
+## 7.1.2 Displaying RFSoC Explorer version requirements <a name="displaying-version-requirements"></a>
+
+The version requirements for using the current RFSoC Explorer with the Fujikura Type-C PAAM can be displayed as shown in this example:
+```
+>> x = versionRequirements(9)
+
+x = 
+
+  versionRequirements with properties:
+
+                 boardId: 9
+               boardName: 'ZCU208 + Fujikura mmWave Type C PAAM Eval Board with MicroZed'
+      boardRftoolVersion: '2020.2'
+          addonPsVersion: '0.3.1'
+          addonPlVersion: '0.3.0'
+             tlbxVersion: '3.2.0'
+        minMatlabVersion: [1×1 struct]
+        maxMatlabVersion: [1×1 struct]
+        requiredProducts: {4×2 cell}
+    requiredSppkgOptions: {4×2 cell}
+
+>> x.requiredSppkgOptions
+
+ans =
+
+  4×2 cell array
+
+    {'HDL Coder Support Package for Xilinx FPGA and SoC Devices'         }    {'HCZYNQ7000'     }
+    {'SoC Blockset Support Package for Xilinx Devices'                   }    {'XILINX_BLOCKSET'}
+    {'HDL Coder Support Package for Xilinx RFSoC Devices'                }    {'XILINX_RF_SOC'  }
+    {'Communications Toolbox Support Package for Xilinx Zynq-Based Radio'}    {'XILINXZYNQ'     }
+
+>> x.minMatlabVersion
+
+ans = 
+
+  struct with fields:
+
+    Release: 'R2024a'
+      Stage: 'release'
+     Update: 6
+```
+
+Using its IP address, the current firmware versions on the PAAM MicroZed can be retrieved with this command:
+```
+>> RFSoC_Explorer('FJK_PAAM', 'PAAM_get_version_info', "192.168.1.10")
+cmd host Ethernet connection done
+ip address is 192.168.1.10, port is 50007
+
+Zynq PS design 0, ver 0.3.1; ed30b045 Timestamp 2024.10.29 11:01:05_
+Zynq PL design 0, ver 0.3.0; 2bb0a924 Timestamp 2024.07.05 10:36:36_
+```
+
+## 7.2 MATLAB Scripting <a name="matlab-scripting"></a>
+
+RFSoC Explorer has been tested with Python and the GUI can perform a number of basic operations.  To harness the power of MATLAB though, it is better to use MATLAB scripts, which can perform a sequence of operations automatically.
+Instructions: TBD
 
 <!-- This is a comment in Markdown and won't appear in the rendered document.
 # 8) Fixture for the Daughtercard <a name="fixture-for-the-daughtercard"></a>
