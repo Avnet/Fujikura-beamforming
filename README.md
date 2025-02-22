@@ -17,9 +17,9 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 # Document Control
 
-**Document Version:** 3.0.3
+**Document Version:** 3.0.4
 
-**Document Date:** 12/13/2025
+**Document Date:** 2025/02/22
 
 # Version History
 
@@ -28,7 +28,8 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 | 3.0.0   |     | Nov 08, 2024 |     | Initial public release with RFSoC Explorer 3.1.1      |     |
 | 3.0.1   |     | Nov 14, 2024 |     | Updated screenshots for Type-C PAAM                   |     |
 | 3.0.2   |     | Dec 13, 2024 |     | Added new setup sequence with PAAM first              |     |
-| 3.0.3   |     | Jan 07, 2025 |     | Added some Matlab commandline functions               |     |
+| 3.0.3   |     | Jan 07, 2025 |     | Added some MATLAB commandline functions               |     |
+| 3.0.4   |     | Feb 22, 2025 |     | Added instructions for the Fujikura MATLAB add-on     |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -89,12 +90,13 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
    
     6.1.1 [Setting the Python version in MATLAB](#setting-the-python-version-in-matlab)
 
+    6.2 [Installing the Fujikura Paam Add-On in MATLAB](#installing-fujikura-paam-addon-in-matlab)
+
 7. [Testing the RFSoC Explorer Digital Interface](#testing-the-rfsoc-explorer-digital-interface)
 
     7.1 [MATLAB command-line RFSoC Explorer commands](#matlab-command-line-commands)
 
     7.1.1 [Changing the MicroZed Port number that RFSoC Explorer uses](#changing-port-number)
-
 
     7.1.2 [Displaying RFSoC Explorer version requirements](#displaying-version-requirements)
 
@@ -761,8 +763,7 @@ RFSoC Explorer installs easily using the MATLAB Add-Ons store.
 
 <img src="./media/image26.png" style="width:6.5in;height:2.07569in" />
 
-## 6.1 Setting up Python Support in Matlab <a name="setting-up-python-support-in-matlab"></a>
-
+## 6.1 Setting up Python Support in MATLAB <a name="setting-up-python-support-in-matlab"></a>
 RFSoC Explorer has been tested with [Python
 3.9.13](https://www.python.org/downloads/release/python-3913/), but
 earlier/later releases may also work.
@@ -827,6 +828,16 @@ ans =
         Status: NotLoaded
  ExecutionMode: InProcess
 ```
+
+## 6.2 Installing the Fujikura Paam Add-On in MATLAB <a name="installing-fujikura-paam-addon-in-matlab"></a>
+
+To enable RFSoC Explorer to work with Fujikura PAAMs, a Fujikura Add-on must be installed.  This is only available to customers that have signed the NDA.  f you have not signed the NDA yet but are interested in using Fujikura PAAMs with RFSoC Explorer, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
+
+When you have an NDA, the 'installFujikuraPaamAddon.m' file will be provided to you.
+ 
+Run the MATLAB script 'installFujikuraPaamAddon.m' to install a toolbox that enables RFSoC Explorer to control the Fujikura PAAM through connection to the AMD ZCU208 Zynq RFSoC evaluation board. 
+
+To run the install script from the MATLAB command line, ensure that its containing folder is on the MATLAB path. Alternatively, use the mouse to drag the installer icon into the MATLAB workspace.
 
 # 7) Testing the RFSoC Explorer Digital Interface <a name="testing-the-rfsoc-explorer-digital-interface"></a>
 
