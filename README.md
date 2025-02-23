@@ -90,7 +90,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
    
     6.1.1 [Setting the Python version in MATLAB](#setting-the-python-version-in-matlab)
 
-    6.2 [Installing the Fujikura Paam Add-On in MATLAB](#installing-fujikura-paam-addon-in-matlab)
+    6.2 [Installing the Fujikura PAAM Add-On in MATLAB](#installing-fujikura-paam-addon-in-matlab)
 
 7. [Testing the RFSoC Explorer Digital Interface](#testing-the-rfsoc-explorer-digital-interface)
 
@@ -829,7 +829,7 @@ ans =
  ExecutionMode: InProcess
 ```
 
-## 6.2 Installing the Fujikura Paam Add-On in MATLAB <a name="installing-fujikura-paam-addon-in-matlab"></a>
+## 6.2 Installing the Fujikura PAAM Add-On in MATLAB <a name="installing-fujikura-paam-addon-in-matlab"></a>
 
 To enable RFSoC Explorer to work with Fujikura PAAMs, a Fujikura Add-on must be installed.  This is only available to customers that have signed the NDA.  f you have not signed the NDA yet but are interested in using Fujikura PAAMs with RFSoC Explorer, please submit the your contact information [using the form-fill on this page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/5g-mmwave-paam-development-platform/5g-mmwave-paam-platform-family) or just send a request by email to rfinfo@avnet.com .
 
