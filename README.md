@@ -839,6 +839,16 @@ Run the MATLAB script 'installFujikuraPaamAddon.m' to install a toolbox that ena
 
 To run the install script from the MATLAB command line, ensure that its containing folder is on the MATLAB path. Alternatively, use the mouse to drag the installer icon into the MATLAB workspace.
 
+```
+>> installFujikuraPaamAddon
+ installFujikuraPaamAddon  Installs support files that enable Tria
+    Technologies RFSoC Explorer Toolbox to control the Fujikura 28GHz
+    FutureAccess Phase Array Antenna Module (PAAM).
+ 
+    Support & Documentation
+
+Successfully installed Fujikura PAAM support for RFSoC Explorer!
+```
 # 7) Testing the RFSoC Explorer Digital Interface <a name="testing-the-rfsoc-explorer-digital-interface"></a>
 
 First turn on the ZCU208 power supply. Then turn on the Daughtercard power supply with its ON/OFF switch SW1. The fan should make a loud noise, indicating that it works.
