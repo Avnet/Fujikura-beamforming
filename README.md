@@ -1,5 +1,5 @@
 <!-- This is the location for the latest release binaries. -->
-[fujikura-typeC-paam-release-location]: https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.1.1
+[fujikura-typeC-paam-release-location]: https://github.com/Avnet/Fujikura-beamforming/releases/tag/3.3.1
 
 <table class="sphinxhide" width="100%">
  <tr width="100%">
@@ -17,9 +17,9 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 # Document Control
 
-**Document Version:** 3.0.4
+**Document Version:** 3.0.5
 
-**Document Date:** 2025/06/27
+**Document Date:** 2025/07/11
 
 # Version History
 
@@ -30,6 +30,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 | 3.0.2   |     | Dec 13, 2024 |     | Added new setup sequence with PAAM first              |     |
 | 3.0.3   |     | Jan 07, 2025 |     | Added some MATLAB commandline functions               |     |
 | 3.0.4   |     | Feb 22, 2025 |     | Added instructions for the Fujikura MATLAB add-on     |     |
+| 3.0.5   |     | Jun 27, 2025 |     | Updates for RFSoC Explorer 3.3.1                      |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
@@ -768,7 +769,9 @@ RFSoC Explorer has been tested with [Python
 3.9.13](https://www.python.org/downloads/release/python-3913/), but
 earlier/later releases may also work.
 
-After installing Python, the following commands are needed to install
+Before continuing, it is important that the ["Microsoft C++ Build Tools"](https://visualstudio.microsoft.com/visual-cpp-build-tools/) are installed,
+
+After installing Python and the C++ build tools, the following commands are needed to install
 the support libraries that are being used:
 
 > py -m pip install --user --upgrade pip
@@ -1007,7 +1010,19 @@ Zynq PL design 0, ver 0.3.0; 2bb0a924 Timestamp 2024.07.05 10:36:36_
 ## 7.2 MATLAB Scripting <a name="matlab-scripting"></a>
 
 RFSoC Explorer has been tested with Python and the GUI can perform a number of basic operations.  To harness the power of MATLAB though, it is better to use MATLAB scripts, which can perform a sequence of operations automatically.
-Instructions: TBD
+
+Currently 3 example scripts have been provided in the MATBAB folder structure that can be used to configure the Fujikura Type-C PAAM in various modes.
+In ..rfsocX\development\MathWorks\AppDesigner\test\
+there are 
+1.  fujikuraPAAM_init_beam_table_direct.m
+    This acript configures the PAAM in beam-table direct mode.
+
+1.  fujikuraPAAM_init_beam_table_bank.m
+    This acript configures the PAAM in beam-table bank mode.
+    
+3.  fujikuraPAAM_init_beam_steer_occ.m
+    This acript configures the PAAM in on-chip-calculator mode.
+
 
 <!-- This is a comment in Markdown and won't appear in the rendered document.
 # 8) Fixture for the Daughtercard <a name="fixture-for-the-daughtercard"></a>
