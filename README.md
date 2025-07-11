@@ -1014,13 +1014,13 @@ RFSoC Explorer has been tested with Python and the GUI can perform a number of b
 Currently 3 example scripts have been provided in the MATBAB folder structure that can be used to configure the Fujikura Type-C PAAM in various modes.
 In ..rfsocX\development\MathWorks\AppDesigner\test\
 there are 
-1.  fujikuraPAAM_init_beam_table_direct.m  
+1.  __fujikuraPAAM_init_beam_table_direct.m__  
     This acript configures the PAAM in beam-table direct mode.
 
-1.  fujikuraPAAM_init_beam_table_bank.m  
+1.  __fujikuraPAAM_init_beam_table_bank.m__  
     This acript configures the PAAM in beam-table bank mode.
     
-3.  fujikuraPAAM_init_beam_steer_occ.m  
+3.  __fujikuraPAAM_init_beam_steer_occ.m__  
     This acript configures the PAAM in on-chip-calculator mode.
 
 
