@@ -19,7 +19,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 
 **Document Version:** 3.0.5
 
-**Document Date:** 2025/07/11
+**Document Date:** 2025/08/12
 
 # Version History
 
@@ -30,7 +30,7 @@ __Also, please follow [this FAQ link](./FAQ.md) for some Frequently Asked Questi
 | 3.0.2   |     | Dec 13, 2024 |     | Added new setup sequence with PAAM first              |     |
 | 3.0.3   |     | Jan 07, 2025 |     | Added some MATLAB commandline functions               |     |
 | 3.0.4   |     | Feb 22, 2025 |     | Added instructions for the Fujikura MATLAB add-on     |     |
-| 3.0.5   |     | Jun 27, 2025 |     | Updates for RFSoC Explorer 3.3.1                      |     |
+| 3.0.5   |     | Aug 12, 2025 |     | Updates for RFSoC Explorer 3.3.0                      |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
