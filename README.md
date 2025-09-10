@@ -1015,13 +1015,13 @@ Currently 3 example scripts have been provided in the MATBAB folder structure th
 In ..rfsocX\development\MathWorks\AppDesigner\test\
 there are 
 1.  __fujikuraPAAM_init_beam_table_direct.m__  
-    This acript configures the PAAM in beam-table direct mode.
+    This script configures the PAAM in beam-table direct mode.
 
 1.  __fujikuraPAAM_init_beam_table_bank.m__  
-    This acript configures the PAAM in beam-table bank mode.
+    This script configures the PAAM in beam-table bank mode.
     
 3.  __fujikuraPAAM_init_beam_steer_occ.m__  
-    This acript configures the PAAM in on-chip-calculator mode.
+    This script configures the PAAM in on-chip-calculator mode.
 
 
 <!-- This is a comment in Markdown and won't appear in the rendered document.
